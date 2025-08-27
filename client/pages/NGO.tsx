@@ -21,14 +21,23 @@ import {
   Calendar,
   TrendingUp,
   Shield,
-  Languages
+  Languages,
+  Video,
+  Home,
+  Building2,
+  Clock,
+  UserCheck
 } from "lucide-react";
 
 export default function NGO() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedNGO, setSelectedNGO] = useState(null);
+  const [selectedMode, setSelectedMode] = useState("");
+  const [selectedSlot, setSelectedSlot] = useState("");
 
   const ngoPartners = [
     {
+      id: 1,
       name: "Manasvi Foundation",
       location: "Delhi NCR",
       established: "2015",
@@ -39,9 +48,38 @@ export default function NGO() {
       rating: 4.8,
       volunteers: 150,
       image: "🏛️",
-      description: "Leading mental health advocacy in rural Delhi NCR, focusing on removing stigma and providing accessible care."
+      description: "Leading mental health advocacy in rural Delhi NCR, focusing on removing stigma and providing accessible care.",
+      counselors: [
+        {
+          name: "Priya Counselor",
+          qualification: "M.A. Psychology",
+          languages: ["Hindi", "English"],
+          consultationModes: {
+            video: { available: true, price: 0 },
+            audio: { available: true, price: 0 },
+            office: { available: true, price: 0, address: "Community Center, Gurgaon" },
+            home: { available: true, price: 0, coverage: "Rural Delhi NCR" }
+          },
+          todaySlots: ["10:00 AM", "2:00 PM", "4:00 PM"],
+          tomorrowSlots: ["9:00 AM", "11:00 AM", "3:00 PM", "5:00 PM"]
+        },
+        {
+          name: "Rajesh Volunteer",
+          qualification: "Certified Counselor",
+          languages: ["Hindi", "Punjabi"],
+          consultationModes: {
+            video: { available: false, price: 0 },
+            audio: { available: true, price: 0 },
+            office: { available: true, price: 0, address: "NGO Office, Noida" },
+            home: { available: true, price: 0, coverage: "Noida & Ghaziabad" }
+          },
+          todaySlots: ["11:00 AM", "1:00 PM"],
+          tomorrowSlots: ["10:00 AM", "12:00 PM", "4:00 PM"]
+        }
+      ]
     },
     {
+      id: 2,
       name: "Sahara Wellness Network",
       location: "Mumbai & Maharashtra",
       established: "2012",
@@ -52,9 +90,38 @@ export default function NGO() {
       rating: 4.9,
       volunteers: 200,
       image: "🤝",
-      description: "Comprehensive mental health support network serving urban and rural Maharashtra communities."
+      description: "Comprehensive mental health support network serving urban and rural Maharashtra communities.",
+      counselors: [
+        {
+          name: "Sunita Counselor",
+          qualification: "M.S.W. in Mental Health",
+          languages: ["Marathi", "Hindi", "English"],
+          consultationModes: {
+            video: { available: true, price: 0 },
+            audio: { available: true, price: 0 },
+            office: { available: true, price: 0, address: "Wellness Center, Andheri" },
+            home: { available: false, price: 0, coverage: "Not Available" }
+          },
+          todaySlots: ["9:00 AM", "11:00 AM", "3:00 PM", "5:00 PM"],
+          tomorrowSlots: ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM"]
+        },
+        {
+          name: "Amit Support Worker",
+          qualification: "Diploma in Counseling",
+          languages: ["Hindi", "Marathi"],
+          consultationModes: {
+            video: { available: true, price: 0 },
+            audio: { available: true, price: 0 },
+            office: { available: true, price: 0, address: "Community Hall, Pune" },
+            home: { available: true, price: 0, coverage: "Pune City" }
+          },
+          todaySlots: ["12:00 PM", "2:00 PM", "6:00 PM"],
+          tomorrowSlots: ["9:00 AM", "1:00 PM", "3:00 PM", "7:00 PM"]
+        }
+      ]
     },
     {
+      id: 3,
       name: "Aasha Mental Health Trust",
       location: "Karnataka & Tamil Nadu",
       established: "2018",
@@ -65,78 +132,264 @@ export default function NGO() {
       rating: 4.7,
       volunteers: 120,
       image: "🎓",
-      description: "Focusing on student mental health across South India with innovative digital outreach programs."
-    },
-    {
-      name: "Umang Community Care",
-      location: "Rajasthan & Gujarat",
-      established: "2010",
-      focus: ["Elder Care Mental Health", "Tribal Community Support", "Cultural Healing"],
-      beneficiaries: "35,000+",
-      languages: ["Rajasthani", "Gujarati", "Hindi", "English"],
-      services: ["Community Centers", "Traditional Healing", "Elder Support"],
-      rating: 4.6,
-      volunteers: 180,
-      image: "🏜️",
-      description: "Bridging traditional healing practices with modern mental health care in desert communities."
-    },
-    {
-      name: "Samvedna Society",
-      location: "West Bengal & Odisha",
-      established: "2016",
-      focus: ["Disaster Mental Health", "Child Psychology", "Community Resilience"],
-      beneficiaries: "20,000+",
-      languages: ["Bengali", "Odia", "Hindi", "English"],
-      services: ["Crisis Response", "Child Counseling", "Resilience Training"],
-      rating: 4.8,
-      volunteers: 140,
-      image: "🌊",
-      description: "Specializing in disaster mental health response and building community resilience in coastal regions."
-    },
-    {
-      name: "Jeewan Shakti Foundation",
-      location: "Uttar Pradesh & Bihar",
-      established: "2013",
-      focus: ["Agricultural Community Mental Health", "Men's Mental Health", "Economic Stress"],
-      beneficiaries: "30,000+",
-      languages: ["Hindi", "Bhojpuri", "Awadhi", "English"],
-      services: ["Farmer Support", "Economic Counseling", "Community Healing"],
-      rating: 4.5,
-      volunteers: 160,
-      image: "🌾",
-      description: "Addressing mental health challenges in agricultural communities across India's heartland."
+      description: "Focusing on student mental health across South India with innovative digital outreach programs.",
+      counselors: [
+        {
+          name: "Lakshmi Counselor",
+          qualification: "M.Phil in Clinical Psychology",
+          languages: ["Tamil", "English", "Kannada"],
+          consultationModes: {
+            video: { available: true, price: 0 },
+            audio: { available: true, price: 0 },
+            office: { available: true, price: 0, address: "Trust Office, Bangalore" },
+            home: { available: true, price: 0, coverage: "Bangalore Urban" }
+          },
+          todaySlots: ["10:00 AM", "1:00 PM", "4:00 PM"],
+          tomorrowSlots: ["9:00 AM", "11:00 AM", "2:00 PM", "5:00 PM"]
+        }
+      ]
     }
   ];
 
   const impactMetrics = [
     { label: "NGO Partners", value: "50+", icon: <HandHeart className="h-6 w-6" /> },
-    { label: "Communities Served", value: "500+", icon: <Users className="h-6 w-6" /> },
-    { label: "Total Beneficiaries", value: "2,00,000+", icon: <Target className="h-6 w-6" /> },
-    { label: "Active Volunteers", value: "1,200+", icon: <Award className="h-6 w-6" /> }
+    { label: "Free Counselors", value: "300+", icon: <Users className="h-6 w-6" /> },
+    { label: "Communities Served", value: "500+", icon: <Target className="h-6 w-6" /> },
+    { label: "Free Sessions", value: "25,000+", icon: <Award className="h-6 w-6" /> }
   ];
 
-  const partnershipBenefits = [
-    {
-      icon: <Building className="h-8 w-8 text-wisdom" />,
-      title: "Technology Access",
-      description: "Free access to our digital platform, AI tools, and institutional dashboard for data-driven impact measurement."
-    },
-    {
-      icon: <TrendingUp className="h-8 w-8 text-trust" />,
-      title: "Capacity Building",
-      description: "Training programs for volunteers, digital literacy workshops, and professional development opportunities."
-    },
-    {
-      icon: <HandHeart className="h-8 w-8 text-growth" />,
-      title: "Resource Sharing",
-      description: "Access to mental health resources, multilingual content, and evidence-based intervention protocols."
-    },
-    {
-      icon: <Users className="h-8 w-8 text-support" />,
-      title: "Network Support",
-      description: "Connect with other NGOs, share best practices, and collaborate on large-scale community interventions."
-    }
-  ];
+  const BookingModal = ({ ngo, onClose }) => {
+    if (!ngo) return null;
+
+    const [selectedCounselor, setSelectedCounselor] = useState(ngo.counselors[0]);
+
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="p-8">
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center space-x-3">
+                <div className="text-4xl">{ngo.image}</div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">{ngo.name}</h3>
+                  <p className="text-muted-foreground">{ngo.location}</p>
+                  <Badge className="mt-1 bg-green-100 text-green-800">FREE COUNSELING</Badge>
+                </div>
+              </div>
+              <Button variant="ghost" size="sm" onClick={onClose}>
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Counselor Selection */}
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold">Select Counselor</h4>
+                <div className="grid gap-3">
+                  {ngo.counselors.map((counselor, index) => (
+                    <div 
+                      key={index}
+                      className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
+                        selectedCounselor?.name === counselor.name ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      }`}
+                      onClick={() => setSelectedCounselor(counselor)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-medium">{counselor.name}</p>
+                          <p className="text-sm text-muted-foreground">{counselor.qualification}</p>
+                          <div className="flex space-x-1 mt-1">
+                            {counselor.languages.map((lang, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-xs">
+                                {lang}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-green-600 font-medium">FREE</p>
+                          <p className="text-xs text-muted-foreground">NGO Service</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Consultation Modes */}
+              {selectedCounselor && (
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold">Select Consultation Mode</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Video Call */}
+                    {selectedCounselor.consultationModes.video.available && (
+                      <div 
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
+                          selectedMode === 'video' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                        }`}
+                        onClick={() => setSelectedMode('video')}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-trust/20 rounded-lg flex items-center justify-center">
+                            <Video className="h-6 w-6 text-primary" />
+                          </div>
+                          <div>
+                            <p className="font-medium">Video Call</p>
+                            <p className="text-sm text-green-600">FREE</p>
+                            <p className="text-xs text-muted-foreground">HD Video & Audio</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Audio Call */}
+                    {selectedCounselor.consultationModes.audio.available && (
+                      <div 
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
+                          selectedMode === 'audio' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                        }`}
+                        onClick={() => setSelectedMode('audio')}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="w-12 h-12 bg-gradient-to-br from-growth/20 to-healing/20 rounded-lg flex items-center justify-center">
+                            <Phone className="h-6 w-6 text-growth" />
+                          </div>
+                          <div>
+                            <p className="font-medium">Audio Call</p>
+                            <p className="text-sm text-green-600">FREE</p>
+                            <p className="text-xs text-muted-foreground">Voice Only</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Office Visit */}
+                    {selectedCounselor.consultationModes.office.available && (
+                      <div 
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
+                          selectedMode === 'office' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                        }`}
+                        onClick={() => setSelectedMode('office')}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-support/20 rounded-lg flex items-center justify-center">
+                            <Building2 className="h-6 w-6 text-wisdom" />
+                          </div>
+                          <div>
+                            <p className="font-medium">Office Visit</p>
+                            <p className="text-sm text-green-600">FREE</p>
+                            <p className="text-xs text-blue-600">{selectedCounselor.consultationModes.office.address}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Home Visit */}
+                    {selectedCounselor.consultationModes.home.available && (
+                      <div 
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
+                          selectedMode === 'home' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                        }`}
+                        onClick={() => setSelectedMode('home')}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-calm/20 rounded-lg flex items-center justify-center">
+                            <Home className="h-6 w-6 text-trust" />
+                          </div>
+                          <div>
+                            <p className="font-medium">Home Visit</p>
+                            <p className="text-sm text-green-600">FREE</p>
+                            <p className="text-xs text-purple-600">
+                              {selectedCounselor.consultationModes.home.coverage}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Time Slots */}
+              {selectedMode && selectedCounselor && (
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold">Available Time Slots</h4>
+                  
+                  {/* Today's Slots */}
+                  {selectedCounselor.todaySlots.length > 0 && (
+                    <div className="space-y-2">
+                      <p className="font-medium text-green-600">Today ({new Date().toLocaleDateString()})</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                        {selectedCounselor.todaySlots.map((slot, index) => (
+                          <Button
+                            key={index}
+                            variant={selectedSlot === `today-${slot}` ? "default" : "outline"}
+                            size="sm"
+                            className="text-xs"
+                            onClick={() => setSelectedSlot(`today-${slot}`)}
+                          >
+                            {slot}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tomorrow's Slots */}
+                  {selectedCounselor.tomorrowSlots.length > 0 && (
+                    <div className="space-y-2">
+                      <p className="font-medium text-blue-600">Tomorrow ({new Date(Date.now() + 86400000).toLocaleDateString()})</p>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                        {selectedCounselor.tomorrowSlots.map((slot, index) => (
+                          <Button
+                            key={index}
+                            variant={selectedSlot === `tomorrow-${slot}` ? "default" : "outline"}
+                            size="sm"
+                            className="text-xs"
+                            onClick={() => setSelectedSlot(`tomorrow-${slot}`)}
+                          >
+                            {slot}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Booking Summary */}
+              {selectedMode && selectedSlot && selectedCounselor && (
+                <div className="bg-gradient-to-r from-green-50 to-primary/10 rounded-xl p-4">
+                  <h4 className="font-semibold mb-2 text-green-800">Free Counseling Session</h4>
+                  <div className="space-y-1 text-sm">
+                    <p><strong>NGO:</strong> {ngo.name}</p>
+                    <p><strong>Counselor:</strong> {selectedCounselor.name}</p>
+                    <p><strong>Mode:</strong> {selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1)}</p>
+                    <p><strong>Time:</strong> {selectedSlot.replace('today-', '').replace('tomorrow-', '')}</p>
+                    <p><strong>Date:</strong> {selectedSlot.includes('today') ? 'Today' : 'Tomorrow'}</p>
+                    <p><strong>Fee:</strong> <span className="text-green-600 font-medium">FREE</span></p>
+                  </div>
+                </div>
+              )}
+
+              {/* Book Button */}
+              <div className="flex space-x-3">
+                <Button 
+                  className="flex-1 bg-gradient-to-r from-green-600 to-growth" 
+                  disabled={!selectedMode || !selectedSlot || !selectedCounselor}
+                >
+                  Book Free Session
+                </Button>
+                <Button variant="outline" onClick={onClose}>
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-calm/5 to-healing/10">
@@ -164,7 +417,7 @@ export default function NGO() {
               <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
               <a href="/ngo" className="text-primary font-medium">NGO Partners</a>
               <Button variant="outline" size="sm">Institution Login</Button>
-              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Partner With Us</Button>
+              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Free Session</Button>
             </div>
 
             {/* Mobile menu button */}
@@ -188,7 +441,7 @@ export default function NGO() {
                 <a href="/ngo" className="block text-primary font-medium">NGO Partners</a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm">Institution Login</Button>
-                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Partner With Us</Button>
+                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Free Session</Button>
                 </div>
               </div>
             </div>
@@ -200,69 +453,32 @@ export default function NGO() {
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="space-y-6">
-            <Badge variant="secondary" className="bg-growth/10 text-growth-foreground border-growth/30 text-base px-4 py-2">
-              🤝 Chaitnya Mitra Network
+            <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 text-base px-4 py-2">
+              🤝 Free Community Counseling
             </Badge>
             
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight">
               Grassroots{" "}
-              <span className="bg-gradient-to-r from-wisdom via-primary to-growth bg-clip-text text-transparent">
-                NGO Network
+              <span className="bg-gradient-to-r from-green-600 via-growth to-healing bg-clip-text text-transparent">
+                Free Support Network
               </span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Partnering with community organizations across India to bridge the mental health gap 
-              through culturally-sensitive, locally-rooted support systems.
+              Access free mental health counseling through our network of NGO partners. 
+              Community-driven support in your local language.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {impactMetrics.map((metric, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-wisdom/20 to-growth/20 rounded-full flex items-center justify-center mx-auto mb-2 text-wisdom">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-growth/20 rounded-full flex items-center justify-center mx-auto mb-2 text-green-600">
                     {metric.icon}
                   </div>
-                  <div className="text-2xl font-bold text-wisdom">{metric.value}</div>
+                  <div className="text-2xl font-bold text-green-600">{metric.value}</div>
                   <div className="text-sm text-muted-foreground">{metric.label}</div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Vision */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            Building India's Mental Health Safety Net
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            The Chaitnya Mitra network represents our commitment to reaching every corner of India. 
-            By partnering with local NGOs, we ensure that mental health support is not just available, 
-            but also culturally relevant and community-driven.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8 text-left">
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-primary/20 rounded-lg flex items-center justify-center">
-                <MapPin className="h-6 w-6 text-wisdom" />
-              </div>
-              <h3 className="text-xl font-semibold">Local Reach</h3>
-              <p className="text-muted-foreground">Deep community connections ensuring culturally appropriate mental health interventions.</p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-growth/20 rounded-lg flex items-center justify-center">
-                <Languages className="h-6 w-6 text-trust" />
-              </div>
-              <h3 className="text-xl font-semibold">Cultural Sensitivity</h3>
-              <p className="text-muted-foreground">Mental health support in local languages and culturally relevant contexts.</p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-growth/20 to-healing/20 rounded-lg flex items-center justify-center">
-                <Shield className="h-6 w-6 text-growth" />
-              </div>
-              <h3 className="text-xl font-semibold">Community Trust</h3>
-              <p className="text-muted-foreground">Leveraging existing community relationships to reduce stigma and increase uptake.</p>
             </div>
           </div>
         </div>
@@ -273,10 +489,10 @@ export default function NGO() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Our Partner Organizations
+              Book Free Counseling Sessions
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Meet the dedicated NGOs working tirelessly to bring mental health support to communities across India.
+              Connect with trained counselors from our NGO partners for completely free mental health support.
             </p>
           </div>
 
@@ -290,6 +506,7 @@ export default function NGO() {
                       <div>
                         <CardTitle className="text-xl">{ngo.name}</CardTitle>
                         <CardDescription className="text-sm">Est. {ngo.established}</CardDescription>
+                        <Badge className="mt-1 bg-green-100 text-green-800">FREE COUNSELING</Badge>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
@@ -314,19 +531,46 @@ export default function NGO() {
                       <span>{ngo.beneficiaries} beneficiaries served</span>
                     </div>
                     <div className="flex items-center space-x-2 text-sm">
-                      <HandHeart className="h-4 w-4 text-growth" />
-                      <span>{ngo.volunteers} active volunteers</span>
+                      <UserCheck className="h-4 w-4 text-growth" />
+                      <span>{ngo.counselors.length} trained counselors</span>
                     </div>
                   </div>
 
+                  {/* Available Counselors Preview */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Focus Areas:</p>
-                    <div className="flex flex-wrap gap-1">
-                      {ngo.focus.map((area, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {area}
+                    <p className="text-sm font-medium text-foreground">Available Counselors:</p>
+                    <div className="space-y-1">
+                      {ngo.counselors.slice(0, 2).map((counselor, idx) => (
+                        <div key={idx} className="text-xs p-2 bg-green-50 rounded flex items-center justify-between">
+                          <span className="font-medium">{counselor.name}</span>
+                          <div className="flex space-x-1">
+                            {counselor.consultationModes.video.available && <Video className="h-3 w-3 text-primary" />}
+                            {counselor.consultationModes.audio.available && <Phone className="h-3 w-3 text-growth" />}
+                            {counselor.consultationModes.office.available && <Building2 className="h-3 w-3 text-wisdom" />}
+                            {counselor.consultationModes.home.available && <Home className="h-3 w-3 text-trust" />}
+                          </div>
+                        </div>
+                      ))}
+                      {ngo.counselors.length > 2 && (
+                        <p className="text-xs text-muted-foreground">+{ngo.counselors.length - 2} more counselors</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Next Available Slots */}
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-foreground">Next Available Slots:</p>
+                    <div className="flex space-x-2">
+                      {ngo.counselors[0]?.todaySlots.slice(0, 3).map((slot, idx) => (
+                        <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
+                          {slot}
                         </Badge>
                       ))}
+                      {ngo.counselors[0]?.todaySlots.length > 3 && (
+                        <Badge variant="secondary" className="text-xs">
+                          +{ngo.counselors[0].todaySlots.length - 3} more
+                        </Badge>
+                      )}
                     </div>
                   </div>
 
@@ -341,22 +585,13 @@ export default function NGO() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Services:</p>
-                    <div className="space-y-1">
-                      {ngo.services.map((service, idx) => (
-                        <div key={idx} className="flex items-center space-x-2 text-xs">
-                          <CheckCircle className="h-3 w-3 text-growth" />
-                          <span className="text-muted-foreground">{service}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
                   <div className="pt-4 border-t border-border/50">
-                    <Button className="w-full bg-gradient-to-r from-wisdom to-primary">
-                      <HandHeart className="mr-2 h-4 w-4" />
-                      Learn More
+                    <Button 
+                      className="w-full bg-gradient-to-r from-green-600 to-growth"
+                      onClick={() => setSelectedNGO(ngo)}
+                    >
+                      <Calendar className="mr-2 h-4 w-4" />
+                      Book Free Session
                     </Button>
                   </div>
                 </CardContent>
@@ -366,73 +601,104 @@ export default function NGO() {
         </div>
       </section>
 
-      {/* Partnership Benefits */}
+      {/* Booking Modal */}
+      <BookingModal 
+        ngo={selectedNGO} 
+        onClose={() => {
+          setSelectedNGO(null);
+          setSelectedMode("");
+          setSelectedSlot("");
+        }} 
+      />
+
+      {/* How Free Counseling Works */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-              Partnership Benefits
-            </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Why Partner with Chaitnya Health?
+              How Free Counseling Works
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We provide technology, training, and resources to amplify your community impact
+              Community-driven support with multiple ways to connect
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {partnershipBenefits.map((benefit, index) => (
-              <Card key={index} className="border-border/50 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-background to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    {benefit.icon}
-                  </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    {benefit.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-trust/20 rounded-full flex items-center justify-center mx-auto">
+                <Video className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Video Sessions</h3>
+              <p className="text-muted-foreground text-sm">
+                Free video calls with trained counselors for face-to-face support.
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-growth/20 to-healing/20 rounded-full flex items-center justify-center mx-auto">
+                <Phone className="h-8 w-8 text-growth" />
+              </div>
+              <h3 className="text-xl font-semibold">Audio Support</h3>
+              <p className="text-muted-foreground text-sm">
+                Voice-only counseling sessions for comfortable, private conversations.
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-wisdom/20 to-support/20 rounded-full flex items-center justify-center mx-auto">
+                <Building2 className="h-8 w-8 text-wisdom" />
+              </div>
+              <h3 className="text-xl font-semibold">Community Centers</h3>
+              <p className="text-muted-foreground text-sm">
+                Visit local NGO offices and community centers for in-person counseling.
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-trust/20 to-calm/20 rounded-full flex items-center justify-center mx-auto">
+                <Home className="h-8 w-8 text-trust" />
+              </div>
+              <h3 className="text-xl font-semibold">Home Visits</h3>
+              <p className="text-muted-foreground text-sm">
+                Counselors visit your home for maximum comfort and accessibility.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Join Network CTA */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-wisdom/10 via-primary/10 to-growth/10">
+      {/* Partner With Us CTA */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-green-50 via-primary/10 to-growth/10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            Join the Chaitnya Mitra Network
+            Join the Free Counseling Network
           </h2>
           <p className="text-xl text-muted-foreground">
-            Partner with us to expand mental health access in your community. Together, we can build a mentally resilient India.
+            If you're an NGO or community organization, partner with us to provide free mental health support to your community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-wisdom to-primary hover:opacity-90 transition-opacity">
+            <Button size="lg" className="bg-gradient-to-r from-green-600 to-growth hover:opacity-90 transition-opacity">
               <HandHeart className="mr-2 h-5 w-5" />
-              Become a Partner
+              Become NGO Partner
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-wisdom/30">
+            <Button size="lg" variant="outline" className="border-green-300">
               <Calendar className="mr-2 h-5 w-5" />
-              Schedule Discussion
+              Book Free Session
             </Button>
           </div>
           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
-              <Building className="h-4 w-4 text-growth" />
-              <span>Free Technology Platform</span>
+              <Shield className="h-4 w-4 text-green-600" />
+              <span>Completely Free Service</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Award className="h-4 w-4 text-trust" />
-              <span>Capacity Building Support</span>
+              <Languages className="h-4 w-4 text-trust" />
+              <span>Local Language Support</span>
             </div>
             <div className="flex items-center space-x-2">
               <Users className="h-4 w-4 text-wisdom" />
-              <span>Network Collaboration</span>
+              <span>Community-Driven</span>
             </div>
           </div>
         </div>
@@ -455,34 +721,34 @@ export default function NGO() {
                 </div>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Building a comprehensive mental health ecosystem through partnerships with 
-                grassroots organizations across India.
+                Free mental health support through our network of grassroots NGO partners. 
+                Community-driven care in your local language.
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-4">For NGOs</h3>
+              <h3 className="font-semibold text-foreground mb-4">Free Services</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <p>Partnership Program</p>
-                <p>Training Resources</p>
-                <p>Technology Platform</p>
-                <p>Support Network</p>
+                <p>Video Counseling</p>
+                <p>Audio Sessions</p>
+                <p>Community Centers</p>
+                <p>Home Visits</p>
               </div>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Community Impact</h3>
+              <h3 className="font-semibold text-foreground mb-4">NGO Partners</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <p>Success Stories</p>
-                <p>Impact Reports</p>
-                <p>Volunteer Programs</p>
-                <p>Community Events</p>
+                <p>Partnership Program</p>
+                <p>Counselor Training</p>
+                <p>Community Impact</p>
+                <p>Join Network</p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-border/50 mt-12 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 Chaitnya Health. All rights reserved. | Community-Driven | Culturally Sensitive | Grassroots Impact
+            © 2024 Chaitnya Health. All rights reserved. | Free Counseling | Community-Driven | Local Language Support
           </div>
         </div>
       </footer>
