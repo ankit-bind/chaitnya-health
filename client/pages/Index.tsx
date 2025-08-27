@@ -126,9 +126,9 @@ export default function Index() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <a href="#solution" className="text-foreground/80 hover:text-foreground transition-colors">Platform</a>
+              <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
+              <a href="/ngo" className="text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
               <a href="#institutions" className="text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
-              <a href="#metrics" className="text-foreground/80 hover:text-foreground transition-colors">Impact</a>
-              <a href="#competitive" className="text-foreground/80 hover:text-foreground transition-colors">Why Us</a>
               <Button variant="outline" size="sm">Institution Login</Button>
               <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
             </div>
@@ -150,9 +150,9 @@ export default function Index() {
             <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-border/50 shadow-lg">
               <div className="px-4 py-4 space-y-4">
                 <a href="#solution" className="block text-foreground/80 hover:text-foreground transition-colors">Platform</a>
+                <a href="/psychologist" className="block text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
+                <a href="/ngo" className="block text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
                 <a href="#institutions" className="block text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
-                <a href="#metrics" className="block text-foreground/80 hover:text-foreground transition-colors">Impact</a>
-                <a href="#competitive" className="block text-foreground/80 hover:text-foreground transition-colors">Why Us</a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm">Institution Login</Button>
                   <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
