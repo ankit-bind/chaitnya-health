@@ -41,13 +41,153 @@ export default function Index() {
   const [isTextAgentOpen, setIsTextAgentOpen] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isVaniSpeaking, setIsVaniSpeaking] = useState(false);
   const [textMessage, setTextMessage] = useState("");
+  const [transcript, setTranscript] = useState("");
   const [chatMessages, setChatMessages] = useState([
     { role: "assistant", content: "नमस्ते! मैं वाणी हूं। मैं आपकी मानसिक स्वास्थ्य में कैसे मदद कर सकती हूं?" }
   ]);
   const [vaniMessages, setVaniMessages] = useState([
     { role: "assistant", content: "Hi! I'm Vani, your voice companion. You can talk to me about anything that's on your mind." }
   ]);
+
+  // Speech Recognition Setup
+  const [recognition, setRecognition] = useState(null);
+  const [speechSynthesis, setSpeechSynthesis] = useState(null);
+
+  // Initialize Speech APIs
+  const initializeSpeechAPIs = () => {
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognitionInstance = new SpeechRecognition();
+
+      recognitionInstance.continuous = true;
+      recognitionInstance.interimResults = true;
+      recognitionInstance.lang = 'hi-IN'; // Hindi by default, can switch to en-US
+
+      recognitionInstance.onstart = () => {
+        setIsRecording(true);
+        setTranscript("");
+      };
+
+      recognitionInstance.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const result = event.results[i];
+          if (result.isFinal) {
+            finalTranscript += result[0].transcript;
+          } else {
+            interimTranscript += result[0].transcript;
+          }
+        }
+
+        setTranscript(finalTranscript + interimTranscript);
+
+        if (finalTranscript) {
+          handleVoiceInput(finalTranscript);
+        }
+      };
+
+      recognitionInstance.onend = () => {
+        setIsRecording(false);
+      };
+
+      recognitionInstance.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        setIsRecording(false);
+      };
+
+      setRecognition(recognitionInstance);
+    }
+
+    // Initialize Speech Synthesis
+    if ('speechSynthesis' in window) {
+      setSpeechSynthesis(window.speechSynthesis);
+    }
+  };
+
+  // Handle voice input and generate AI response
+  const handleVoiceInput = async (spokenText) => {
+    // Add user message
+    const userMessage = { role: "user", content: spokenText };
+    setVaniMessages(prev => [...prev, userMessage]);
+
+    // Generate AI response (simulated - replace with actual AI API)
+    const aiResponse = generateVaniResponse(spokenText);
+    const assistantMessage = { role: "assistant", content: aiResponse };
+
+    setVaniMessages(prev => [...prev, assistantMessage]);
+
+    // Speak the response
+    speakText(aiResponse);
+  };
+
+  // Generate Vani's response (replace with actual AI integration)
+  const generateVaniResponse = (userInput) => {
+    const responses = [
+      "मैं समझ सकती हूं कि यह कठिन समय है। आपकी भावनाएं बिल्कुल valid हैं। मैं यहां आपकी सुनने के लिए हूं।",
+      "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
+      "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
+      "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
+      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+    ];
+
+    return responses[Math.floor(Math.random() * responses.length)];
+  };
+
+  // Text-to-Speech function
+  const speakText = (text) => {
+    if (speechSynthesis && text) {
+      // Stop any ongoing speech
+      speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // Try to find Hindi voice, fallback to English
+      const voices = speechSynthesis.getVoices();
+      const hindiVoice = voices.find(voice => voice.lang.includes('hi')) ||
+                        voices.find(voice => voice.lang.includes('en'));
+
+      if (hindiVoice) {
+        utterance.voice = hindiVoice;
+      }
+
+      utterance.rate = 0.9;
+      utterance.pitch = 1.1;
+      utterance.volume = 0.8;
+
+      utterance.onstart = () => setIsVaniSpeaking(true);
+      utterance.onend = () => setIsVaniSpeaking(false);
+      utterance.onerror = () => setIsVaniSpeaking(false);
+
+      setIsVaniSpeaking(true);
+      speechSynthesis.speak(utterance);
+    }
+  };
+
+  // Start/Stop voice recording
+  const toggleVoiceRecording = () => {
+    if (!recognition) {
+      initializeSpeechAPIs();
+      return;
+    }
+
+    if (isRecording) {
+      recognition.stop();
+    } else {
+      recognition.start();
+    }
+  };
+
+  // Stop Vani from speaking
+  const stopVaniSpeaking = () => {
+    if (speechSynthesis) {
+      speechSynthesis.cancel();
+      setIsVaniSpeaking(false);
+    }
+  };
 
   const institutionalFeatures = [
     {
@@ -328,7 +468,10 @@ export default function Index() {
                 </div>
                 <Button
                   className="w-full bg-gradient-to-r from-wisdom to-primary"
-                  onClick={() => setIsVaniOpen(true)}
+                  onClick={() => {
+                    setIsVaniOpen(true);
+                    setTimeout(initializeSpeechAPIs, 500);
+                  }}
                 >
                   <Mic className="mr-2 h-4 w-4" />
                   Start Voice Chat with Vani
@@ -422,6 +565,40 @@ export default function Index() {
               </div>
 
               <div className="space-y-6">
+                {/* Voice Status */}
+                <div className="text-center space-y-2">
+                  <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${
+                    isRecording ? 'bg-red-100 text-red-700' :
+                    isVaniSpeaking ? 'bg-blue-100 text-blue-700' :
+                    'bg-green-100 text-green-700'
+                  }`}>
+                    {isRecording ? (
+                      <>
+                        <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium">Listening...</span>
+                      </>
+                    ) : isVaniSpeaking ? (
+                      <>
+                        <Volume2 className="h-4 w-4" />
+                        <span className="text-sm font-medium">Vani is speaking...</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm font-medium">Ready to listen</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* Live Transcript */}
+                {transcript && (
+                  <div className="bg-gray-50 border rounded-lg p-3">
+                    <p className="text-sm text-gray-600 mb-1">You're saying:</p>
+                    <p className="text-sm font-medium">{transcript}</p>
+                  </div>
+                )}
+
                 {/* Voice Messages */}
                 <div className="max-h-64 overflow-y-auto space-y-4 bg-gradient-to-br from-calm/10 to-healing/10 rounded-2xl p-4">
                   {vaniMessages.map((message, index) => (
@@ -431,7 +608,14 @@ export default function Index() {
                           ? 'bg-wisdom text-white'
                           : 'bg-white border shadow-sm'
                       }`}>
-                        <p className="text-sm">{message.content}</p>
+                        <div className="flex items-start space-x-2">
+                          {message.role === 'user' ? (
+                            <Mic className="h-3 w-3 mt-1 flex-shrink-0" />
+                          ) : (
+                            <Volume2 className="h-3 w-3 mt-1 flex-shrink-0 text-wisdom" />
+                          )}
+                          <p className="text-sm">{message.content}</p>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -447,49 +631,74 @@ export default function Index() {
                           ? 'bg-red-500 hover:bg-red-600 animate-pulse'
                           : 'bg-gradient-to-r from-wisdom to-primary'
                       }`}
-                      onClick={() => {
-                        setIsRecording(!isRecording);
-                        if (!isRecording) {
-                          // Simulate recording
-                          setTimeout(() => {
-                            setIsRecording(false);
-                            setVaniMessages(prev => [...prev,
-                              { role: 'user', content: 'Voice message recorded...' },
-                              { role: 'assistant', content: 'I hear you. It sounds like you\'re dealing with some stress. Would you like to talk about what\'s been weighing on your mind?' }
-                            ]);
-                          }, 3000);
-                        }
-                      }}
+                      onClick={toggleVoiceRecording}
                     >
                       {isRecording ? <MicOff className="h-8 w-8 text-white" /> : <Mic className="h-8 w-8 text-white" />}
                     </Button>
+
+                    {isVaniSpeaking && (
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="w-16 h-16 rounded-full border-red-200 hover:bg-red-50"
+                        onClick={stopVaniSpeaking}
+                      >
+                        <VolumeX className="h-6 w-6 text-red-600" />
+                      </Button>
+                    )}
                   </div>
+
                   <p className="text-sm text-muted-foreground">
-                    {isRecording ? 'Listening... Tap to stop' : 'Tap to speak with Vani'}
+                    {isRecording ? 'Listening... Tap to stop' :
+                     isVaniSpeaking ? 'Vani is responding... Tap ❌ to stop' :
+                     'Tap to start real-time voice chat'}
                   </p>
 
-                  {/* Audio Playback Simulation */}
-                  <div className="flex items-center justify-center space-x-4 bg-wisdom/5 rounded-lg p-4">
+                  {/* Language Toggle */}
+                  <div className="flex justify-center space-x-2">
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => setIsPlaying(!isPlaying)}
+                      onClick={() => {
+                        if (recognition) {
+                          recognition.lang = 'hi-IN';
+                        }
+                      }}
                     >
-                      {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                      {isPlaying ? 'Pause' : 'Play Last Response'}
+                      🇮🇳 Hindi
                     </Button>
-                    <div className="flex space-x-1">
-                      {[...Array(8)].map((_, i) => (
-                        <div key={i} className={`w-1 bg-wisdom rounded-full animate-pulse ${
-                          isPlaying ? 'h-4' : 'h-2'
-                        }`} style={{animationDelay: `${i * 0.1}s`}} />
-                      ))}
-                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        if (recognition) {
+                          recognition.lang = 'en-US';
+                        }
+                      }}
+                    >
+                      🇺🇸 English
+                    </Button>
+                  </div>
+
+                  {/* Voice Visualization */}
+                  <div className="flex items-center justify-center space-x-1 bg-wisdom/5 rounded-lg p-4">
+                    {[...Array(12)].map((_, i) => (
+                      <div
+                        key={i}
+                        className={`w-1 bg-wisdom rounded-full transition-all duration-300 ${
+                          isRecording || isVaniSpeaking ? 'h-6 animate-pulse' : 'h-2'
+                        }`}
+                        style={{
+                          animationDelay: `${i * 0.1}s`,
+                          height: isRecording || isVaniSpeaking ? `${Math.random() * 20 + 10}px` : '8px'
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
                 <div className="text-center text-xs text-muted-foreground">
-                  Vani speaks Hindi, English, and 15+ regional languages • Completely anonymous
+                  Real-time voice conversation • Hindi & English • Browser speech recognition required
                 </div>
               </div>
             </div>
@@ -581,7 +790,10 @@ export default function Index() {
         <Button
           size="lg"
           className="w-16 h-16 rounded-full bg-gradient-to-r from-wisdom to-primary shadow-2xl hover:shadow-3xl transition-all duration-300"
-          onClick={() => setIsVaniOpen(true)}
+          onClick={() => {
+            setIsVaniOpen(true);
+            setTimeout(initializeSpeechAPIs, 500);
+          }}
         >
           <Mic className="h-6 w-6 text-white" />
         </Button>
