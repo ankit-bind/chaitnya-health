@@ -869,6 +869,27 @@ export default function Index() {
             </div>
           </div>
 
+          {/* Business Value Proposition */}
+          <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8 mb-16">
+            <div className="text-center space-y-4">
+              <h3 className="text-2xl font-bold text-red-800">The Mental Health Crisis in India</h3>
+              <div className="grid md:grid-cols-3 gap-6 text-red-800">
+                <div className="text-center">
+                  <div className="text-3xl font-bold">80%</div>
+                  <div className="text-sm">College counseling centers under-utilized due to stigma</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">₹1500+</div>
+                  <div className="text-sm">Per therapy session creates access barriers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">$150B</div>
+                  <div className="text-sm">Annual productivity loss from burnout</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {institutionalFeatures.map((feature, index) => (
               <Card key={index} className="border-border/50 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow">
