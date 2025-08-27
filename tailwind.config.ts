@@ -27,7 +27,7 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        // Mental health app specific colors
+        // Chaitnya Health specific colors - Indian wellness palette
         calm: {
           DEFAULT: "hsl(var(--calm))",
           foreground: "hsl(var(--calm-foreground))",
@@ -43,6 +43,14 @@ export default {
         support: {
           DEFAULT: "hsl(var(--support))",
           foreground: "hsl(var(--support-foreground))",
+        },
+        wisdom: {
+          DEFAULT: "hsl(var(--wisdom))",
+          foreground: "hsl(var(--wisdom-foreground))",
+        },
+        trust: {
+          DEFAULT: "hsl(var(--trust))",
+          foreground: "hsl(var(--trust-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
