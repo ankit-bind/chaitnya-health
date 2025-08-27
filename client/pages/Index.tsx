@@ -31,7 +31,8 @@ import {
   Pause,
   Type,
   VolumeX,
-  Phone
+  Phone,
+  Clock
 } from "lucide-react";
 
 export default function Index() {
