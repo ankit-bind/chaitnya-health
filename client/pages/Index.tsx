@@ -755,7 +755,7 @@ export default function Index() {
                       if (e.key === 'Enter' && textMessage.trim()) {
                         setChatMessages(prev => [...prev,
                           { role: 'user', content: textMessage },
-                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपकी भावनाएं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
+                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपक��� भावनाएं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
                         ]);
                         setTextMessage('');
                       }
@@ -998,6 +998,164 @@ export default function Index() {
                   <div className="text-sm text-muted-foreground">Market Share (SOM)</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trending Consultants Preview */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30">
+              🔥 Popular This Week
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Trending Mental Health Consultants
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Connect with the most trusted and popular mental health professionals across India
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* Trending Professional 1 */}
+            <Card className="border border-wisdom/20 bg-gradient-to-br from-wisdom/5 to-white hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center pb-3">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-1 -right-6 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    #1
+                  </div>
+                </div>
+                <CardTitle className="text-lg">Dr. Meera Sharma</CardTitle>
+                <CardDescription className="text-sm">Senior Counselor</CardDescription>
+                <div className="flex justify-center items-center space-x-2 mt-2">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-medium">4.9</span>
+                  <Badge className="bg-green-100 text-green-800 text-xs">FREE</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="text-center space-y-2">
+                  <p className="text-xs text-muted-foreground">156 sessions this week</p>
+                  <div className="flex justify-center space-x-1">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Trending Professional 2 */}
+            <Card className="border border-primary/20 bg-gradient-to-br from-primary/5 to-white hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center pb-3">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-trust rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-1 -right-6 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    #2
+                  </div>
+                </div>
+                <CardTitle className="text-lg">Dr. Kavya Nair</CardTitle>
+                <CardDescription className="text-sm">Licensed Therapist</CardDescription>
+                <div className="flex justify-center items-center space-x-2 mt-2">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-medium">4.9</span>
+                  <Badge className="bg-blue-100 text-blue-800 text-xs">₹350</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="text-center space-y-2">
+                  <p className="text-xs text-muted-foreground">89 sessions this week</p>
+                  <div className="flex justify-center space-x-1">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">Malayalam</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Trending Professional 3 */}
+            <Card className="border border-trust/20 bg-gradient-to-br from-trust/5 to-white hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center pb-3">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">👨‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-1 -right-6 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    #3
+                  </div>
+                </div>
+                <CardTitle className="text-lg">Rahul Patil</CardTitle>
+                <CardDescription className="text-sm">NGO Counselor</CardDescription>
+                <div className="flex justify-center items-center space-x-2 mt-2">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-medium">4.8</span>
+                  <Badge className="bg-green-100 text-green-800 text-xs">FREE</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="text-center space-y-2">
+                  <p className="text-xs text-muted-foreground">142 sessions this week</p>
+                  <div className="flex justify-center space-x-1">
+                    <Badge variant="outline" className="text-xs">Marathi</Badge>
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Trending Professional 4 */}
+            <Card className="border border-growth/20 bg-gradient-to-br from-growth/5 to-white hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center pb-3">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-growth to-healing rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">👨‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-1 -right-6 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    #4
+                  </div>
+                </div>
+                <CardTitle className="text-lg">Dr. Arjun Singh</CardTitle>
+                <CardDescription className="text-sm">Psychiatrist</CardDescription>
+                <div className="flex justify-center items-center space-x-2 mt-2">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-medium">4.8</span>
+                  <Badge className="bg-purple-100 text-purple-800 text-xs">₹450</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="text-center space-y-2">
+                  <p className="text-xs text-muted-foreground">76 sessions this week</p>
+                  <div className="flex justify-center space-x-1">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center space-y-4">
+            <p className="text-muted-foreground">
+              See what makes these consultants so popular with our users
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild className="bg-gradient-to-r from-wisdom to-primary">
+                <a href="/psychologist">
+                  View All Therapists
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button variant="outline" asChild>
+                <a href="/ngo">
+                  Explore Free Consultants
+                </a>
+              </Button>
             </div>
           </div>
         </div>

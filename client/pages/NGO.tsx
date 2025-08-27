@@ -484,6 +484,142 @@ export default function NGO() {
         </div>
       </section>
 
+      {/* Trending Consultants Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-wisdom/5 to-primary/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-12">
+            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30">
+              🔥 Most Popular This Week
+            </Badge>
+            <h2 className="text-3xl font-bold text-foreground">
+              Trending Consultants
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Most booked and highest-rated counselors in our network
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {/* Trending Consultant 1 */}
+            <Card className="border-2 border-wisdom/30 bg-gradient-to-br from-wisdom/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #1 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Dr. Meera Sharma</CardTitle>
+                <CardDescription>Senior Counselor at Manasvi Foundation</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.9</span>
+                  </div>
+                  <Badge className="bg-green-100 text-green-800">FREE</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 156 sessions this week</p>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Very understanding and helpful. Made me feel comfortable immediately."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-wisdom to-primary" size="sm">
+                  Book with Dr. Meera
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Trending Consultant 2 */}
+            <Card className="border-2 border-trust/30 bg-gradient-to-br from-trust/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👨‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #2 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Rahul Patil</CardTitle>
+                <CardDescription>Lead Counselor at Sahara Network</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.8</span>
+                  </div>
+                  <Badge className="bg-green-100 text-green-800">FREE</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 142 sessions this week</p>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Marathi</Badge>
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Excellent guidance for work stress. Very patient listener."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-trust to-growth" size="sm">
+                  Book with Rahul
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Trending Consultant 3 */}
+            <Card className="border-2 border-growth/30 bg-gradient-to-br from-growth/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-growth to-healing rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #3 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Anjali Reddy</CardTitle>
+                <CardDescription>Specialist at Aasha Trust</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.7</span>
+                  </div>
+                  <Badge className="bg-green-100 text-green-800">FREE</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 138 sessions this week</p>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Tamil</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">Kannada</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Great for student mental health issues. Very relatable."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-growth to-healing" size="sm">
+                  Book with Anjali
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* NGO Partners Grid */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

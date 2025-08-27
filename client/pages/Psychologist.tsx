@@ -461,9 +461,156 @@ export default function Psychologist() {
         </div>
       </section>
 
+      {/* Trending Therapists Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary/5 to-wisdom/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-12">
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+              ⭐ Top Rated This Month
+            </Badge>
+            <h2 className="text-3xl font-bold text-foreground">
+              Trending Therapists
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Most booked and highest-rated licensed therapists
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {/* Trending Therapist 1 */}
+            <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-wisdom rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #1 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Dr. Kavya Nair</CardTitle>
+                <CardDescription>Ph.D. Clinical Psychology</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.9</span>
+                  </div>
+                  <Badge className="bg-blue-100 text-blue-800">Video + Audio</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 89 sessions this week</p>
+                  <div className="text-lg font-bold text-primary">₹350/session</div>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">Malayalam</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Life-changing sessions. Very professional and caring approach."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-primary to-wisdom" size="sm">
+                  Book with Dr. Kavya
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Trending Therapist 2 */}
+            <Card className="border-2 border-trust/30 bg-gradient-to-br from-trust/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👨‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #2 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Dr. Arjun Singh</CardTitle>
+                <CardDescription>M.D. Psychiatry</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.8</span>
+                  </div>
+                  <Badge className="bg-purple-100 text-purple-800">All Modes</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 76 sessions this week</p>
+                  <div className="text-lg font-bold text-trust">₹450/session</div>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Expert in anxiety disorders. Very thorough and helpful."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-trust to-growth" size="sm">
+                  Book with Dr. Arjun
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Trending Therapist 3 */}
+            <Card className="border-2 border-growth/30 bg-gradient-to-br from-growth/5 to-white shadow-xl hover:shadow-2xl transition-all duration-300">
+              <CardHeader className="text-center pb-4">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-growth to-healing rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl">👩‍⚕️</span>
+                  </div>
+                  <div className="absolute -top-2 -right-8 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    #3 TRENDING
+                  </div>
+                </div>
+                <CardTitle className="text-xl">Dr. Sneha Gupta</CardTitle>
+                <CardDescription>M.Phil Counseling Psychology</CardDescription>
+                <div className="flex justify-center items-center space-x-4 mt-2">
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.7</span>
+                  </div>
+                  <Badge className="bg-green-100 text-green-800">Student Specialist</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">🔥 72 sessions this week</p>
+                  <div className="text-lg font-bold text-growth">₹300/session</div>
+                  <div className="flex justify-center space-x-2">
+                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">Bengali</Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    "Amazing with young adults. Really understands our generation."
+                  </p>
+                </div>
+                <Button className="w-full bg-gradient-to-r from-growth to-healing" size="sm">
+                  Book with Dr. Sneha
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Therapists Grid */}
       <section className="pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              All Licensed Therapists
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Browse our complete network of verified mental health professionals
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTherapists.map((therapist, index) => (
               <Card key={index} className="border-border/50 bg-white/90 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
