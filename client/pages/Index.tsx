@@ -129,7 +129,7 @@ export default function Index() {
     const responses = [
       "मैं समझ सकती हूं कि यह कठिन समय है। आपकी भावनाएं बिल्कुल valid हैं। मैं यहां आपकी सुनने के लिए हूं।",
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
-      "आपका mental health बहुत important है। क्या आप मुझे बता सकते ह���ं कि आप कैसा महसूस कर रहे हैं?",
+      "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
       "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
@@ -823,20 +823,50 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Solution Features */}
-      <section id="solution" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
+      {/* How AI Agents Work */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-calm/5 to-healing/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-              Radically Empathetic & Intelligent Ecosystem
+              🤖 Experience the Future of Mental Health Support
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Designed for prevention, support, and institutional action
+              How Your AI Companions Support You
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our comprehensive platform bridges the prevention gap with culturally-sensitive technology 
-              and evidence-based mental health practices.
+              Vani and Saathi use advanced AI to provide culturally-sensitive, personalized mental health support
+              that understands your unique needs and cultural context.
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center space-y-4">
+              <div className="w-20 h-20 bg-gradient-to-br from-wisdom/20 to-primary/20 rounded-full flex items-center justify-center mx-auto">
+                <Brain className="h-10 w-10 text-wisdom" />
+              </div>
+              <h3 className="text-xl font-semibold">Understand Emotions</h3>
+              <p className="text-muted-foreground">
+                Our AI recognizes emotional cues in your voice and text, providing empathetic responses tailored to your current state.
+              </p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-20 h-20 bg-gradient-to-br from-trust/20 to-growth/20 rounded-full flex items-center justify-center mx-auto">
+                <Heart className="h-10 w-10 text-trust" />
+              </div>
+              <h3 className="text-xl font-semibold">Cultural Sensitivity</h3>
+              <p className="text-muted-foreground">
+                Trained on Indian cultural contexts, family dynamics, and social pressures to provide relevant, respectful guidance.
+              </p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-20 h-20 bg-gradient-to-br from-growth/20 to-healing/20 rounded-full flex items-center justify-center mx-auto">
+                <Shield className="h-10 w-10 text-growth" />
+              </div>
+              <h3 className="text-xl font-semibold">Complete Privacy</h3>
+              <p className="text-muted-foreground">
+                All conversations are anonymous and encrypted. No personal data is stored or shared with anyone.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
