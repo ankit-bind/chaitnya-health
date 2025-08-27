@@ -2,15 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  Brain, 
-  Users, 
-  MessageCircle, 
-  Calendar, 
-  Shield, 
-  ChevronRight, 
-  Menu, 
+import {
+  Heart,
+  Brain,
+  Users,
+  MessageCircle,
+  Calendar,
+  Shield,
+  ChevronRight,
+  Menu,
   X,
   Building2,
   GraduationCap,
@@ -21,11 +21,32 @@ import {
   Globe,
   TrendingUp,
   Award,
-  Target
+  Target,
+  Mic,
+  MicOff,
+  Send,
+  Bot,
+  Waveform,
+  Play,
+  Pause,
+  Type,
+  VolumeX,
+  Phone
 } from "lucide-react";
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVaniOpen, setIsVaniOpen] = useState(false);
+  const [isTextAgentOpen, setIsTextAgentOpen] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [textMessage, setTextMessage] = useState("");
+  const [chatMessages, setChatMessages] = useState([
+    { role: "assistant", content: "नमस्ते! मैं वाणी हूं। मैं आपकी मानसिक स्वास्थ्य में कैसे मदद कर सकती हूं?" }
+  ]);
+  const [vaniMessages, setVaniMessages] = useState([
+    { role: "assistant", content: "Hi! I'm Vani, your voice companion. You can talk to me about anything that's on your mind." }
+  ]);
 
   const institutionalFeatures = [
     {
@@ -271,6 +292,306 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* AI Agents Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-12">
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+              🤖 AI-Powered Mental Health Support
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Meet Your AI Companions
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get instant support through voice or text with our empathetic AI agents, available 24/7 in multiple languages.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Vani - Voice Agent */}
+            <Card className="border-2 border-wisdom/20 bg-gradient-to-br from-wisdom/5 to-primary/5 hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Volume2 className="h-10 w-10 text-white" />
+                </div>
+                <CardTitle className="text-2xl">🎙️ Vani - Voice Agent</CardTitle>
+                <CardDescription className="text-base">
+                  Talk naturally with our empathetic AI companion. Speak in Hindi, English, or your preferred language.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+                  <Languages className="h-4 w-4 text-wisdom" />
+                  <span>Hindi • English • Regional Languages</span>
+                </div>
+                <Button
+                  className="w-full bg-gradient-to-r from-wisdom to-primary"
+                  onClick={() => setIsVaniOpen(true)}
+                >
+                  <Mic className="mr-2 h-4 w-4" />
+                  Start Voice Chat with Vani
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Text Agent */}
+            <Card className="border-2 border-trust/20 bg-gradient-to-br from-trust/5 to-growth/5 hover:shadow-xl transition-all duration-300">
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <MessageCircle className="h-10 w-10 text-white" />
+                </div>
+                <CardTitle className="text-2xl">💬 Saathi - Text Agent</CardTitle>
+                <CardDescription className="text-base">
+                  Chat instantly with our AI counselor. Type your thoughts and get immediate, thoughtful responses.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+                  <Brain className="h-4 w-4 text-trust" />
+                  <span>Instant Response • Available 24/7</span>
+                </div>
+                <Button
+                  className="w-full bg-gradient-to-r from-trust to-growth"
+                  onClick={() => setIsTextAgentOpen(true)}
+                >
+                  <Type className="mr-2 h-4 w-4" />
+                  Start Text Chat with Saathi
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Quick Access Features */}
+          <div className="mt-12 bg-gradient-to-r from-calm/10 to-healing/10 rounded-2xl p-8">
+            <div className="text-center space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">Why Choose AI Support?</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-primary/20 rounded-lg flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-wisdom" />
+                  </div>
+                  <div className="text-left">
+                    <p className="font-medium">24/7 Availability</p>
+                    <p className="text-sm text-muted-foreground">Always here when you need support</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-growth/20 rounded-lg flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-trust" />
+                  </div>
+                  <div className="text-left">
+                    <p className="font-medium">Complete Privacy</p>
+                    <p className="text-sm text-muted-foreground">Anonymous and confidential</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-healing/20 to-growth/20 rounded-lg flex items-center justify-center">
+                    <Heart className="h-6 w-6 text-healing" />
+                  </div>
+                  <div className="text-left">
+                    <p className="font-medium">Culturally Sensitive</p>
+                    <p className="text-sm text-muted-foreground">Understands Indian context</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vani Voice Agent Modal */}
+      {isVaniOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-8">
+              <div className="flex justify-between items-center mb-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center">
+                    <Volume2 className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground">🎙️ Vani</h3>
+                    <p className="text-muted-foreground">Your Voice Companion</p>
+                  </div>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => setIsVaniOpen(false)}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+
+              <div className="space-y-6">
+                {/* Voice Messages */}
+                <div className="max-h-64 overflow-y-auto space-y-4 bg-gradient-to-br from-calm/10 to-healing/10 rounded-2xl p-4">
+                  {vaniMessages.map((message, index) => (
+                    <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-xs p-3 rounded-2xl ${
+                        message.role === 'user'
+                          ? 'bg-wisdom text-white'
+                          : 'bg-white border shadow-sm'
+                      }`}>
+                        <p className="text-sm">{message.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Voice Controls */}
+                <div className="text-center space-y-4">
+                  <div className="flex justify-center items-center space-x-4">
+                    <Button
+                      size="lg"
+                      className={`w-20 h-20 rounded-full ${
+                        isRecording
+                          ? 'bg-red-500 hover:bg-red-600 animate-pulse'
+                          : 'bg-gradient-to-r from-wisdom to-primary'
+                      }`}
+                      onClick={() => {
+                        setIsRecording(!isRecording);
+                        if (!isRecording) {
+                          // Simulate recording
+                          setTimeout(() => {
+                            setIsRecording(false);
+                            setVaniMessages(prev => [...prev,
+                              { role: 'user', content: 'Voice message recorded...' },
+                              { role: 'assistant', content: 'I hear you. It sounds like you\'re dealing with some stress. Would you like to talk about what\'s been weighing on your mind?' }
+                            ]);
+                          }, 3000);
+                        }
+                      }}
+                    >
+                      {isRecording ? <MicOff className="h-8 w-8 text-white" /> : <Mic className="h-8 w-8 text-white" />}
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {isRecording ? 'Listening... Tap to stop' : 'Tap to speak with Vani'}
+                  </p>
+
+                  {/* Audio Playback Simulation */}
+                  <div className="flex items-center justify-center space-x-4 bg-wisdom/5 rounded-lg p-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setIsPlaying(!isPlaying)}
+                    >
+                      {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                      {isPlaying ? 'Pause' : 'Play Last Response'}
+                    </Button>
+                    <div className="flex space-x-1">
+                      {[...Array(8)].map((_, i) => (
+                        <div key={i} className={`w-1 bg-wisdom rounded-full animate-pulse ${
+                          isPlaying ? 'h-4' : 'h-2'
+                        }`} style={{animationDelay: `${i * 0.1}s`}} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center text-xs text-muted-foreground">
+                  Vani speaks Hindi, English, and 15+ regional languages • Completely anonymous
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Text Agent Modal */}
+      {isTextAgentOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-8">
+              <div className="flex justify-between items-center mb-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center">
+                    <MessageCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground">💬 Saathi</h3>
+                    <p className="text-muted-foreground">Your Text Companion</p>
+                  </div>
+                </div>
+                <Button variant="ghost" size="sm" onClick={() => setIsTextAgentOpen(false)}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+
+              <div className="space-y-6">
+                {/* Chat Messages */}
+                <div className="max-h-64 overflow-y-auto space-y-4 bg-gradient-to-br from-trust/10 to-growth/10 rounded-2xl p-4">
+                  {chatMessages.map((message, index) => (
+                    <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-xs p-3 rounded-2xl ${
+                        message.role === 'user'
+                          ? 'bg-trust text-white'
+                          : 'bg-white border shadow-sm'
+                      }`}>
+                        <p className="text-sm">{message.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Text Input */}
+                <div className="flex space-x-3">
+                  <input
+                    type="text"
+                    placeholder="Type your message... (Hindi/English both supported)"
+                    value={textMessage}
+                    onChange={(e) => setTextMessage(e.target.value)}
+                    className="flex-1 p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-trust"
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter' && textMessage.trim()) {
+                        setChatMessages(prev => [...prev,
+                          { role: 'user', content: textMessage },
+                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपकी भावनाएं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
+                        ]);
+                        setTextMessage('');
+                      }
+                    }}
+                  />
+                  <Button
+                    className="bg-gradient-to-r from-trust to-growth"
+                    onClick={() => {
+                      if (textMessage.trim()) {
+                        setChatMessages(prev => [...prev,
+                          { role: 'user', content: textMessage },
+                          { role: 'assistant', content: 'Thank you for sharing that with me. I can sense you\'re going through something difficult. Remember, it\'s okay to not be okay sometimes. What\'s one small thing that usually brings you comfort?' }
+                        ]);
+                        setTextMessage('');
+                      }
+                    }}
+                  >
+                    <Send className="h-4 w-4" />
+                  </Button>
+                </div>
+
+                <div className="text-center text-xs text-muted-foreground">
+                  Saathi understands context and cultural nuances • Available in Hindi & English
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-40">
+        <Button
+          size="lg"
+          className="w-16 h-16 rounded-full bg-gradient-to-r from-wisdom to-primary shadow-2xl hover:shadow-3xl transition-all duration-300"
+          onClick={() => setIsVaniOpen(true)}
+        >
+          <Mic className="h-6 w-6 text-white" />
+        </Button>
+        <Button
+          size="lg"
+          className="w-16 h-16 rounded-full bg-gradient-to-r from-trust to-growth shadow-2xl hover:shadow-3xl transition-all duration-300"
+          onClick={() => setIsTextAgentOpen(true)}
+        >
+          <MessageCircle className="h-6 w-6 text-white" />
+        </Button>
+      </div>
 
       {/* Solution Features */}
       <section id="solution" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
