@@ -27,6 +27,23 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        // Mental health app specific colors
+        calm: {
+          DEFAULT: "hsl(var(--calm))",
+          foreground: "hsl(var(--calm-foreground))",
+        },
+        healing: {
+          DEFAULT: "hsl(var(--healing))",
+          foreground: "hsl(var(--healing-foreground))",
+        },
+        growth: {
+          DEFAULT: "hsl(var(--growth))",
+          foreground: "hsl(var(--growth-foreground))",
+        },
+        support: {
+          DEFAULT: "hsl(var(--support))",
+          foreground: "hsl(var(--support-foreground))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
