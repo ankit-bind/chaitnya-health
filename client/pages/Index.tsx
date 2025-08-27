@@ -129,7 +129,7 @@ export default function Index() {
     const responses = [
       "मैं समझ सकती हूं कि यह कठिन समय है। आपकी भावनाएं बिल्कुल valid हैं। मैं यहां आपकी सुनने के लिए हूं।",
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
-      "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
+      "आपका mental health बहुत important है। क्या आप मुझे बता सकते ह���ं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
       "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
@@ -325,224 +325,225 @@ export default function Index() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30 text-base px-4 py-2">
-                  🇮🇳 Building a Mentally Resilient India
-                </Badge>
-                
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                  India's First Step to{" "}
-                  <span className="bg-gradient-to-r from-wisdom via-primary to-growth bg-clip-text text-transparent">
-                    Mental Wellness
-                  </span>
-                </h1>
-                
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  A trusted companion for every Indian's mental well-being. 
-                  Empowering institutions with data-driven wellness solutions that bridge the prevention gap.
-                </p>
-
-                <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-lg p-4">
-                  <p className="text-red-800 text-sm font-medium">
-                    <strong>The Crisis:</strong> 80% of college counseling centers are under-utilized due to stigma. 
-                    ₹1500+ per therapy session creates access barriers. $150B annual productivity loss from burnout.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-wisdom to-primary hover:opacity-90 transition-opacity">
-                  Start Pilot Program
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-wisdom/30 text-wisdom hover:bg-wisdom/5">
-                  <BarChart3 className="mr-2 h-5 w-5" />
-                  View Demo Dashboard
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                {metrics.map((metric, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-wisdom">{metric.value}</div>
-                    <div className="text-sm text-muted-foreground">{metric.label}</div>
-                    <div className="text-xs text-muted-foreground">{metric.sublabel}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative bg-gradient-to-br from-white/70 to-white/40 backdrop-blur-sm rounded-3xl p-8 border border-white/30 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-wisdom to-trust rounded-full flex items-center justify-center">
-                      <Languages className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Institutional Wellness Dashboard</h3>
-                      <p className="text-sm text-muted-foreground">Real-time campus mental health analytics</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-healing/10 rounded-lg p-4 border border-healing/20">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-healing-foreground">Active Students</span>
-                        <span className="text-sm text-growth font-semibold">2,847</span>
-                      </div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-healing-foreground">Wellness Score</span>
-                        <span className="text-sm text-growth font-semibold">78% ↑</span>
-                      </div>
-                      <div className="h-2 bg-healing/20 rounded-full overflow-hidden">
-                        <div className="h-full w-3/4 bg-gradient-to-r from-growth to-healing rounded-full"></div>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <Button variant="outline" size="sm" className="bg-calm/10 hover:bg-calm/20 border-calm/30 text-xs">
-                        🎧 Hindi Support
-                      </Button>
-                      <Button variant="outline" size="sm" className="bg-trust/10 hover:bg-trust/20 border-trust/30 text-xs">
-                        📊 Analytics
-                      </Button>
-                      <Button variant="outline" size="sm" className="bg-wisdom/10 hover:bg-wisdom/20 border-wisdom/30 text-xs">
-                        🏥 NGO Network
-                      </Button>
-                      <Button variant="outline" size="sm" className="bg-healing/10 hover:bg-healing/20 border-healing/30 text-xs">
-                        🔒 Anonymous
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-border/50">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Campus wellness improvement</span>
-                      <span className="text-growth font-medium">+34% this semester</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Agents Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-4 mb-12">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-              🤖 AI-Powered Mental Health Support
+      {/* Hero Section with Integrated AI Agents */}
+      <section className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="space-y-8">
+            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30 text-base px-6 py-3">
+              🇮🇳 India's First AI-Powered Mental Wellness Platform
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Meet Your AI Companions
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Get instant support through voice or text with our empathetic AI agents, available 24/7 in multiple languages.
+
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
+              Meet Your
+              <span className="bg-gradient-to-r from-wisdom via-primary to-growth bg-clip-text text-transparent block sm:inline">
+                {" "}AI Companions
+              </span>
+            </h1>
+
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Start your mental wellness journey with Vani and Saathi - your personal AI companions
+              available 24/7 in Hindi, English, and regional languages.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {/* AI Agents - Primary Entry Gateway */}
+      <section className="relative -mt-8 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Vani - Voice Agent */}
-            <Card className="border-2 border-wisdom/20 bg-gradient-to-br from-wisdom/5 to-primary/5 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <Volume2 className="h-10 w-10 text-white" />
-                </div>
-                <CardTitle className="text-2xl">🎙️ Vani - Voice Agent</CardTitle>
-                <CardDescription className="text-base">
-                  Talk naturally with our empathetic AI companion. Speak in Hindi, English, or your preferred language.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
-                  <Languages className="h-4 w-4 text-wisdom" />
-                  <span>Hindi • English • Regional Languages</span>
-                </div>
-                <Button
-                  className="w-full bg-gradient-to-r from-wisdom to-primary"
-                  onClick={() => {
-                    setIsVaniOpen(true);
-                    setTimeout(initializeSpeechAPIs, 500);
-                  }}
-                >
-                  <Mic className="mr-2 h-4 w-4" />
-                  Start Voice Chat with Vani
-                </Button>
-              </CardContent>
-            </Card>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-wisdom via-primary to-growth rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+              <Card className="relative border-2 border-wisdom/20 bg-gradient-to-br from-white to-wisdom/5 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+                <CardHeader className="text-center pb-6">
+                  <div className="relative">
+                    <div className="w-32 h-32 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-wisdom/50 to-primary/50 animate-pulse"></div>
+                      <Volume2 className="h-16 w-16 text-white relative z-10" />
+                      <div className="absolute inset-0 bg-white/20 rounded-full animate-ping"></div>
+                    </div>
+                    <div className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-bounce">
+                      LIVE
+                    </div>
+                  </div>
+                  <CardTitle className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                    🎙️ Vani
+                  </CardTitle>
+                  <CardDescription className="text-lg text-muted-foreground font-medium">
+                    Your Real-Time Voice Companion
+                  </CardDescription>
+                  <p className="text-base text-foreground/80 mt-4 leading-relaxed">
+                    Have natural conversations with Vani in Hindi, English, or your preferred language.
+                    She understands emotions and provides instant mental health support.
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-6 px-8 pb-8">
+                  <div className="bg-gradient-to-r from-wisdom/10 to-primary/10 rounded-2xl p-6">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium text-green-700">Real-time Speech</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Languages className="h-4 w-4 text-wisdom" />
+                        <span className="text-sm font-medium">15+ Languages</span>
+                      </div>
+                    </div>
+                    <div className="flex justify-center space-x-2 mb-4">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-2 bg-gradient-to-t from-wisdom to-primary rounded-full animate-pulse"
+                          style={{
+                            height: `${Math.random() * 30 + 20}px`,
+                            animationDelay: `${i * 0.1}s`
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
 
-            {/* Text Agent */}
-            <Card className="border-2 border-trust/20 bg-gradient-to-br from-trust/5 to-growth/5 hover:shadow-xl transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <MessageCircle className="h-10 w-10 text-white" />
-                </div>
-                <CardTitle className="text-2xl">💬 Saathi - Text Agent</CardTitle>
-                <CardDescription className="text-base">
-                  Chat instantly with our AI counselor. Type your thoughts and get immediate, thoughtful responses.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
-                  <Brain className="h-4 w-4 text-trust" />
-                  <span>Instant Response • Available 24/7</span>
-                </div>
-                <Button
-                  className="w-full bg-gradient-to-r from-trust to-growth"
-                  onClick={() => setIsTextAgentOpen(true)}
-                >
-                  <Type className="mr-2 h-4 w-4" />
-                  Start Text Chat with Saathi
-                </Button>
-              </CardContent>
-            </Card>
+                  <Button
+                    size="lg"
+                    className="w-full h-16 text-lg font-bold bg-gradient-to-r from-wisdom to-primary hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                    onClick={() => {
+                      setIsVaniOpen(true);
+                      setTimeout(initializeSpeechAPIs, 500);
+                    }}
+                  >
+                    <Mic className="mr-3 h-6 w-6" />
+                    Start Talking with Vani
+                    <div className="ml-2 flex space-x-1">
+                      <div className="w-1 h-4 bg-white/60 rounded animate-pulse"></div>
+                      <div className="w-1 h-6 bg-white/80 rounded animate-pulse" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-1 h-4 bg-white/60 rounded animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                    </div>
+                  </Button>
+
+                  <div className="text-center text-sm text-muted-foreground">
+                    "नमस्ते! मैं वाणी हूं। आप कैसा महसूस कर रहे हैं?"
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Saathi - Text Agent */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-trust via-growth to-healing rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+              <Card className="relative border-2 border-trust/20 bg-gradient-to-br from-white to-trust/5 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+                <CardHeader className="text-center pb-6">
+                  <div className="relative">
+                    <div className="w-32 h-32 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-trust/50 to-growth/50 animate-pulse"></div>
+                      <MessageCircle className="h-16 w-16 text-white relative z-10" />
+                      <div className="absolute inset-0 bg-white/20 rounded-full animate-ping"></div>
+                    </div>
+                    <div className="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-bounce">
+                      CHAT
+                    </div>
+                  </div>
+                  <CardTitle className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-trust to-growth bg-clip-text text-transparent">
+                    💬 Saathi
+                  </CardTitle>
+                  <CardDescription className="text-lg text-muted-foreground font-medium">
+                    Your Instant Text Companion
+                  </CardDescription>
+                  <p className="text-base text-foreground/80 mt-4 leading-relaxed">
+                    Chat instantly with Saathi for immediate mental health support.
+                    Type in Hindi or English and get thoughtful, culturally sensitive responses.
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-6 px-8 pb-8">
+                  <div className="bg-gradient-to-r from-trust/10 to-growth/10 rounded-2xl p-6">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium text-blue-700">Instant Response</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Brain className="h-4 w-4 text-trust" />
+                        <span className="text-sm font-medium">AI Counselor</span>
+                      </div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-3 border">
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
+                        <div className="w-2 h-2 bg-trust rounded-full"></div>
+                        <span>Saathi is typing...</span>
+                        <div className="flex space-x-1">
+                          <div className="w-1 h-1 bg-trust rounded-full animate-bounce"></div>
+                          <div className="w-1 h-1 bg-trust rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                          <div className="w-1 h-1 bg-trust rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                        </div>
+                      </div>
+                      <p className="text-sm">मैं आपकी मदद करने के लिए यहाँ हूँ...</p>
+                    </div>
+                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full h-16 text-lg font-bold bg-gradient-to-r from-trust to-growth hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                    onClick={() => setIsTextAgentOpen(true)}
+                  >
+                    <Type className="mr-3 h-6 w-6" />
+                    Start Chatting with Saathi
+                    <Send className="ml-3 h-5 w-5" />
+                  </Button>
+
+                  <div className="text-center text-sm text-muted-foreground">
+                    "I understand your feelings. Let's talk about it."
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
-          {/* Quick Access Features */}
-          <div className="mt-12 bg-gradient-to-r from-calm/10 to-healing/10 rounded-2xl p-8">
-            <div className="text-center space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Why Choose AI Support?</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-primary/20 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-wisdom" />
-                  </div>
-                  <div className="text-left">
-                    <p className="font-medium">24/7 Availability</p>
-                    <p className="text-sm text-muted-foreground">Always here when you need support</p>
-                  </div>
+          {/* Quick Stats & Trust Indicators */}
+          <div className="mt-16 bg-gradient-to-r from-calm/5 via-healing/5 to-growth/5 rounded-3xl p-8 border border-wisdom/10">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Trusted by Thousands Across India</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-wisdom">50,000+</div>
+                  <div className="text-sm text-muted-foreground">Active Users</div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-growth/20 rounded-lg flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-trust" />
-                  </div>
-                  <div className="text-left">
-                    <p className="font-medium">Complete Privacy</p>
-                    <p className="text-sm text-muted-foreground">Anonymous and confidential</p>
-                  </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-trust">24/7</div>
+                  <div className="text-sm text-muted-foreground">Availability</div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-healing/20 to-growth/20 rounded-lg flex items-center justify-center">
-                    <Heart className="h-6 w-6 text-healing" />
-                  </div>
-                  <div className="text-left">
-                    <p className="font-medium">Culturally Sensitive</p>
-                    <p className="text-sm text-muted-foreground">Understands Indian context</p>
-                  </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-growth">15+</div>
+                  <div className="text-sm text-muted-foreground">Languages</div>
                 </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-healing">95%</div>
+                  <div className="text-sm text-muted-foreground">Satisfaction</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2">
+                <Shield className="h-4 w-4 text-growth" />
+                <span>Complete Privacy & Anonymity</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Heart className="h-4 w-4 text-healing" />
+                <span>Culturally Sensitive AI</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Clock className="h-4 w-4 text-wisdom" />
+                <span>Instant Support Available</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Award className="h-4 w-4 text-trust" />
+                <span>Clinically Validated</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Vani Voice Agent Modal */}
       {isVaniOpen && (
@@ -785,25 +786,41 @@ export default function Index() {
         </div>
       )}
 
-      {/* Floating Action Buttons */}
+      {/* Floating Quick Access */}
       <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-40">
-        <Button
-          size="lg"
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-wisdom to-primary shadow-2xl hover:shadow-3xl transition-all duration-300"
-          onClick={() => {
-            setIsVaniOpen(true);
-            setTimeout(initializeSpeechAPIs, 500);
-          }}
-        >
-          <Mic className="h-6 w-6 text-white" />
-        </Button>
-        <Button
-          size="lg"
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-trust to-growth shadow-2xl hover:shadow-3xl transition-all duration-300"
-          onClick={() => setIsTextAgentOpen(true)}
-        >
-          <MessageCircle className="h-6 w-6 text-white" />
-        </Button>
+        <div className="relative group">
+          <Button
+            size="lg"
+            className="w-20 h-20 rounded-full bg-gradient-to-r from-wisdom to-primary shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
+            onClick={() => {
+              setIsVaniOpen(true);
+              setTimeout(initializeSpeechAPIs, 500);
+            }}
+          >
+            <Mic className="h-8 w-8 text-white" />
+          </Button>
+          <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse">
+            🎙️
+          </div>
+          <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Talk to Vani
+          </div>
+        </div>
+        <div className="relative group">
+          <Button
+            size="lg"
+            className="w-20 h-20 rounded-full bg-gradient-to-r from-trust to-growth shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110"
+            onClick={() => setIsTextAgentOpen(true)}
+          >
+            <MessageCircle className="h-8 w-8 text-white" />
+          </Button>
+          <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse">
+            💬
+          </div>
+          <div className="absolute right-full mr-4 top-1/2 transform -translate-y-1/2 bg-black text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Chat with Saathi
+          </div>
+        </div>
       </div>
 
       {/* Solution Features */}
