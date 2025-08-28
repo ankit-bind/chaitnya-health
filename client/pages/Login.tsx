@@ -2,19 +2,20 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  Building2, 
-  GraduationCap, 
-  Mail, 
-  Lock, 
-  Eye, 
+import {
+  Heart,
+  Building2,
+  GraduationCap,
+  Mail,
+  Lock,
+  Eye,
   EyeOff,
   ArrowLeft,
   Shield,
   CheckCircle,
   Users,
-  BarChart3
+  BarChart3,
+  Briefcase
 } from "lucide-react";
 
 export default function Login() {
