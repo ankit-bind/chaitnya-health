@@ -740,7 +740,7 @@ export default function Psychologist() {
       />
 
       {/* How It Works */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/75">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">

@@ -131,7 +131,7 @@ export default function NGO() {
       services: ["School Programs", "Family Therapy", "Online Support"],
       rating: 4.7,
       volunteers: 120,
-      image: "���",
+      image: "🎓",
       description: "Focusing on student mental health across South India with innovative digital outreach programs.",
       counselors: [
         {
@@ -748,7 +748,7 @@ export default function NGO() {
       />
 
       {/* How Free Counseling Works */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/75">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">

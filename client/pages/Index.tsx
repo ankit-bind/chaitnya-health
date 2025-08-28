@@ -132,7 +132,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस लेते हैं। आप safe हैं ���र मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -955,7 +955,7 @@ export default function Index() {
       </section>
 
       {/* Competitive Advantages */}
-      <section id="competitive" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section id="competitive" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/75">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="bg-growth/10 text-growth-foreground border-growth/20">
