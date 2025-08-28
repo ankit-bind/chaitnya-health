@@ -434,7 +434,7 @@ export default function NGO() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-border/50 shadow-lg">
+            <div className="lg:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md border-b border-border shadow-lg">
               <div className="px-4 py-4 space-y-4">
                 <a href="/" className="block text-foreground/80 hover:text-foreground transition-colors">Home</a>
                 <a href="/psychologist" className="block text-foreground/80 hover:text-foreground transition-colors">Therapists</a>

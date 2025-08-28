@@ -132,7 +132,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस ले���े हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आ��के साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -310,7 +310,7 @@ export default function Index() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-border/50 shadow-lg">
+            <div className="lg:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md border-b border-border shadow-lg">
               <div className="px-4 py-4 space-y-4">
                 <a href="#solution" className="block text-foreground/80 hover:text-foreground transition-colors">Platform</a>
                 <a href="/psychologist" className="block text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
