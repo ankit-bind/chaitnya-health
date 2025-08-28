@@ -56,7 +56,7 @@ export default function Psychologist() {
       },
       todaySlots: ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"],
       tomorrowSlots: ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"],
-      image: "👩‍���️"
+      image: "👩‍⚕️"
     },
     {
       id: 2,
@@ -391,7 +391,9 @@ export default function Psychologist() {
                 <a href="/psychologist" className="block text-primary font-medium">Therapists</a>
                 <a href="/ngo" className="block text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-                  <Button variant="outline" size="sm">Institution Login</Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/login">Institution Login</a>
+                  </Button>
                   <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Session</Button>
                 </div>
               </div>

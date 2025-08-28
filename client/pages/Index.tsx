@@ -317,7 +317,9 @@ export default function Index() {
                 <a href="/ngo" className="block text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
                 <a href="#institutions" className="block text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-                  <Button variant="outline" size="sm">Institution Login</Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/login">Institution Login</a>
+                  </Button>
                   <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
                 </div>
               </div>
