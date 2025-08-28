@@ -292,7 +292,9 @@ export default function Index() {
               <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
               <a href="/ngo" className="text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
               <a href="#institutions" className="text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
-              <Button variant="outline" size="sm">Institution Login</Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/login">Institution Login</a>
+              </Button>
               <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
             </div>
 
@@ -758,7 +760,7 @@ export default function Index() {
                       if (e.key === 'Enter' && textMessage.trim()) {
                         setChatMessages(prev => [...prev,
                           { role: 'user', content: textMessage },
-                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपक��� भावनाएं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
+                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपक��� भावन���एं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
                         ]);
                         setTextMessage('');
                       }
@@ -1011,7 +1013,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30">
-              🔥 Popular This Week
+              �� Popular This Week
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Trending Mental Health Consultants

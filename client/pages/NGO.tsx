@@ -416,7 +416,9 @@ export default function NGO() {
               <a href="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</a>
               <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
               <a href="/ngo" className="text-primary font-medium">NGO Partners</a>
-              <Button variant="outline" size="sm">Institution Login</Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/login">Institution Login</a>
+              </Button>
               <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Free Session</Button>
             </div>
 
