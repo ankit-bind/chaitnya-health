@@ -72,7 +72,7 @@ export default function Login() {
           <div className="space-y-8">
             <div className="text-center lg:text-left">
               <Badge className="bg-primary/10 text-primary border-primary/30 mb-4">
-                🏢 Institutional Access
+                🏢 Enterprise Access
               </Badge>
               <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
                 Welcome Back to{" "}
@@ -81,7 +81,7 @@ export default function Login() {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Access your institutional dashboard to monitor student and employee mental wellness.
+                Access your organization's dashboard to monitor mental wellness and wellbeing.
               </p>
             </div>
 
