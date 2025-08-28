@@ -200,7 +200,7 @@ export default function Login() {
                         Signing In...
                       </>
                     ) : (
-                      `Sign In to ${loginType === "institution" ? "Dashboard" : "Admin Panel"}`
+                      `Sign In to ${loginType === "institution" ? "Dashboard" : loginType === "corporate" ? "Corporate Portal" : "Admin Panel"}`
                     )}
                   </Button>
                 </form>
