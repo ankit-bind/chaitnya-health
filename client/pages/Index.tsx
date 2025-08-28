@@ -132,7 +132,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस लेते हैं। आप safe हैं ���र मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस ले���े हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -893,7 +893,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {institutionalFeatures.map((feature, index) => (
-              <Card key={index} className="border-border/50 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow">
+              <Card key={index} className="border-border bg-white/90 backdrop-blur-sm hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-gradient-to-br from-background to-secondary rounded-2xl flex items-center justify-center mb-4">
                     {feature.icon}
@@ -928,7 +928,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {institutionTypes.map((institution, index) => (
-              <Card key={index} className="border-border/50 bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm shadow-xl">
+              <Card key={index} className="border-border bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-sm shadow-xl">
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-wisdom/10 to-trust/10 rounded-3xl flex items-center justify-center mx-auto mb-4">
                     {institution.icon}
@@ -1200,7 +1200,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground/5 border-t border-border/50 py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-foreground/10 border-t border-border py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2 space-y-4">
