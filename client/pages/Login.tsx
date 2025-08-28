@@ -141,7 +141,13 @@ export default function Login() {
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <input
                           type="email"
-                          placeholder={loginType === "institution" ? "admin@yourinstitution.edu" : "admin@chaitnyahealth.com"}
+                          placeholder={
+                            loginType === "institution"
+                              ? "admin@yourinstitution.edu"
+                              : loginType === "corporate"
+                              ? "hr@yourcompany.com"
+                              : "admin@chaitnyahealth.com"
+                          }
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           className="w-full pl-10 pr-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
