@@ -131,7 +131,7 @@ export default function NGO() {
       services: ["School Programs", "Family Therapy", "Online Support"],
       rating: 4.7,
       volunteers: 120,
-      image: "🎓",
+      image: "���",
       description: "Focusing on student mental health across South India with innovative digital outreach programs.",
       counselors: [
         {
@@ -392,9 +392,9 @@ export default function NGO() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-calm/5 to-healing/10">
+    <div className="min-h-screen bg-gradient-to-br from-background via-calm/15 to-healing/25">
       {/* Navigation */}
-      <nav className="relative bg-white/90 backdrop-blur-md border-b border-border/50 sticky top-0 z-50">
+      <nav className="relative bg-white/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
