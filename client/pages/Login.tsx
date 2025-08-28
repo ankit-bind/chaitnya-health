@@ -119,11 +119,13 @@ export default function Login() {
                 
                 <div className="text-center">
                   <CardTitle className="text-2xl">
-                    {loginType === "institution" ? "Institution Login" : "Admin Access"}
+                    {loginType === "institution" ? "Institution Login" : loginType === "corporate" ? "Corporate Login" : "Admin Access"}
                   </CardTitle>
                   <CardDescription>
-                    {loginType === "institution" 
+                    {loginType === "institution"
                       ? "Access your institutional wellness dashboard"
+                      : loginType === "corporate"
+                      ? "Enterprise wellness management platform"
                       : "Platform administration and management"
                     }
                   </CardDescription>
