@@ -21,42 +21,42 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 26.9%;
 
-    --primary: 39 84% 56%;
+    --primary: 200 70% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 142 71% 95%;
-    --secondary-foreground: 142 71% 25%;
+    --secondary: 150 30% 92%;
+    --secondary-foreground: 150 30% 25%;
 
-    --muted: 142 71% 96%;
+    --muted: 150 20% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 39 30% 84%;
-    --accent-foreground: 39 84% 56%;
+    --accent: 200 40% 85%;
+    --accent-foreground: 200 70% 45%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 60% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 39 30% 84%;
-    --input: 39 30% 84%;
-    --ring: 39 84% 56%;
+    --border: 200 30% 88%;
+    --input: 200 25% 90%;
+    --ring: 200 70% 45%;
 
-    /* Chaitnya Health colors - Indian-inspired palette */
-    --calm: 212 50% 85%;
-    --calm-foreground: 212 50% 25%;
+    /* Mental Health Optimized Colors - Calming & Therapeutic */
+    --calm: 195 40% 75%;
+    --calm-foreground: 195 60% 25%;
 
-    --healing: 142 71% 73%;
-    --healing-foreground: 142 71% 25%;
+    --healing: 160 35% 65%;
+    --healing-foreground: 160 50% 20%;
 
-    --growth: 158 100% 37%;
+    --growth: 140 40% 45%;
     --growth-foreground: 0 0% 100%;
 
-    --support: 271 76% 53%;
+    --support: 260 40% 60%;
     --support-foreground: 0 0% 100%;
 
-    --wisdom: 39 84% 56%;
+    --wisdom: 220 35% 60%;
     --wisdom-foreground: 0 0% 100%;
 
-    --trust: 212 50% 50%;
+    --trust: 200 50% 55%;
     --trust-foreground: 0 0% 100%;
 
     --radius: 0.5rem;
@@ -80,45 +80,51 @@
 
   .dark {
     --background: 215 28% 17%;
-    --foreground: 213 31% 91%;
+    --foreground: 200 25% 88%;
 
     --card: 215 28% 17%;
-    --card-foreground: 213 31% 91%;
+    --card-foreground: 200 25% 88%;
 
     --popover: 215 28% 17%;
-    --popover-foreground: 213 31% 91%;
+    --popover-foreground: 200 25% 88%;
 
-    --primary: 213 94% 68%;
+    --primary: 200 60% 65%;
     --primary-foreground: 215 28% 17%;
 
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 146 38% 85%;
+    --secondary: 215 20% 25%;
+    --secondary-foreground: 150 30% 80%;
 
-    --muted: 215 25% 27%;
+    --muted: 215 20% 25%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 215 25% 27%;
-    --accent-foreground: 213 94% 68%;
+    --accent: 215 20% 30%;
+    --accent-foreground: 200 60% 65%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 50% 45%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 27%;
-    --input: 215 25% 27%;
-    --ring: 213 94% 68%;
+    --border: 215 20% 30%;
+    --input: 215 20% 30%;
+    --ring: 200 60% 65%;
 
-    /* Mental health app dark colors */
-    --calm: 207 36% 48%;
-    --calm-foreground: 207 89% 86%;
+    /* Mental health app dark colors - Calming */
+    --calm: 195 30% 55%;
+    --calm-foreground: 195 40% 85%;
 
-    --healing: 146 30% 45%;
-    --healing-foreground: 146 50% 80%;
+    --healing: 160 25% 50%;
+    --healing-foreground: 160 35% 80%;
 
-    --growth: 158 64% 52%;
+    --growth: 140 35% 50%;
     --growth-foreground: 0 0% 100%;
 
-    --support: 262 52% 47%;
+    --support: 260 30% 55%;
     --support-foreground: 0 0% 100%;
+
+    --wisdom: 220 25% 55%;
+    --wisdom-foreground: 0 0% 100%;
+
+    --trust: 200 40% 60%;
+    --trust-foreground: 0 0% 100%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
