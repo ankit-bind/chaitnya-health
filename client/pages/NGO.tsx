@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  Users, 
-  MapPin, 
-  ChevronRight, 
-  Menu, 
+import {
+  Heart,
+  Users,
+  MapPin,
+  ChevronRight,
+  Menu,
   X,
   Star,
   Phone,
@@ -26,7 +32,7 @@ import {
   Home,
   Building2,
   Clock,
-  UserCheck
+  UserCheck,
 } from "lucide-react";
 
 export default function NGO() {
@@ -44,11 +50,16 @@ export default function NGO() {
       focus: ["Rural Mental Health", "Youth Counseling", "Community Outreach"],
       beneficiaries: "25,000+",
       languages: ["Hindi", "English", "Punjabi", "Haryanvi"],
-      services: ["Free Counseling", "Awareness Workshops", "Crisis Intervention"],
+      services: [
+        "Free Counseling",
+        "Awareness Workshops",
+        "Crisis Intervention",
+      ],
       rating: 4.8,
       volunteers: 150,
       image: "🏛️",
-      description: "Leading mental health advocacy in rural Delhi NCR, focusing on removing stigma and providing accessible care.",
+      description:
+        "Leading mental health advocacy in rural Delhi NCR, focusing on removing stigma and providing accessible care.",
       counselors: [
         {
           name: "Priya Counselor",
@@ -57,11 +68,15 @@ export default function NGO() {
           consultationModes: {
             video: { available: true, price: 0 },
             audio: { available: true, price: 0 },
-            office: { available: true, price: 0, address: "Community Center, Gurgaon" },
-            home: { available: true, price: 0, coverage: "Rural Delhi NCR" }
+            office: {
+              available: true,
+              price: 0,
+              address: "Community Center, Gurgaon",
+            },
+            home: { available: true, price: 0, coverage: "Rural Delhi NCR" },
           },
           todaySlots: ["10:00 AM", "2:00 PM", "4:00 PM"],
-          tomorrowSlots: ["9:00 AM", "11:00 AM", "3:00 PM", "5:00 PM"]
+          tomorrowSlots: ["9:00 AM", "11:00 AM", "3:00 PM", "5:00 PM"],
         },
         {
           name: "Rajesh Volunteer",
@@ -71,26 +86,31 @@ export default function NGO() {
             video: { available: false, price: 0 },
             audio: { available: true, price: 0 },
             office: { available: true, price: 0, address: "NGO Office, Noida" },
-            home: { available: true, price: 0, coverage: "Noida & Ghaziabad" }
+            home: { available: true, price: 0, coverage: "Noida & Ghaziabad" },
           },
           todaySlots: ["11:00 AM", "1:00 PM"],
-          tomorrowSlots: ["10:00 AM", "12:00 PM", "4:00 PM"]
-        }
-      ]
+          tomorrowSlots: ["10:00 AM", "12:00 PM", "4:00 PM"],
+        },
+      ],
     },
     {
       id: 2,
       name: "Sahara Wellness Network",
       location: "Mumbai & Maharashtra",
       established: "2012",
-      focus: ["Women's Mental Health", "Workplace Wellness", "Suicide Prevention"],
+      focus: [
+        "Women's Mental Health",
+        "Workplace Wellness",
+        "Suicide Prevention",
+      ],
       beneficiaries: "40,000+",
       languages: ["Marathi", "Hindi", "English", "Gujarati"],
       services: ["Support Groups", "Helpline Services", "Corporate Training"],
       rating: 4.9,
       volunteers: 200,
       image: "🤝",
-      description: "Comprehensive mental health support network serving urban and rural Maharashtra communities.",
+      description:
+        "Comprehensive mental health support network serving urban and rural Maharashtra communities.",
       counselors: [
         {
           name: "Sunita Counselor",
@@ -99,11 +119,15 @@ export default function NGO() {
           consultationModes: {
             video: { available: true, price: 0 },
             audio: { available: true, price: 0 },
-            office: { available: true, price: 0, address: "Wellness Center, Andheri" },
-            home: { available: false, price: 0, coverage: "Not Available" }
+            office: {
+              available: true,
+              price: 0,
+              address: "Wellness Center, Andheri",
+            },
+            home: { available: false, price: 0, coverage: "Not Available" },
           },
           todaySlots: ["9:00 AM", "11:00 AM", "3:00 PM", "5:00 PM"],
-          tomorrowSlots: ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM"]
+          tomorrowSlots: ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM"],
         },
         {
           name: "Amit Support Worker",
@@ -112,13 +136,17 @@ export default function NGO() {
           consultationModes: {
             video: { available: true, price: 0 },
             audio: { available: true, price: 0 },
-            office: { available: true, price: 0, address: "Community Hall, Pune" },
-            home: { available: true, price: 0, coverage: "Pune City" }
+            office: {
+              available: true,
+              price: 0,
+              address: "Community Hall, Pune",
+            },
+            home: { available: true, price: 0, coverage: "Pune City" },
           },
           todaySlots: ["12:00 PM", "2:00 PM", "6:00 PM"],
-          tomorrowSlots: ["9:00 AM", "1:00 PM", "3:00 PM", "7:00 PM"]
-        }
-      ]
+          tomorrowSlots: ["9:00 AM", "1:00 PM", "3:00 PM", "7:00 PM"],
+        },
+      ],
     },
     {
       id: 3,
@@ -132,7 +160,8 @@ export default function NGO() {
       rating: 4.7,
       volunteers: 120,
       image: "🎓",
-      description: "Focusing on student mental health across South India with innovative digital outreach programs.",
+      description:
+        "Focusing on student mental health across South India with innovative digital outreach programs.",
       counselors: [
         {
           name: "Lakshmi Counselor",
@@ -141,27 +170,49 @@ export default function NGO() {
           consultationModes: {
             video: { available: true, price: 0 },
             audio: { available: true, price: 0 },
-            office: { available: true, price: 0, address: "Trust Office, Bangalore" },
-            home: { available: true, price: 0, coverage: "Bangalore Urban" }
+            office: {
+              available: true,
+              price: 0,
+              address: "Trust Office, Bangalore",
+            },
+            home: { available: true, price: 0, coverage: "Bangalore Urban" },
           },
           todaySlots: ["10:00 AM", "1:00 PM", "4:00 PM"],
-          tomorrowSlots: ["9:00 AM", "11:00 AM", "2:00 PM", "5:00 PM"]
-        }
-      ]
-    }
+          tomorrowSlots: ["9:00 AM", "11:00 AM", "2:00 PM", "5:00 PM"],
+        },
+      ],
+    },
   ];
 
   const impactMetrics = [
-    { label: "NGO Partners", value: "50+", icon: <HandHeart className="h-6 w-6" /> },
-    { label: "Free Counselors", value: "300+", icon: <Users className="h-6 w-6" /> },
-    { label: "Communities Served", value: "500+", icon: <Target className="h-6 w-6" /> },
-    { label: "Free Sessions", value: "25,000+", icon: <Award className="h-6 w-6" /> }
+    {
+      label: "NGO Partners",
+      value: "50+",
+      icon: <HandHeart className="h-6 w-6" />,
+    },
+    {
+      label: "Free Counselors",
+      value: "300+",
+      icon: <Users className="h-6 w-6" />,
+    },
+    {
+      label: "Communities Served",
+      value: "500+",
+      icon: <Target className="h-6 w-6" />,
+    },
+    {
+      label: "Free Sessions",
+      value: "25,000+",
+      icon: <Award className="h-6 w-6" />,
+    },
   ];
 
   const BookingModal = ({ ngo, onClose }) => {
     if (!ngo) return null;
 
-    const [selectedCounselor, setSelectedCounselor] = useState(ngo.counselors[0]);
+    const [selectedCounselor, setSelectedCounselor] = useState(
+      ngo.counselors[0],
+    );
 
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -171,9 +222,13 @@ export default function NGO() {
               <div className="flex items-center space-x-3">
                 <div className="text-4xl">{ngo.image}</div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">{ngo.name}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {ngo.name}
+                  </h3>
                   <p className="text-muted-foreground">{ngo.location}</p>
-                  <Badge className="mt-1 bg-green-100 text-green-800">FREE COUNSELING</Badge>
+                  <Badge className="mt-1 bg-green-100 text-green-800">
+                    FREE COUNSELING
+                  </Badge>
                 </div>
               </div>
               <Button variant="ghost" size="sm" onClick={onClose}>
@@ -187,20 +242,28 @@ export default function NGO() {
                 <h4 className="text-lg font-semibold">Select Counselor</h4>
                 <div className="grid gap-3">
                   {ngo.counselors.map((counselor, index) => (
-                    <div 
+                    <div
                       key={index}
                       className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                        selectedCounselor?.name === counselor.name ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                        selectedCounselor?.name === counselor.name
+                          ? "border-primary bg-primary/5"
+                          : "border-border hover:border-primary/50"
                       }`}
                       onClick={() => setSelectedCounselor(counselor)}
                     >
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="font-medium">{counselor.name}</p>
-                          <p className="text-sm text-muted-foreground">{counselor.qualification}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {counselor.qualification}
+                          </p>
                           <div className="flex space-x-1 mt-1">
                             {counselor.languages.map((lang, idx) => (
-                              <Badge key={idx} variant="secondary" className="text-xs">
+                              <Badge
+                                key={idx}
+                                variant="secondary"
+                                className="text-xs"
+                              >
                                 {lang}
                               </Badge>
                             ))}
@@ -208,7 +271,9 @@ export default function NGO() {
                         </div>
                         <div className="text-right">
                           <p className="text-green-600 font-medium">FREE</p>
-                          <p className="text-xs text-muted-foreground">NGO Service</p>
+                          <p className="text-xs text-muted-foreground">
+                            NGO Service
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -219,15 +284,19 @@ export default function NGO() {
               {/* Consultation Modes */}
               {selectedCounselor && (
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold">Select Consultation Mode</h4>
+                  <h4 className="text-lg font-semibold">
+                    Select Consultation Mode
+                  </h4>
                   <div className="grid grid-cols-2 gap-4">
                     {/* Video Call */}
                     {selectedCounselor.consultationModes.video.available && (
-                      <div 
+                      <div
                         className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                          selectedMode === 'video' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                          selectedMode === "video"
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
                         }`}
-                        onClick={() => setSelectedMode('video')}
+                        onClick={() => setSelectedMode("video")}
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-trust/20 rounded-lg flex items-center justify-center">
@@ -236,7 +305,9 @@ export default function NGO() {
                           <div>
                             <p className="font-medium">Video Call</p>
                             <p className="text-sm text-green-600">FREE</p>
-                            <p className="text-xs text-muted-foreground">HD Video & Audio</p>
+                            <p className="text-xs text-muted-foreground">
+                              HD Video & Audio
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -244,11 +315,13 @@ export default function NGO() {
 
                     {/* Audio Call */}
                     {selectedCounselor.consultationModes.audio.available && (
-                      <div 
+                      <div
                         className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                          selectedMode === 'audio' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                          selectedMode === "audio"
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
                         }`}
-                        onClick={() => setSelectedMode('audio')}
+                        onClick={() => setSelectedMode("audio")}
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-12 h-12 bg-gradient-to-br from-growth/20 to-healing/20 rounded-lg flex items-center justify-center">
@@ -257,7 +330,9 @@ export default function NGO() {
                           <div>
                             <p className="font-medium">Audio Call</p>
                             <p className="text-sm text-green-600">FREE</p>
-                            <p className="text-xs text-muted-foreground">Voice Only</p>
+                            <p className="text-xs text-muted-foreground">
+                              Voice Only
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -265,11 +340,13 @@ export default function NGO() {
 
                     {/* Office Visit */}
                     {selectedCounselor.consultationModes.office.available && (
-                      <div 
+                      <div
                         className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                          selectedMode === 'office' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                          selectedMode === "office"
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
                         }`}
-                        onClick={() => setSelectedMode('office')}
+                        onClick={() => setSelectedMode("office")}
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-support/20 rounded-lg flex items-center justify-center">
@@ -278,7 +355,12 @@ export default function NGO() {
                           <div>
                             <p className="font-medium">Office Visit</p>
                             <p className="text-sm text-green-600">FREE</p>
-                            <p className="text-xs text-blue-600">{selectedCounselor.consultationModes.office.address}</p>
+                            <p className="text-xs text-blue-600">
+                              {
+                                selectedCounselor.consultationModes.office
+                                  .address
+                              }
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -286,11 +368,13 @@ export default function NGO() {
 
                     {/* Home Visit */}
                     {selectedCounselor.consultationModes.home.available && (
-                      <div 
+                      <div
                         className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                          selectedMode === 'home' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                          selectedMode === "home"
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
                         }`}
-                        onClick={() => setSelectedMode('home')}
+                        onClick={() => setSelectedMode("home")}
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-calm/20 rounded-lg flex items-center justify-center">
@@ -300,7 +384,10 @@ export default function NGO() {
                             <p className="font-medium">Home Visit</p>
                             <p className="text-sm text-green-600">FREE</p>
                             <p className="text-xs text-purple-600">
-                              {selectedCounselor.consultationModes.home.coverage}
+                              {
+                                selectedCounselor.consultationModes.home
+                                  .coverage
+                              }
                             </p>
                           </div>
                         </div>
@@ -313,17 +400,25 @@ export default function NGO() {
               {/* Time Slots */}
               {selectedMode && selectedCounselor && (
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold">Available Time Slots</h4>
-                  
+                  <h4 className="text-lg font-semibold">
+                    Available Time Slots
+                  </h4>
+
                   {/* Today's Slots */}
                   {selectedCounselor.todaySlots.length > 0 && (
                     <div className="space-y-2">
-                      <p className="font-medium text-green-600">Today ({new Date().toLocaleDateString()})</p>
+                      <p className="font-medium text-green-600">
+                        Today ({new Date().toLocaleDateString()})
+                      </p>
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                         {selectedCounselor.todaySlots.map((slot, index) => (
                           <Button
                             key={index}
-                            variant={selectedSlot === `today-${slot}` ? "default" : "outline"}
+                            variant={
+                              selectedSlot === `today-${slot}`
+                                ? "default"
+                                : "outline"
+                            }
                             size="sm"
                             className="text-xs"
                             onClick={() => setSelectedSlot(`today-${slot}`)}
@@ -338,12 +433,19 @@ export default function NGO() {
                   {/* Tomorrow's Slots */}
                   {selectedCounselor.tomorrowSlots.length > 0 && (
                     <div className="space-y-2">
-                      <p className="font-medium text-blue-600">Tomorrow ({new Date(Date.now() + 86400000).toLocaleDateString()})</p>
+                      <p className="font-medium text-blue-600">
+                        Tomorrow (
+                        {new Date(Date.now() + 86400000).toLocaleDateString()})
+                      </p>
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                         {selectedCounselor.tomorrowSlots.map((slot, index) => (
                           <Button
                             key={index}
-                            variant={selectedSlot === `tomorrow-${slot}` ? "default" : "outline"}
+                            variant={
+                              selectedSlot === `tomorrow-${slot}`
+                                ? "default"
+                                : "outline"
+                            }
                             size="sm"
                             className="text-xs"
                             onClick={() => setSelectedSlot(`tomorrow-${slot}`)}
@@ -360,23 +462,46 @@ export default function NGO() {
               {/* Booking Summary */}
               {selectedMode && selectedSlot && selectedCounselor && (
                 <div className="bg-gradient-to-r from-green-50 to-primary/10 rounded-xl p-4">
-                  <h4 className="font-semibold mb-2 text-green-800">Free Counseling Session</h4>
+                  <h4 className="font-semibold mb-2 text-green-800">
+                    Free Counseling Session
+                  </h4>
                   <div className="space-y-1 text-sm">
-                    <p><strong>NGO:</strong> {ngo.name}</p>
-                    <p><strong>Counselor:</strong> {selectedCounselor.name}</p>
-                    <p><strong>Mode:</strong> {selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1)}</p>
-                    <p><strong>Time:</strong> {selectedSlot.replace('today-', '').replace('tomorrow-', '')}</p>
-                    <p><strong>Date:</strong> {selectedSlot.includes('today') ? 'Today' : 'Tomorrow'}</p>
-                    <p><strong>Fee:</strong> <span className="text-green-600 font-medium">FREE</span></p>
+                    <p>
+                      <strong>NGO:</strong> {ngo.name}
+                    </p>
+                    <p>
+                      <strong>Counselor:</strong> {selectedCounselor.name}
+                    </p>
+                    <p>
+                      <strong>Mode:</strong>{" "}
+                      {selectedMode.charAt(0).toUpperCase() +
+                        selectedMode.slice(1)}
+                    </p>
+                    <p>
+                      <strong>Time:</strong>{" "}
+                      {selectedSlot
+                        .replace("today-", "")
+                        .replace("tomorrow-", "")}
+                    </p>
+                    <p>
+                      <strong>Date:</strong>{" "}
+                      {selectedSlot.includes("today") ? "Today" : "Tomorrow"}
+                    </p>
+                    <p>
+                      <strong>Fee:</strong>{" "}
+                      <span className="text-green-600 font-medium">FREE</span>
+                    </p>
                   </div>
                 </div>
               )}
 
               {/* Book Button */}
               <div className="flex space-x-3">
-                <Button 
-                  className="flex-1 bg-gradient-to-r from-green-600 to-growth" 
-                  disabled={!selectedMode || !selectedSlot || !selectedCounselor}
+                <Button
+                  className="flex-1 bg-gradient-to-r from-green-600 to-growth"
+                  disabled={
+                    !selectedMode || !selectedSlot || !selectedCounselor
+                  }
                 >
                   Book Free Session
                 </Button>
@@ -403,23 +528,45 @@ export default function NGO() {
                   <Heart className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <a href="/" className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                  <a
+                    href="/"
+                    className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent"
+                  >
                     Chaitnya Health
                   </a>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</a>
-              <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
-              <a href="/ngo" className="text-primary font-medium">NGO Partners</a>
+              <a
+                href="/"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Home
+              </a>
+              <a
+                href="/psychologist"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Therapists
+              </a>
+              <a href="/ngo" className="text-primary font-medium">
+                NGO Partners
+              </a>
               <Button variant="outline" size="sm" asChild>
                 <a href="/login">Institution Login</a>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Free Session</Button>
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-wisdom to-primary"
+              >
+                Book Free Session
+              </Button>
             </div>
 
             {/* Mobile menu button */}
@@ -429,7 +576,11 @@ export default function NGO() {
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -438,14 +589,31 @@ export default function NGO() {
           {isMenuOpen && (
             <div className="lg:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md border-b border-border shadow-lg">
               <div className="px-4 py-4 space-y-4">
-                <a href="/" className="block text-foreground/80 hover:text-foreground transition-colors">Home</a>
-                <a href="/psychologist" className="block text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
-                <a href="/ngo" className="block text-primary font-medium">NGO Partners</a>
+                <a
+                  href="/"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Home
+                </a>
+                <a
+                  href="/psychologist"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Therapists
+                </a>
+                <a href="/ngo" className="block text-primary font-medium">
+                  NGO Partners
+                </a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm" asChild>
                     <a href="/login">Institution Login</a>
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Free Session</Button>
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-wisdom to-primary"
+                  >
+                    Book Free Session
+                  </Button>
                 </div>
               </div>
             </div>
@@ -457,20 +625,23 @@ export default function NGO() {
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="space-y-6">
-            <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 text-base px-4 py-2">
+            <Badge
+              variant="secondary"
+              className="bg-green-100 text-green-800 border-green-200 text-base px-4 py-2"
+            >
               🤝 Free Community Counseling
             </Badge>
-            
+
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight">
               Grassroots{" "}
               <span className="bg-gradient-to-r from-green-600 via-growth to-healing bg-clip-text text-transparent">
                 Free Support Network
               </span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Access free mental health counseling through our network of NGO partners. 
-              Community-driven support in your local language.
+              Access free mental health counseling through our network of NGO
+              partners. Community-driven support in your local language.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -479,8 +650,12 @@ export default function NGO() {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-growth/20 rounded-full flex items-center justify-center mx-auto mb-2 text-green-600">
                     {metric.icon}
                   </div>
-                  <div className="text-2xl font-bold text-green-600">{metric.value}</div>
-                  <div className="text-sm text-muted-foreground">{metric.label}</div>
+                  <div className="text-2xl font-bold text-green-600">
+                    {metric.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {metric.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -492,7 +667,10 @@ export default function NGO() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-wisdom/5 to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-12">
-            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30">
+            <Badge
+              variant="secondary"
+              className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30"
+            >
               🔥 Most Popular This Week
             </Badge>
             <h2 className="text-3xl font-bold text-foreground">
@@ -516,7 +694,9 @@ export default function NGO() {
                   </div>
                 </div>
                 <CardTitle className="text-xl">Dr. Meera Sharma</CardTitle>
-                <CardDescription>Senior Counselor at Manasvi Foundation</CardDescription>
+                <CardDescription>
+                  Senior Counselor at Manasvi Foundation
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-4 mt-2">
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -527,17 +707,29 @@ export default function NGO() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 156 sessions this week</p>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 156 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
-                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Punjabi
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    "Very understanding and helpful. Made me feel comfortable immediately."
+                    "Very understanding and helpful. Made me feel comfortable
+                    immediately."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-wisdom to-primary" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-wisdom to-primary"
+                  size="sm"
+                >
                   Book with Dr. Meera
                 </Button>
               </CardContent>
@@ -555,7 +747,9 @@ export default function NGO() {
                   </div>
                 </div>
                 <CardTitle className="text-xl">Rahul Patil</CardTitle>
-                <CardDescription>Lead Counselor at Sahara Network</CardDescription>
+                <CardDescription>
+                  Lead Counselor at Sahara Network
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-4 mt-2">
                   <div className="flex items-center space-x-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -566,17 +760,28 @@ export default function NGO() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 142 sessions this week</p>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 142 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Marathi</Badge>
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Marathi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
                     "Excellent guidance for work stress. Very patient listener."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-trust to-growth" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-trust to-growth"
+                  size="sm"
+                >
                   Book with Rahul
                 </Button>
               </CardContent>
@@ -605,17 +810,28 @@ export default function NGO() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 138 sessions this week</p>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 138 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Tamil</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
-                    <Badge variant="outline" className="text-xs">Kannada</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Tamil
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Kannada
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
                     "Great for student mental health issues. Very relatable."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-growth to-healing" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-growth to-healing"
+                  size="sm"
+                >
                   Book with Anjali
                 </Button>
               </CardContent>
@@ -632,21 +848,29 @@ export default function NGO() {
               Book Free Counseling Sessions
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Connect with trained counselors from our NGO partners for completely free mental health support.
+              Connect with trained counselors from our NGO partners for
+              completely free mental health support.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ngoPartners.map((ngo, index) => (
-              <Card key={index} className="border-border bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <Card
+                key={index}
+                className="border-border bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
+              >
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="text-4xl">{ngo.image}</div>
                       <div>
                         <CardTitle className="text-xl">{ngo.name}</CardTitle>
-                        <CardDescription className="text-sm">Est. {ngo.established}</CardDescription>
-                        <Badge className="mt-1 bg-green-100 text-green-800">FREE COUNSELING</Badge>
+                        <CardDescription className="text-sm">
+                          Est. {ngo.established}
+                        </CardDescription>
+                        <Badge className="mt-1 bg-green-100 text-green-800">
+                          FREE COUNSELING
+                        </Badge>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
@@ -655,7 +879,7 @@ export default function NGO() {
                     </div>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {ngo.description}
@@ -678,34 +902,57 @@ export default function NGO() {
 
                   {/* Available Counselors Preview */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Available Counselors:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Available Counselors:
+                    </p>
                     <div className="space-y-1">
                       {ngo.counselors.slice(0, 2).map((counselor, idx) => (
-                        <div key={idx} className="text-xs p-2 bg-green-50 rounded flex items-center justify-between">
+                        <div
+                          key={idx}
+                          className="text-xs p-2 bg-green-50 rounded flex items-center justify-between"
+                        >
                           <span className="font-medium">{counselor.name}</span>
                           <div className="flex space-x-1">
-                            {counselor.consultationModes.video.available && <Video className="h-3 w-3 text-primary" />}
-                            {counselor.consultationModes.audio.available && <Phone className="h-3 w-3 text-growth" />}
-                            {counselor.consultationModes.office.available && <Building2 className="h-3 w-3 text-wisdom" />}
-                            {counselor.consultationModes.home.available && <Home className="h-3 w-3 text-trust" />}
+                            {counselor.consultationModes.video.available && (
+                              <Video className="h-3 w-3 text-primary" />
+                            )}
+                            {counselor.consultationModes.audio.available && (
+                              <Phone className="h-3 w-3 text-growth" />
+                            )}
+                            {counselor.consultationModes.office.available && (
+                              <Building2 className="h-3 w-3 text-wisdom" />
+                            )}
+                            {counselor.consultationModes.home.available && (
+                              <Home className="h-3 w-3 text-trust" />
+                            )}
                           </div>
                         </div>
                       ))}
                       {ngo.counselors.length > 2 && (
-                        <p className="text-xs text-muted-foreground">+{ngo.counselors.length - 2} more counselors</p>
+                        <p className="text-xs text-muted-foreground">
+                          +{ngo.counselors.length - 2} more counselors
+                        </p>
                       )}
                     </div>
                   </div>
 
                   {/* Next Available Slots */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Next Available Slots:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Next Available Slots:
+                    </p>
                     <div className="flex space-x-2">
-                      {ngo.counselors[0]?.todaySlots.slice(0, 3).map((slot, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
-                          {slot}
-                        </Badge>
-                      ))}
+                      {ngo.counselors[0]?.todaySlots
+                        .slice(0, 3)
+                        .map((slot, idx) => (
+                          <Badge
+                            key={idx}
+                            variant="secondary"
+                            className="text-xs bg-green-100 text-green-700"
+                          >
+                            {slot}
+                          </Badge>
+                        ))}
                       {ngo.counselors[0]?.todaySlots.length > 3 && (
                         <Badge variant="secondary" className="text-xs">
                           +{ngo.counselors[0].todaySlots.length - 3} more
@@ -715,7 +962,9 @@ export default function NGO() {
                   </div>
 
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Languages:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Languages:
+                    </p>
                     <div className="flex flex-wrap gap-1">
                       {ngo.languages.map((lang, idx) => (
                         <Badge key={idx} variant="outline" className="text-xs">
@@ -726,7 +975,7 @@ export default function NGO() {
                   </div>
 
                   <div className="pt-4 border-t border-border/50">
-                    <Button 
+                    <Button
                       className="w-full bg-gradient-to-r from-green-600 to-growth"
                       onClick={() => setSelectedNGO(ngo)}
                     >
@@ -742,13 +991,13 @@ export default function NGO() {
       </section>
 
       {/* Booking Modal */}
-      <BookingModal 
-        ngo={selectedNGO} 
+      <BookingModal
+        ngo={selectedNGO}
         onClose={() => {
           setSelectedNGO(null);
           setSelectedMode("");
           setSelectedSlot("");
-        }} 
+        }}
       />
 
       {/* How Free Counseling Works */}
@@ -770,7 +1019,8 @@ export default function NGO() {
               </div>
               <h3 className="text-xl font-semibold">Video Sessions</h3>
               <p className="text-muted-foreground text-sm">
-                Free video calls with trained counselors for face-to-face support.
+                Free video calls with trained counselors for face-to-face
+                support.
               </p>
             </div>
 
@@ -780,7 +1030,8 @@ export default function NGO() {
               </div>
               <h3 className="text-xl font-semibold">Audio Support</h3>
               <p className="text-muted-foreground text-sm">
-                Voice-only counseling sessions for comfortable, private conversations.
+                Voice-only counseling sessions for comfortable, private
+                conversations.
               </p>
             </div>
 
@@ -790,7 +1041,8 @@ export default function NGO() {
               </div>
               <h3 className="text-xl font-semibold">Community Centers</h3>
               <p className="text-muted-foreground text-sm">
-                Visit local NGO offices and community centers for in-person counseling.
+                Visit local NGO offices and community centers for in-person
+                counseling.
               </p>
             </div>
 
@@ -800,7 +1052,8 @@ export default function NGO() {
               </div>
               <h3 className="text-xl font-semibold">Home Visits</h3>
               <p className="text-muted-foreground text-sm">
-                Counselors visit your home for maximum comfort and accessibility.
+                Counselors visit your home for maximum comfort and
+                accessibility.
               </p>
             </div>
           </div>
@@ -814,10 +1067,14 @@ export default function NGO() {
             Join the Free Counseling Network
           </h2>
           <p className="text-xl text-muted-foreground">
-            If you're an NGO or community organization, partner with us to provide free mental health support to your community.
+            If you're an NGO or community organization, partner with us to
+            provide free mental health support to your community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-green-600 to-growth hover:opacity-90 transition-opacity">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-green-600 to-growth hover:opacity-90 transition-opacity"
+            >
               <HandHeart className="mr-2 h-5 w-5" />
               Become NGO Partner
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -857,17 +1114,21 @@ export default function NGO() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
                     Chaitnya Health
                   </span>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Free mental health support through our network of grassroots NGO partners. 
-                Community-driven care in your local language.
+                Free mental health support through our network of grassroots NGO
+                partners. Community-driven care in your local language.
               </p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Free Services</h3>
+              <h3 className="font-semibold text-foreground mb-4">
+                Free Services
+              </h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>Video Counseling</p>
                 <p>Audio Sessions</p>
@@ -875,9 +1136,11 @@ export default function NGO() {
                 <p>Home Visits</p>
               </div>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-foreground mb-4">NGO Partners</h3>
+              <h3 className="font-semibold text-foreground mb-4">
+                NGO Partners
+              </h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>Partnership Program</p>
                 <p>Counselor Training</p>
@@ -886,9 +1149,10 @@ export default function NGO() {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-border/50 mt-12 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 Chaitnya Health. All rights reserved. | Free Counseling | Community-Driven | Local Language Support
+            © 2024 Chaitnya Health. All rights reserved. | Free Counseling |
+            Community-Driven | Local Language Support
           </div>
         </div>
       </footer>

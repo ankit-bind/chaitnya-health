@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
+import {
+  Heart,
   Check,
   X,
   Users,
@@ -19,7 +25,7 @@ import {
   Mail,
   Star,
   Crown,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
 export default function Pricing() {
@@ -44,14 +50,14 @@ export default function Pricing() {
         "Monthly wellness reports",
         "Up to 500 users",
         "Basic integration",
-        "Community support forum"
+        "Community support forum",
       ],
       notIncluded: [
         "Therapist network access",
         "Custom branding",
         "Priority support",
-        "Advanced analytics"
-      ]
+        "Advanced analytics",
+      ],
     },
     {
       id: "professional",
@@ -72,13 +78,13 @@ export default function Pricing() {
         "Up to 2,000 users",
         "API access",
         "Priority support",
-        "Bi-weekly check-ins"
+        "Bi-weekly check-ins",
       ],
       notIncluded: [
         "White-label solution",
         "Dedicated success manager",
-        "Custom integrations"
-      ]
+        "Custom integrations",
+      ],
     },
     {
       id: "enterprise",
@@ -100,42 +106,44 @@ export default function Pricing() {
         "Full data ownership",
         "SLA guarantee",
         "Custom training programs",
-        "Priority phone support"
+        "Priority phone support",
       ],
-      notIncluded: []
-    }
+      notIncluded: [],
+    },
   ];
 
   const addOns = [
     {
       name: "Additional Therapist Sessions",
       price: "₹5 per session",
-      description: "Extra sessions beyond your plan limit"
+      description: "Extra sessions beyond your plan limit",
     },
     {
       name: "Custom Integration",
       price: "₹25,000 one-time",
-      description: "Connect with your existing HR/ERP systems"
+      description: "Connect with your existing HR/ERP systems",
     },
     {
       name: "Advanced Analytics Package",
       price: "₹10,000/month",
-      description: "Advanced reporting and predictive insights"
+      description: "Advanced reporting and predictive insights",
     },
     {
       name: "24/7 Crisis Support",
       price: "₹15,000/month",
-      description: "Emergency mental health response team"
-    }
+      description: "Emergency mental health response team",
+    },
   ];
 
-  const calculatePrice = (plan: typeof pricingPlans[0]) => {
-    const basePrice = billingPeriod === "monthly" ? plan.monthlyPrice : plan.annualPrice;
+  const calculatePrice = (plan: (typeof pricingPlans)[0]) => {
+    const basePrice =
+      billingPeriod === "monthly" ? plan.monthlyPrice : plan.annualPrice;
     if (plan.maxUsers === "Unlimited") return basePrice;
-    
+
     const additionalUsers = Math.max(0, userCount - plan.maxUsers);
-    const additionalCost = additionalUsers * (billingPeriod === "monthly" ? 2 : 1.6);
-    
+    const additionalCost =
+      additionalUsers * (billingPeriod === "monthly" ? 2 : 1.6);
+
     return basePrice + additionalCost;
   };
 
@@ -150,13 +158,18 @@ export default function Pricing() {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
-                <a href="/" className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                <a
+                  href="/"
+                  className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent"
+                >
                   Chaitnya Health
                 </a>
-                <p className="text-xs text-muted-foreground -mt-1">B2B SaaS Pricing</p>
+                <p className="text-xs text-muted-foreground -mt-1">
+                  B2B SaaS Pricing
+                </p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <Button variant="outline" size="sm">
                 <Calculator className="h-4 w-4 mr-2" />
@@ -187,7 +200,8 @@ export default function Pricing() {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Choose the perfect plan for your institution. All plans include core mental health features with transparent, per-user pricing.
+              Choose the perfect plan for your institution. All plans include
+              core mental health features with transparent, per-user pricing.
             </p>
           </div>
 
@@ -201,7 +215,9 @@ export default function Pricing() {
                   type="checkbox"
                   id="billing-toggle"
                   checked={billingPeriod === "annual"}
-                  onChange={(e) => setBillingPeriod(e.target.checked ? "annual" : "monthly")}
+                  onChange={(e) =>
+                    setBillingPeriod(e.target.checked ? "annual" : "monthly")
+                  }
                   className="sr-only"
                 />
                 <label
@@ -211,14 +227,16 @@ export default function Pricing() {
                   <div className="w-14 h-8 bg-gray-300 rounded-full relative transition-colors duration-200 ease-in-out">
                     <div
                       className={`w-6 h-6 bg-white rounded-full absolute top-1 transition-transform duration-200 ease-in-out ${
-                        billingPeriod === "annual" ? "translate-x-7" : "translate-x-1"
+                        billingPeriod === "annual"
+                          ? "translate-x-7"
+                          : "translate-x-1"
                       }`}
                     ></div>
                   </div>
                 </label>
               </div>
               <span className="text-sm text-muted-foreground">
-                Annual 
+                Annual
                 <Badge className="ml-2 bg-success/10 text-success border-success/30">
                   Save 20%
                 </Badge>
@@ -228,8 +246,12 @@ export default function Pricing() {
             {/* User Count Slider */}
             <div className="w-full max-w-md space-y-4">
               <div className="text-center">
-                <label className="text-sm font-medium text-foreground">Number of Users</label>
-                <div className="text-2xl font-bold text-primary">{userCount.toLocaleString()}</div>
+                <label className="text-sm font-medium text-foreground">
+                  Number of Users
+                </label>
+                <div className="text-2xl font-bold text-primary">
+                  {userCount.toLocaleString()}
+                </div>
               </div>
               <input
                 type="range"
@@ -252,14 +274,14 @@ export default function Pricing() {
             {pricingPlans.map((plan) => {
               const IconComponent = plan.icon;
               const calculatedPrice = calculatePrice(plan);
-              
+
               return (
-                <Card 
+                <Card
                   key={plan.id}
                   className={`border-2 bg-white/90 backdrop-blur-sm relative ${
-                    plan.popular 
-                      ? 'border-primary shadow-xl scale-105' 
-                      : 'border-border/50 hover:border-primary/50'
+                    plan.popular
+                      ? "border-primary shadow-xl scale-105"
+                      : "border-border/50 hover:border-primary/50"
                   } transition-all hover:shadow-lg`}
                 >
                   {plan.popular && (
@@ -270,35 +292,52 @@ export default function Pricing() {
                       </Badge>
                     </div>
                   )}
-                  
+
                   <CardHeader className="text-center pb-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${plan.color}/20 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                      <IconComponent className={`h-8 w-8 bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`} />
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-br ${plan.color}/20 rounded-xl flex items-center justify-center mx-auto mb-4`}
+                    >
+                      <IconComponent
+                        className={`h-8 w-8 bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`}
+                      />
                     </div>
                     <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                    <CardDescription className="text-base">{plan.description}</CardDescription>
-                    
+                    <CardDescription className="text-base">
+                      {plan.description}
+                    </CardDescription>
+
                     <div className="space-y-2">
                       <div className="text-4xl font-bold text-foreground">
                         ₹{calculatedPrice.toLocaleString()}
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        per user/{billingPeriod === "monthly" ? "month" : "year"}
+                        per user/
+                        {billingPeriod === "monthly" ? "month" : "year"}
                       </div>
                       {billingPeriod === "annual" && (
                         <div className="text-xs text-success">
-                          Save ₹{((plan.monthlyPrice - plan.annualPrice) * 12).toLocaleString()} per user/year
+                          Save ₹
+                          {(
+                            (plan.monthlyPrice - plan.annualPrice) *
+                            12
+                          ).toLocaleString()}{" "}
+                          per user/year
                         </div>
                       )}
                     </div>
                   </CardHeader>
-                  
+
                   <CardContent className="space-y-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-foreground">Included Features:</h4>
+                      <h4 className="font-semibold text-foreground">
+                        Included Features:
+                      </h4>
                       <ul className="space-y-2">
                         {plan.features.map((feature, index) => (
-                          <li key={index} className="flex items-start space-x-2 text-sm">
+                          <li
+                            key={index}
+                            className="flex items-start space-x-2 text-sm"
+                          >
                             <Check className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
                             <span>{feature}</span>
                           </li>
@@ -308,10 +347,15 @@ export default function Pricing() {
 
                     {plan.notIncluded.length > 0 && (
                       <div className="space-y-3 pt-4 border-t border-border/50">
-                        <h4 className="font-semibold text-muted-foreground">Not Included:</h4>
+                        <h4 className="font-semibold text-muted-foreground">
+                          Not Included:
+                        </h4>
                         <ul className="space-y-2">
                           {plan.notIncluded.map((feature, index) => (
-                            <li key={index} className="flex items-start space-x-2 text-sm text-muted-foreground">
+                            <li
+                              key={index}
+                              className="flex items-start space-x-2 text-sm text-muted-foreground"
+                            >
                               <X className="h-4 w-4 mt-0.5 flex-shrink-0" />
                               <span>{feature}</span>
                             </li>
@@ -320,8 +364,8 @@ export default function Pricing() {
                       </div>
                     )}
 
-                    <Button 
-                      className={`w-full ${plan.popular ? `bg-gradient-to-r ${plan.color}` : 'bg-gradient-to-r from-muted to-muted-foreground'}`}
+                    <Button
+                      className={`w-full ${plan.popular ? `bg-gradient-to-r ${plan.color}` : "bg-gradient-to-r from-muted to-muted-foreground"}`}
                       size="lg"
                     >
                       {plan.popular && <Sparkles className="h-4 w-4 mr-2" />}
@@ -336,21 +380,34 @@ export default function Pricing() {
           {/* Add-ons */}
           <div className="space-y-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Add-on Services</h2>
-              <p className="text-muted-foreground">Enhance your plan with additional features and services</p>
+              <h2 className="text-2xl font-bold text-foreground mb-4">
+                Add-on Services
+              </h2>
+              <p className="text-muted-foreground">
+                Enhance your plan with additional features and services
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {addOns.map((addon, index) => (
-                <Card key={index} className="border-2 border-border/50 bg-white/90 backdrop-blur-sm">
+                <Card
+                  key={index}
+                  className="border-2 border-border/50 bg-white/90 backdrop-blur-sm"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="space-y-2">
-                        <h3 className="font-semibold text-foreground">{addon.name}</h3>
-                        <p className="text-sm text-muted-foreground">{addon.description}</p>
+                        <h3 className="font-semibold text-foreground">
+                          {addon.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {addon.description}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-bold text-primary">{addon.price}</div>
+                        <div className="text-lg font-bold text-primary">
+                          {addon.price}
+                        </div>
                         <Button variant="outline" size="sm" className="mt-2">
                           Add to Plan
                         </Button>
@@ -365,8 +422,12 @@ export default function Pricing() {
           {/* Comparison Table */}
           <Card className="border-2 border-primary/20 bg-white/90 backdrop-blur-sm overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">Feature Comparison</CardTitle>
-              <CardDescription className="text-center">Compare all features across our plans</CardDescription>
+              <CardTitle className="text-2xl text-center">
+                Feature Comparison
+              </CardTitle>
+              <CardDescription className="text-center">
+                Compare all features across our plans
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <div className="overflow-x-auto">
@@ -375,8 +436,12 @@ export default function Pricing() {
                     <tr>
                       <th className="text-left p-4 font-semibold">Features</th>
                       <th className="text-center p-4 font-semibold">Starter</th>
-                      <th className="text-center p-4 font-semibold">Professional</th>
-                      <th className="text-center p-4 font-semibold">Enterprise</th>
+                      <th className="text-center p-4 font-semibold">
+                        Professional
+                      </th>
+                      <th className="text-center p-4 font-semibold">
+                        Enterprise
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border/50">
@@ -392,21 +457,35 @@ export default function Pricing() {
                       ["White-label", false, false, true],
                       ["Dedicated Manager", false, false, true],
                       ["Custom Integrations", false, false, true],
-                      ["SLA Guarantee", false, false, true]
-                    ].map(([feature, starter, professional, enterprise], index) => (
-                      <tr key={index} className="hover:bg-muted/30">
-                        <td className="p-4 font-medium">{feature}</td>
-                        <td className="p-4 text-center">
-                          {starter ? <Check className="h-4 w-4 text-success mx-auto" /> : <X className="h-4 w-4 text-muted-foreground mx-auto" />}
-                        </td>
-                        <td className="p-4 text-center">
-                          {professional ? <Check className="h-4 w-4 text-success mx-auto" /> : <X className="h-4 w-4 text-muted-foreground mx-auto" />}
-                        </td>
-                        <td className="p-4 text-center">
-                          {enterprise ? <Check className="h-4 w-4 text-success mx-auto" /> : <X className="h-4 w-4 text-muted-foreground mx-auto" />}
-                        </td>
-                      </tr>
-                    ))}
+                      ["SLA Guarantee", false, false, true],
+                    ].map(
+                      ([feature, starter, professional, enterprise], index) => (
+                        <tr key={index} className="hover:bg-muted/30">
+                          <td className="p-4 font-medium">{feature}</td>
+                          <td className="p-4 text-center">
+                            {starter ? (
+                              <Check className="h-4 w-4 text-success mx-auto" />
+                            ) : (
+                              <X className="h-4 w-4 text-muted-foreground mx-auto" />
+                            )}
+                          </td>
+                          <td className="p-4 text-center">
+                            {professional ? (
+                              <Check className="h-4 w-4 text-success mx-auto" />
+                            ) : (
+                              <X className="h-4 w-4 text-muted-foreground mx-auto" />
+                            )}
+                          </td>
+                          <td className="p-4 text-center">
+                            {enterprise ? (
+                              <Check className="h-4 w-4 text-success mx-auto" />
+                            ) : (
+                              <X className="h-4 w-4 text-muted-foreground mx-auto" />
+                            )}
+                          </td>
+                        </tr>
+                      ),
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -416,39 +495,46 @@ export default function Pricing() {
           {/* FAQ Section */}
           <div className="space-y-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">
+                Frequently Asked Questions
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
                   q: "Can I change plans anytime?",
-                  a: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated."
+                  a: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated.",
                 },
                 {
                   q: "What happens if I exceed my user limit?",
-                  a: "We automatically scale your plan and charge ₹2/month (or ₹1.6/month annually) for each additional user."
+                  a: "We automatically scale your plan and charge ₹2/month (or ₹1.6/month annually) for each additional user.",
                 },
                 {
                   q: "Is there a setup fee?",
-                  a: "No setup fees for Starter and Professional plans. Enterprise plans include complimentary setup and onboarding."
+                  a: "No setup fees for Starter and Professional plans. Enterprise plans include complimentary setup and onboarding.",
                 },
                 {
                   q: "Do you offer discounts for educational institutions?",
-                  a: "Yes, we offer special education pricing with up to 30% discount for qualified educational institutions."
+                  a: "Yes, we offer special education pricing with up to 30% discount for qualified educational institutions.",
                 },
                 {
                   q: "What payment methods do you accept?",
-                  a: "We accept all major credit cards, bank transfers, and offer NET-30 payment terms for Enterprise customers."
+                  a: "We accept all major credit cards, bank transfers, and offer NET-30 payment terms for Enterprise customers.",
                 },
                 {
                   q: "Is there a free trial?",
-                  a: "Yes, all plans come with a 14-day free trial. No credit card required to get started."
-                }
+                  a: "Yes, all plans come with a 14-day free trial. No credit card required to get started.",
+                },
               ].map((faq, index) => (
-                <Card key={index} className="border border-border/50 bg-white/70 backdrop-blur-sm">
+                <Card
+                  key={index}
+                  className="border border-border/50 bg-white/70 backdrop-blur-sm"
+                >
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-foreground mb-2">{faq.q}</h3>
+                    <h3 className="font-semibold text-foreground mb-2">
+                      {faq.q}
+                    </h3>
                     <p className="text-sm text-muted-foreground">{faq.a}</p>
                   </CardContent>
                 </Card>
@@ -458,12 +544,18 @@ export default function Pricing() {
 
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-wisdom/10 to-primary/10 rounded-2xl p-8 text-center border border-wisdom/30">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Ready to Transform Mental Wellness?</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Ready to Transform Mental Wellness?
+            </h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Start your 14-day free trial today. No credit card required, no setup fees, and full access to all features.
+              Start your 14-day free trial today. No credit card required, no
+              setup fees, and full access to all features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-wisdom to-primary" size="lg">
+              <Button
+                className="bg-gradient-to-r from-wisdom to-primary"
+                size="lg"
+              >
                 <Zap className="h-4 w-4 mr-2" />
                 Start Free Trial
               </Button>

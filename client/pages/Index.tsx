@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Heart,
@@ -33,7 +39,7 @@ import {
   VolumeX,
   Phone,
   Clock,
-  Star
+  Star,
 } from "lucide-react";
 
 export default function Index() {
@@ -46,10 +52,18 @@ export default function Index() {
   const [textMessage, setTextMessage] = useState("");
   const [transcript, setTranscript] = useState("");
   const [chatMessages, setChatMessages] = useState([
-    { role: "assistant", content: "नमस्ते! मैं वाणी हूं। मैं आपकी मानसिक स्वास्थ्य में कैसे मदद कर सकती हूं?" }
+    {
+      role: "assistant",
+      content:
+        "नमस्ते! मैं वाणी हूं। मैं आपकी मानसिक स्वास्थ्य में कैसे मदद कर सकती हूं?",
+    },
   ]);
   const [vaniMessages, setVaniMessages] = useState([
-    { role: "assistant", content: "Hi! I'm Vani, your voice companion. You can talk to me about anything that's on your mind." }
+    {
+      role: "assistant",
+      content:
+        "Hi! I'm Vani, your voice companion. You can talk to me about anything that's on your mind.",
+    },
   ]);
 
   // Speech Recognition Setup
@@ -58,13 +72,14 @@ export default function Index() {
 
   // Initialize Speech APIs
   const initializeSpeechAPIs = () => {
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognitionInstance = new SpeechRecognition();
 
       recognitionInstance.continuous = true;
       recognitionInstance.interimResults = true;
-      recognitionInstance.lang = 'hi-IN'; // Hindi by default, can switch to en-US
+      recognitionInstance.lang = "hi-IN"; // Hindi by default, can switch to en-US
 
       recognitionInstance.onstart = () => {
         setIsRecording(true);
@@ -72,8 +87,8 @@ export default function Index() {
       };
 
       recognitionInstance.onresult = (event) => {
-        let finalTranscript = '';
-        let interimTranscript = '';
+        let finalTranscript = "";
+        let interimTranscript = "";
 
         for (let i = event.resultIndex; i < event.results.length; i++) {
           const result = event.results[i];
@@ -96,7 +111,7 @@ export default function Index() {
       };
 
       recognitionInstance.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
+        console.error("Speech recognition error:", event.error);
         setIsRecording(false);
       };
 
@@ -104,7 +119,7 @@ export default function Index() {
     }
 
     // Initialize Speech Synthesis
-    if ('speechSynthesis' in window) {
+    if ("speechSynthesis" in window) {
       setSpeechSynthesis(window.speechSynthesis);
     }
   };
@@ -113,13 +128,13 @@ export default function Index() {
   const handleVoiceInput = async (spokenText) => {
     // Add user message
     const userMessage = { role: "user", content: spokenText };
-    setVaniMessages(prev => [...prev, userMessage]);
+    setVaniMessages((prev) => [...prev, userMessage]);
 
     // Generate AI response (simulated - replace with actual AI API)
     const aiResponse = generateVaniResponse(spokenText);
     const assistantMessage = { role: "assistant", content: aiResponse };
 
-    setVaniMessages(prev => [...prev, assistantMessage]);
+    setVaniMessages((prev) => [...prev, assistantMessage]);
 
     // Speak the response
     speakText(aiResponse);
@@ -132,7 +147,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस ��ेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस ��ेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?",
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -148,8 +163,9 @@ export default function Index() {
 
       // Try to find Hindi voice, fallback to English
       const voices = speechSynthesis.getVoices();
-      const hindiVoice = voices.find(voice => voice.lang.includes('hi')) ||
-                        voices.find(voice => voice.lang.includes('en'));
+      const hindiVoice =
+        voices.find((voice) => voice.lang.includes("hi")) ||
+        voices.find((voice) => voice.lang.includes("en"));
 
       if (hindiVoice) {
         utterance.voice = hindiVoice;
@@ -194,59 +210,69 @@ export default function Index() {
     {
       icon: <BarChart3 className="h-8 w-8 text-wisdom" />,
       title: "Institutional Dashboard",
-      description: "Real-time anonymized wellness analytics for data-driven policy making. Monitor campus mental health trends and intervention effectiveness."
+      description:
+        "Real-time anonymized wellness analytics for data-driven policy making. Monitor campus mental health trends and intervention effectiveness.",
     },
     {
       icon: <Languages className="h-8 w-8 text-trust" />,
       title: "Multi-Lingual AI Companion",
-      description: "24/7 empathetic AI support in Hindi, English, and regional languages. Culturally sensitive conversations for every Indian student."
+      description:
+        "24/7 empathetic AI support in Hindi, English, and regional languages. Culturally sensitive conversations for every Indian student.",
     },
     {
       icon: <Volume2 className="h-8 w-8 text-healing" />,
       title: "Audio-Guided Navigation",
-      description: "Slow-paced voice guidance in native languages for distressed minds. Every feature designed for accessibility and cultural comfort."
+      description:
+        "Slow-paced voice guidance in native languages for distressed minds. Every feature designed for accessibility and cultural comfort.",
     },
     {
       icon: <Building2 className="h-8 w-8 text-support" />,
       title: "B2B SaaS Platform",
-      description: "Complete institutional wellness solution with seamless integration into college and corporate wellness policies."
+      description:
+        "Complete institutional wellness solution with seamless integration into college and corporate wellness policies.",
     },
     {
       icon: <Users className="h-8 w-8 text-growth" />,
       title: "NGO Network Integration",
-      description: "Connected to grassroots NGO network 'Chaitnya Mitra' for comprehensive reach across rural and urban India."
+      description:
+        "Connected to grassroots NGO network 'Chaitnya Mitra' for comprehensive reach across rural and urban India.",
     },
     {
       icon: <Shield className="h-8 w-8 text-primary" />,
       title: "Privacy-First Design",
-      description: "Complete anonymity for AI interactions, encrypted therapy sessions, and zero data selling promise."
-    }
+      description:
+        "Complete anonymity for AI interactions, encrypted therapy sessions, and zero data selling promise.",
+    },
   ];
 
   const metrics = [
     { label: "Target Institutions", value: "200+", sublabel: "By Year 3" },
     { label: "Market Size", value: "₹800 Cr", sublabel: "SOM Target" },
     { label: "Helpfulness Score", value: "80%+", sublabel: "Clinical Target" },
-    { label: "Cost Reduction", value: "₹1500→₹300", sublabel: "Per Session" }
+    { label: "Cost Reduction", value: "₹1500→₹300", sublabel: "Per Session" },
   ];
 
   const competitiveAdvantages = [
     {
       title: "First Institutional Focus",
-      description: "B2B SaaS model targeting colleges and corporates, not just individual consumers"
+      description:
+        "B2B SaaS model targeting colleges and corporates, not just individual consumers",
     },
     {
       title: "Radical Empathy",
-      description: "Audio-guided navigation and cultural sensitivity designed for distressed minds"
+      description:
+        "Audio-guided navigation and cultural sensitivity designed for distressed minds",
     },
     {
       title: "Hybrid Ecosystem",
-      description: "Combining sophisticated tech platform with grassroots NGO network reach"
+      description:
+        "Combining sophisticated tech platform with grassroots NGO network reach",
     },
     {
       title: "Prevention-First",
-      description: "Proactive wellness engine using PHQ-9, GAD-7 for early detection"
-    }
+      description:
+        "Proactive wellness engine using PHQ-9, GAD-7 for early detection",
+    },
   ];
 
   const institutionTypes = [
@@ -255,15 +281,23 @@ export default function Index() {
       title: "Educational Institutions",
       description: "Colleges & Universities",
       pricing: "₹3L ARR",
-      features: ["Student wellness tracking", "Campus-wide mental health analytics", "Counseling center integration"]
+      features: [
+        "Student wellness tracking",
+        "Campus-wide mental health analytics",
+        "Counseling center integration",
+      ],
     },
     {
       icon: <Building2 className="h-12 w-12 text-trust" />,
-      title: "Corporate Partners", 
+      title: "Corporate Partners",
       description: "Tech & Service Companies",
       pricing: "₹5L ARR",
-      features: ["Employee burnout prevention", "Productivity analytics", "HR wellness integration"]
-    }
+      features: [
+        "Employee burnout prevention",
+        "Productivity analytics",
+        "HR wellness integration",
+      ],
+    },
   ];
 
   return (
@@ -281,21 +315,47 @@ export default function Index() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
                     Chaitnya Health
                   </span>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#solution" className="text-foreground/80 hover:text-foreground transition-colors">Platform</a>
-              <a href="/psychologist" className="text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
-              <a href="/ngo" className="text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
-              <a href="#institutions" className="text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
+              <a
+                href="#solution"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Platform
+              </a>
+              <a
+                href="/psychologist"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Therapists
+              </a>
+              <a
+                href="/ngo"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                NGO Partners
+              </a>
+              <a
+                href="#institutions"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                For Institutions
+              </a>
               <Button variant="outline" size="sm" asChild>
                 <a href="/login">Institution Login</a>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary" asChild>
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-wisdom to-primary"
+                asChild
+              >
                 <a href="/book-demo">Book Demo</a>
               </Button>
             </div>
@@ -307,7 +367,11 @@ export default function Index() {
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -316,15 +380,39 @@ export default function Index() {
           {isMenuOpen && (
             <div className="lg:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md border-b border-border shadow-lg">
               <div className="px-4 py-4 space-y-4">
-                <a href="#solution" className="block text-foreground/80 hover:text-foreground transition-colors">Platform</a>
-                <a href="/psychologist" className="block text-foreground/80 hover:text-foreground transition-colors">Therapists</a>
-                <a href="/ngo" className="block text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
-                <a href="#institutions" className="block text-foreground/80 hover:text-foreground transition-colors">For Institutions</a>
+                <a
+                  href="#solution"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Platform
+                </a>
+                <a
+                  href="/psychologist"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Therapists
+                </a>
+                <a
+                  href="/ngo"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  NGO Partners
+                </a>
+                <a
+                  href="#institutions"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  For Institutions
+                </a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm" asChild>
                     <a href="/login">Institution Login</a>
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary" asChild>
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-wisdom to-primary"
+                    asChild
+                  >
                     <a href="/book-demo">Book Demo</a>
                   </Button>
                 </div>
@@ -338,20 +426,25 @@ export default function Index() {
       <section className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="space-y-8">
-            <Badge variant="secondary" className="bg-wisdom/25 text-wisdom-foreground border-wisdom/50 text-base px-6 py-3">
+            <Badge
+              variant="secondary"
+              className="bg-wisdom/25 text-wisdom-foreground border-wisdom/50 text-base px-6 py-3"
+            >
               🇮🇳 India's First AI-Powered Mental Wellness Platform
             </Badge>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground leading-tight">
               Meet Your
               <span className="bg-gradient-to-r from-wisdom via-primary to-growth bg-clip-text text-transparent block sm:inline">
-                {" "}AI Companions
+                {" "}
+                AI Companions
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Start your mental wellness journey with Vani and Saathi - your personal AI companions
-              available 24/7 in Hindi, English, and regional languages.
+              Start your mental wellness journey with Vani and Saathi - your
+              personal AI companions available 24/7 in Hindi, English, and
+              regional languages.
             </p>
           </div>
         </div>
@@ -383,8 +476,9 @@ export default function Index() {
                     Your Real-Time Voice Companion
                   </CardDescription>
                   <p className="text-base text-foreground/80 mt-4 leading-relaxed">
-                    Have natural conversations with Vani in Hindi, English, or your preferred language.
-                    She understands emotions and provides instant mental health support.
+                    Have natural conversations with Vani in Hindi, English, or
+                    your preferred language. She understands emotions and
+                    provides instant mental health support.
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6 px-8 pb-8">
@@ -392,11 +486,15 @@ export default function Index() {
                     <div className="flex items-center justify-center space-x-4 mb-4">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium text-green-700">Real-time Speech</span>
+                        <span className="text-sm font-medium text-green-700">
+                          Real-time Speech
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Languages className="h-4 w-4 text-wisdom" />
-                        <span className="text-sm font-medium">15+ Languages</span>
+                        <span className="text-sm font-medium">
+                          15+ Languages
+                        </span>
                       </div>
                     </div>
                     <div className="flex justify-center space-x-2 mb-4">
@@ -406,7 +504,7 @@ export default function Index() {
                           className="w-2 bg-gradient-to-t from-wisdom to-primary rounded-full animate-pulse"
                           style={{
                             height: `${Math.random() * 30 + 20}px`,
-                            animationDelay: `${i * 0.1}s`
+                            animationDelay: `${i * 0.1}s`,
                           }}
                         />
                       ))}
@@ -425,8 +523,14 @@ export default function Index() {
                     Start Talking with Vani
                     <div className="ml-2 flex space-x-1">
                       <div className="w-1 h-4 bg-white/60 rounded animate-pulse"></div>
-                      <div className="w-1 h-6 bg-white/80 rounded animate-pulse" style={{animationDelay: '0.1s'}}></div>
-                      <div className="w-1 h-4 bg-white/60 rounded animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div
+                        className="w-1 h-6 bg-white/80 rounded animate-pulse"
+                        style={{ animationDelay: "0.1s" }}
+                      ></div>
+                      <div
+                        className="w-1 h-4 bg-white/60 rounded animate-pulse"
+                        style={{ animationDelay: "0.2s" }}
+                      ></div>
                     </div>
                   </Button>
 
@@ -459,8 +563,9 @@ export default function Index() {
                     Your Instant Text Companion
                   </CardDescription>
                   <p className="text-base text-foreground/80 mt-4 leading-relaxed">
-                    Chat instantly with Saathi for immediate mental health support.
-                    Type in Hindi or English and get thoughtful, culturally sensitive responses.
+                    Chat instantly with Saathi for immediate mental health
+                    support. Type in Hindi or English and get thoughtful,
+                    culturally sensitive responses.
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6 px-8 pb-8">
@@ -468,11 +573,15 @@ export default function Index() {
                     <div className="flex items-center justify-center space-x-4 mb-4">
                       <div className="flex items-center space-x-2">
                         <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium text-blue-700">Instant Response</span>
+                        <span className="text-sm font-medium text-blue-700">
+                          Instant Response
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Brain className="h-4 w-4 text-trust" />
-                        <span className="text-sm font-medium">AI Counselor</span>
+                        <span className="text-sm font-medium">
+                          AI Counselor
+                        </span>
                       </div>
                     </div>
                     <div className="bg-white/60 rounded-lg p-3 border">
@@ -481,11 +590,19 @@ export default function Index() {
                         <span>Saathi is typing...</span>
                         <div className="flex space-x-1">
                           <div className="w-1 h-1 bg-trust rounded-full animate-bounce"></div>
-                          <div className="w-1 h-1 bg-trust rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-1 h-1 bg-trust rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                          <div
+                            className="w-1 h-1 bg-trust rounded-full animate-bounce"
+                            style={{ animationDelay: "0.1s" }}
+                          ></div>
+                          <div
+                            className="w-1 h-1 bg-trust rounded-full animate-bounce"
+                            style={{ animationDelay: "0.2s" }}
+                          ></div>
                         </div>
                       </div>
-                      <p className="text-sm">मैं आपकी मदद करने के लिए यहाँ हूँ...</p>
+                      <p className="text-sm">
+                        मैं आपकी मदद करने के लिए यहाँ हूँ...
+                      </p>
                     </div>
                   </div>
 
@@ -510,15 +627,21 @@ export default function Index() {
           {/* Quick Stats & Trust Indicators */}
           <div className="mt-16 bg-gradient-to-r from-calm/5 via-healing/5 to-growth/5 rounded-3xl p-8 border border-wisdom/10">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Trusted by Thousands Across India</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Trusted by Thousands Across India
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-wisdom">50,000+</div>
-                  <div className="text-sm text-muted-foreground">Active Users</div>
+                  <div className="text-sm text-muted-foreground">
+                    Active Users
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-trust">24/7</div>
-                  <div className="text-sm text-muted-foreground">Availability</div>
+                  <div className="text-sm text-muted-foreground">
+                    Availability
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-growth">15+</div>
@@ -526,7 +649,9 @@ export default function Index() {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-healing">95%</div>
-                  <div className="text-sm text-muted-foreground">Satisfaction</div>
+                  <div className="text-sm text-muted-foreground">
+                    Satisfaction
+                  </div>
                 </div>
               </div>
             </div>
@@ -553,7 +678,6 @@ export default function Index() {
         </div>
       </section>
 
-
       {/* Vani Voice Agent Modal */}
       {isVaniOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -565,11 +689,19 @@ export default function Index() {
                     <Volume2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground">🎙️ Vani</h3>
-                    <p className="text-muted-foreground">Your Voice Companion</p>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      🎙️ Vani
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Your Voice Companion
+                    </p>
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" onClick={() => setIsVaniOpen(false)}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsVaniOpen(false)}
+                >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
@@ -577,25 +709,35 @@ export default function Index() {
               <div className="space-y-6">
                 {/* Voice Status */}
                 <div className="text-center space-y-2">
-                  <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${
-                    isRecording ? 'bg-red-100 text-red-700' :
-                    isVaniSpeaking ? 'bg-blue-100 text-blue-700' :
-                    'bg-green-100 text-green-700'
-                  }`}>
+                  <div
+                    className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${
+                      isRecording
+                        ? "bg-red-100 text-red-700"
+                        : isVaniSpeaking
+                          ? "bg-blue-100 text-blue-700"
+                          : "bg-green-100 text-green-700"
+                    }`}
+                  >
                     {isRecording ? (
                       <>
                         <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Listening...</span>
+                        <span className="text-sm font-medium">
+                          Listening...
+                        </span>
                       </>
                     ) : isVaniSpeaking ? (
                       <>
                         <Volume2 className="h-4 w-4" />
-                        <span className="text-sm font-medium">Vani is speaking...</span>
+                        <span className="text-sm font-medium">
+                          Vani is speaking...
+                        </span>
                       </>
                     ) : (
                       <>
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-sm font-medium">Ready to listen</span>
+                        <span className="text-sm font-medium">
+                          Ready to listen
+                        </span>
                       </>
                     )}
                   </div>
@@ -612,14 +754,19 @@ export default function Index() {
                 {/* Voice Messages */}
                 <div className="max-h-64 overflow-y-auto space-y-4 bg-gradient-to-br from-calm/10 to-healing/10 rounded-2xl p-4">
                   {vaniMessages.map((message, index) => (
-                    <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-xs p-3 rounded-2xl ${
-                        message.role === 'user'
-                          ? 'bg-wisdom text-white'
-                          : 'bg-white border shadow-sm'
-                      }`}>
+                    <div
+                      key={index}
+                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-xs p-3 rounded-2xl ${
+                          message.role === "user"
+                            ? "bg-wisdom text-white"
+                            : "bg-white border shadow-sm"
+                        }`}
+                      >
                         <div className="flex items-start space-x-2">
-                          {message.role === 'user' ? (
+                          {message.role === "user" ? (
                             <Mic className="h-3 w-3 mt-1 flex-shrink-0" />
                           ) : (
                             <Volume2 className="h-3 w-3 mt-1 flex-shrink-0 text-wisdom" />
@@ -638,12 +785,16 @@ export default function Index() {
                       size="lg"
                       className={`w-20 h-20 rounded-full ${
                         isRecording
-                          ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                          : 'bg-gradient-to-r from-wisdom to-primary'
+                          ? "bg-red-500 hover:bg-red-600 animate-pulse"
+                          : "bg-gradient-to-r from-wisdom to-primary"
                       }`}
                       onClick={toggleVoiceRecording}
                     >
-                      {isRecording ? <MicOff className="h-8 w-8 text-white" /> : <Mic className="h-8 w-8 text-white" />}
+                      {isRecording ? (
+                        <MicOff className="h-8 w-8 text-white" />
+                      ) : (
+                        <Mic className="h-8 w-8 text-white" />
+                      )}
                     </Button>
 
                     {isVaniSpeaking && (
@@ -659,9 +810,11 @@ export default function Index() {
                   </div>
 
                   <p className="text-sm text-muted-foreground">
-                    {isRecording ? 'Listening... Tap to stop' :
-                     isVaniSpeaking ? 'Vani is responding... Tap ❌ to stop' :
-                     'Tap to start real-time voice chat'}
+                    {isRecording
+                      ? "Listening... Tap to stop"
+                      : isVaniSpeaking
+                        ? "Vani is responding... Tap ❌ to stop"
+                        : "Tap to start real-time voice chat"}
                   </p>
 
                   {/* Language Toggle */}
@@ -671,7 +824,7 @@ export default function Index() {
                       size="sm"
                       onClick={() => {
                         if (recognition) {
-                          recognition.lang = 'hi-IN';
+                          recognition.lang = "hi-IN";
                         }
                       }}
                     >
@@ -682,7 +835,7 @@ export default function Index() {
                       size="sm"
                       onClick={() => {
                         if (recognition) {
-                          recognition.lang = 'en-US';
+                          recognition.lang = "en-US";
                         }
                       }}
                     >
@@ -696,11 +849,16 @@ export default function Index() {
                       <div
                         key={i}
                         className={`w-1 bg-wisdom rounded-full transition-all duration-300 ${
-                          isRecording || isVaniSpeaking ? 'h-6 animate-pulse' : 'h-2'
+                          isRecording || isVaniSpeaking
+                            ? "h-6 animate-pulse"
+                            : "h-2"
                         }`}
                         style={{
                           animationDelay: `${i * 0.1}s`,
-                          height: isRecording || isVaniSpeaking ? `${Math.random() * 20 + 10}px` : '8px'
+                          height:
+                            isRecording || isVaniSpeaking
+                              ? `${Math.random() * 20 + 10}px`
+                              : "8px",
                         }}
                       />
                     ))}
@@ -708,7 +866,8 @@ export default function Index() {
                 </div>
 
                 <div className="text-center text-xs text-muted-foreground">
-                  Real-time voice conversation • Hindi & English • Browser speech recognition required
+                  Real-time voice conversation • Hindi & English • Browser
+                  speech recognition required
                 </div>
               </div>
             </div>
@@ -727,11 +886,17 @@ export default function Index() {
                     <MessageCircle className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground">💬 Saathi</h3>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      💬 Saathi
+                    </h3>
                     <p className="text-muted-foreground">Your Text Companion</p>
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" onClick={() => setIsTextAgentOpen(false)}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsTextAgentOpen(false)}
+                >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
@@ -740,12 +905,17 @@ export default function Index() {
                 {/* Chat Messages */}
                 <div className="max-h-64 overflow-y-auto space-y-4 bg-gradient-to-br from-trust/10 to-growth/10 rounded-2xl p-4">
                   {chatMessages.map((message, index) => (
-                    <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-xs p-3 rounded-2xl ${
-                        message.role === 'user'
-                          ? 'bg-trust text-white'
-                          : 'bg-white border shadow-sm'
-                      }`}>
+                    <div
+                      key={index}
+                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-xs p-3 rounded-2xl ${
+                          message.role === "user"
+                            ? "bg-trust text-white"
+                            : "bg-white border shadow-sm"
+                        }`}
+                      >
                         <p className="text-sm">{message.content}</p>
                       </div>
                     </div>
@@ -761,12 +931,17 @@ export default function Index() {
                     onChange={(e) => setTextMessage(e.target.value)}
                     className="flex-1 p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-trust"
                     onKeyPress={(e) => {
-                      if (e.key === 'Enter' && textMessage.trim()) {
-                        setChatMessages(prev => [...prev,
-                          { role: 'user', content: textMessage },
-                          { role: 'assistant', content: 'मैं सम�� सकता हूं कि यह कठिन समय है। आपक��� भावन���एं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?' }
+                      if (e.key === "Enter" && textMessage.trim()) {
+                        setChatMessages((prev) => [
+                          ...prev,
+                          { role: "user", content: textMessage },
+                          {
+                            role: "assistant",
+                            content:
+                              "मैं सम�� सकता हूं कि यह कठिन समय है। आपक��� भावन���एं बिल्कुल valid हैं। क्या आप मुझे बताना चाहेंगे कि आप कैसा महसूस कर रहे हैं?",
+                          },
                         ]);
-                        setTextMessage('');
+                        setTextMessage("");
                       }
                     }}
                   />
@@ -774,11 +949,16 @@ export default function Index() {
                     className="bg-gradient-to-r from-trust to-growth"
                     onClick={() => {
                       if (textMessage.trim()) {
-                        setChatMessages(prev => [...prev,
-                          { role: 'user', content: textMessage },
-                          { role: 'assistant', content: 'Thank you for sharing that with me. I can sense you\'re going through something difficult. Remember, it\'s okay to not be okay sometimes. What\'s one small thing that usually brings you comfort?' }
+                        setChatMessages((prev) => [
+                          ...prev,
+                          { role: "user", content: textMessage },
+                          {
+                            role: "assistant",
+                            content:
+                              "Thank you for sharing that with me. I can sense you're going through something difficult. Remember, it's okay to not be okay sometimes. What's one small thing that usually brings you comfort?",
+                          },
                         ]);
-                        setTextMessage('');
+                        setTextMessage("");
                       }
                     }}
                   >
@@ -787,7 +967,8 @@ export default function Index() {
                 </div>
 
                 <div className="text-center text-xs text-muted-foreground">
-                  Saathi understands context and cultural nuances • Available in Hindi & English
+                  Saathi understands context and cultural nuances • Available in
+                  Hindi & English
                 </div>
               </div>
             </div>
@@ -836,15 +1017,19 @@ export default function Index() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-calm/5 to-healing/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+            <Badge
+              variant="secondary"
+              className="bg-primary/10 text-primary border-primary/20"
+            >
               🤖 Experience the Future of Mental Health Support
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               How Your AI Companions Support You
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Vani and Saathi use advanced AI to provide culturally-sensitive, personalized mental health support
-              that understands your unique needs and cultural context.
+              Vani and Saathi use advanced AI to provide culturally-sensitive,
+              personalized mental health support that understands your unique
+              needs and cultural context.
             </p>
           </div>
 
@@ -855,7 +1040,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold">Understand Emotions</h3>
               <p className="text-muted-foreground">
-                Our AI recognizes emotional cues in your voice and text, providing empathetic responses tailored to your current state.
+                Our AI recognizes emotional cues in your voice and text,
+                providing empathetic responses tailored to your current state.
               </p>
             </div>
             <div className="text-center space-y-4">
@@ -864,7 +1050,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold">Cultural Sensitivity</h3>
               <p className="text-muted-foreground">
-                Trained on Indian cultural contexts, family dynamics, and social pressures to provide relevant, respectful guidance.
+                Trained on Indian cultural contexts, family dynamics, and social
+                pressures to provide relevant, respectful guidance.
               </p>
             </div>
             <div className="text-center space-y-4">
@@ -873,7 +1060,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold">Complete Privacy</h3>
               <p className="text-muted-foreground">
-                All conversations are anonymous and encrypted. No personal data is stored or shared with anyone.
+                All conversations are anonymous and encrypted. No personal data
+                is stored or shared with anyone.
               </p>
             </div>
           </div>
@@ -881,19 +1069,27 @@ export default function Index() {
           {/* Business Value Proposition */}
           <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8 mb-16">
             <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold text-red-800">The Mental Health Crisis in India</h3>
+              <h3 className="text-2xl font-bold text-red-800">
+                The Mental Health Crisis in India
+              </h3>
               <div className="grid md:grid-cols-3 gap-6 text-red-800">
                 <div className="text-center">
                   <div className="text-3xl font-bold">80%</div>
-                  <div className="text-sm">College counseling centers under-utilized due to stigma</div>
+                  <div className="text-sm">
+                    College counseling centers under-utilized due to stigma
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold">₹1500+</div>
-                  <div className="text-sm">Per therapy session creates access barriers</div>
+                  <div className="text-sm">
+                    Per therapy session creates access barriers
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold">$150B</div>
-                  <div className="text-sm">Annual productivity loss from burnout</div>
+                  <div className="text-sm">
+                    Annual productivity loss from burnout
+                  </div>
                 </div>
               </div>
             </div>
@@ -901,7 +1097,10 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {institutionalFeatures.map((feature, index) => (
-              <Card key={index} className="border-border bg-white/90 backdrop-blur-sm hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="border-border bg-white/90 backdrop-blur-sm hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="w-16 h-16 bg-gradient-to-br from-background to-secondary rounded-2xl flex items-center justify-center mb-4">
                     {feature.icon}
@@ -923,27 +1122,40 @@ export default function Index() {
       <section id="institutions" className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="bg-trust/10 text-trust-foreground border-trust/20">
+            <Badge
+              variant="secondary"
+              className="bg-trust/10 text-trust-foreground border-trust/20"
+            >
               B2B SaaS Powerhouse
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Built for institutional wellness
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Strategic partnerships with colleges and corporates for data-driven policy making and scalable impact.
+              Strategic partnerships with colleges and corporates for
+              data-driven policy making and scalable impact.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {institutionTypes.map((institution, index) => (
-              <Card key={index} className="border-border bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-sm shadow-xl">
+              <Card
+                key={index}
+                className="border-border bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-sm shadow-xl"
+              >
                 <CardHeader className="text-center pb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-wisdom/10 to-trust/10 rounded-3xl flex items-center justify-center mx-auto mb-4">
                     {institution.icon}
                   </div>
-                  <CardTitle className="text-2xl">{institution.title}</CardTitle>
-                  <CardDescription className="text-lg">{institution.description}</CardDescription>
-                  <div className="text-3xl font-bold text-wisdom mt-4">{institution.pricing}</div>
+                  <CardTitle className="text-2xl">
+                    {institution.title}
+                  </CardTitle>
+                  <CardDescription className="text-lg">
+                    {institution.description}
+                  </CardDescription>
+                  <div className="text-3xl font-bold text-wisdom mt-4">
+                    {institution.pricing}
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {institution.features.map((feature, idx) => (
@@ -963,48 +1175,72 @@ export default function Index() {
       </section>
 
       {/* Competitive Advantages */}
-      <section id="competitive" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/75">
+      <section
+        id="competitive"
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-white/75"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="bg-growth/10 text-growth-foreground border-growth/20">
+            <Badge
+              variant="secondary"
+              className="bg-growth/10 text-growth-foreground border-growth/20"
+            >
               Our Unfair Advantage
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Building an unbreakable moat
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unique combination of technology, empathy, and ecosystem thinking that creates strong defensibility.
+              Unique combination of technology, empathy, and ecosystem thinking
+              that creates strong defensibility.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {competitiveAdvantages.map((advantage, index) => (
-              <div key={index} className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/30 shadow-lg">
-                <h3 className="text-xl font-bold text-foreground mb-4">{advantage.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
+              <div
+                key={index}
+                className="bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/30 shadow-lg"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-4">
+                  {advantage.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {advantage.description}
+                </p>
               </div>
             ))}
           </div>
 
           <div className="mt-16 bg-gradient-to-r from-wisdom/15 to-primary/15 rounded-3xl p-8 border border-wisdom/40">
             <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold text-foreground">Market Leadership Metrics</h3>
+              <h3 className="text-2xl font-bold text-foreground">
+                Market Leadership Metrics
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-wisdom">₹10 Cr</div>
-                  <div className="text-sm text-muted-foreground">ARR Target Year 3</div>
+                  <div className="text-sm text-muted-foreground">
+                    ARR Target Year 3
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-growth">500K</div>
-                  <div className="text-sm text-muted-foreground">Active Users</div>
+                  <div className="text-sm text-muted-foreground">
+                    Active Users
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-trust">200</div>
-                  <div className="text-sm text-muted-foreground">Partner Institutions</div>
+                  <div className="text-sm text-muted-foreground">
+                    Partner Institutions
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-support">5%</div>
-                  <div className="text-sm text-muted-foreground">Market Share (SOM)</div>
+                  <div className="text-sm text-muted-foreground">
+                    Market Share (SOM)
+                  </div>
                 </div>
               </div>
             </div>
@@ -1016,14 +1252,18 @@ export default function Index() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30">
+            <Badge
+              variant="secondary"
+              className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30"
+            >
               �� Popular This Week
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Trending Mental Health Consultants
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Connect with the most trusted and popular mental health professionals across India
+              Connect with the most trusted and popular mental health
+              professionals across India
             </p>
           </div>
 
@@ -1040,19 +1280,29 @@ export default function Index() {
                   </div>
                 </div>
                 <CardTitle className="text-lg">Dr. Meera Sharma</CardTitle>
-                <CardDescription className="text-sm">Senior Counselor</CardDescription>
+                <CardDescription className="text-sm">
+                  Senior Counselor
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-2 mt-2">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-medium">4.9</span>
-                  <Badge className="bg-green-100 text-green-800 text-xs">FREE</Badge>
+                  <Badge className="bg-green-100 text-green-800 text-xs">
+                    FREE
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
                 <div className="text-center space-y-2">
-                  <p className="text-xs text-muted-foreground">156 sessions this week</p>
+                  <p className="text-xs text-muted-foreground">
+                    156 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-1">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
@@ -1070,19 +1320,29 @@ export default function Index() {
                   </div>
                 </div>
                 <CardTitle className="text-lg">Dr. Kavya Nair</CardTitle>
-                <CardDescription className="text-sm">Licensed Therapist</CardDescription>
+                <CardDescription className="text-sm">
+                  Licensed Therapist
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-2 mt-2">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-medium">4.9</span>
-                  <Badge className="bg-blue-100 text-blue-800 text-xs">₹350</Badge>
+                  <Badge className="bg-blue-100 text-blue-800 text-xs">
+                    ₹350
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
                 <div className="text-center space-y-2">
-                  <p className="text-xs text-muted-foreground">89 sessions this week</p>
+                  <p className="text-xs text-muted-foreground">
+                    89 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-1">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">Malayalam</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Malayalam
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
@@ -1100,19 +1360,29 @@ export default function Index() {
                   </div>
                 </div>
                 <CardTitle className="text-lg">Rahul Patil</CardTitle>
-                <CardDescription className="text-sm">NGO Counselor</CardDescription>
+                <CardDescription className="text-sm">
+                  NGO Counselor
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-2 mt-2">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-medium">4.8</span>
-                  <Badge className="bg-green-100 text-green-800 text-xs">FREE</Badge>
+                  <Badge className="bg-green-100 text-green-800 text-xs">
+                    FREE
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
                 <div className="text-center space-y-2">
-                  <p className="text-xs text-muted-foreground">142 sessions this week</p>
+                  <p className="text-xs text-muted-foreground">
+                    142 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-1">
-                    <Badge variant="outline" className="text-xs">Marathi</Badge>
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Marathi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
@@ -1130,19 +1400,29 @@ export default function Index() {
                   </div>
                 </div>
                 <CardTitle className="text-lg">Dr. Arjun Singh</CardTitle>
-                <CardDescription className="text-sm">Psychiatrist</CardDescription>
+                <CardDescription className="text-sm">
+                  Psychiatrist
+                </CardDescription>
                 <div className="flex justify-center items-center space-x-2 mt-2">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-medium">4.8</span>
-                  <Badge className="bg-purple-100 text-purple-800 text-xs">₹450</Badge>
+                  <Badge className="bg-purple-100 text-purple-800 text-xs">
+                    ₹450
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
                 <div className="text-center space-y-2">
-                  <p className="text-xs text-muted-foreground">76 sessions this week</p>
+                  <p className="text-xs text-muted-foreground">
+                    76 sessions this week
+                  </p>
                   <div className="flex justify-center space-x-1">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Punjabi
+                    </Badge>
                   </div>
                 </div>
               </CardContent>
@@ -1154,16 +1434,17 @@ export default function Index() {
               See what makes these consultants so popular with our users
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-gradient-to-r from-wisdom to-primary">
+              <Button
+                asChild
+                className="bg-gradient-to-r from-wisdom to-primary"
+              >
                 <a href="/psychologist">
                   View All Therapists
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/ngo">
-                  Explore Free Consultants
-                </a>
+                <a href="/ngo">Explore Free Consultants</a>
               </Button>
             </div>
           </div>
@@ -1177,10 +1458,14 @@ export default function Index() {
             Join us in building a mentally resilient India
           </h2>
           <p className="text-xl text-muted-foreground">
-            Partner with Chaitnya Health to transform mental wellness across Indian institutions.
+            Partner with Chaitnya Health to transform mental wellness across
+            Indian institutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-wisdom to-primary hover:opacity-90 transition-opacity">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-wisdom to-primary hover:opacity-90 transition-opacity"
+            >
               <Building2 className="mr-2 h-5 w-5" />
               Start Institutional Pilot
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -1220,19 +1505,21 @@ export default function Index() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
                     Chaitnya Health
                   </span>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Building a future where every Indian, regardless of location or income, 
-                has a trusted companion for their mental well-being.
+                Building a future where every Indian, regardless of location or
+                income, has a trusted companion for their mental well-being.
               </p>
               <div className="text-sm text-muted-foreground">
                 <p>Contact: itz.ankitbind01@gmail.com</p>
                 <p>Seeking: ₹1.5 Cr Seed Round • 18-month runway</p>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-foreground mb-4">Platform</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
@@ -1242,9 +1529,11 @@ export default function Index() {
                 <p>NGO Integration</p>
               </div>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-foreground mb-4">For Institutions</h3>
+              <h3 className="font-semibold text-foreground mb-4">
+                For Institutions
+              </h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>Pilot Programs</p>
                 <p>B2B SaaS Pricing</p>
@@ -1253,9 +1542,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-border/50 mt-12 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 Chaitnya Health. All rights reserved. | Privacy-First | Zero Data Selling | Radically Empathetic
+            © 2024 Chaitnya Health. All rights reserved. | Privacy-First | Zero
+            Data Selling | Radically Empathetic
           </div>
         </div>
       </footer>

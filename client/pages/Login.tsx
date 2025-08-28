@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Heart,
@@ -15,7 +21,7 @@ import {
   CheckCircle,
   Users,
   BarChart3,
-  Briefcase
+  Briefcase,
 } from "lucide-react";
 
 export default function Login() {
@@ -28,10 +34,10 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate login process
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     // For demo purposes - you would integrate with real authentication here
     alert(`Login successful for ${email} as ${loginType}!`);
     setIsLoading(false);
@@ -48,13 +54,18 @@ export default function Login() {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
-                <a href="/" className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                <a
+                  href="/"
+                  className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent"
+                >
                   Chaitnya Health
                 </a>
-                <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                <p className="text-xs text-muted-foreground -mt-1">
+                  India's First Step to Mental Wellness
+                </p>
               </div>
             </div>
-            
+
             <Button variant="ghost" asChild>
               <a href="/" className="flex items-center space-x-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -81,7 +92,8 @@ export default function Login() {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Access your organization's dashboard to monitor mental wellness and wellbeing.
+                Access your organization's dashboard to monitor mental wellness
+                and wellbeing.
               </p>
             </div>
 
@@ -89,10 +101,16 @@ export default function Login() {
               <CardHeader className="space-y-4">
                 <div className="flex justify-center space-x-2">
                   <Button
-                    variant={loginType === "institution" ? "default" : "outline"}
+                    variant={
+                      loginType === "institution" ? "default" : "outline"
+                    }
                     size="sm"
                     onClick={() => setLoginType("institution")}
-                    className={loginType === "institution" ? "bg-gradient-to-r from-wisdom to-primary" : ""}
+                    className={
+                      loginType === "institution"
+                        ? "bg-gradient-to-r from-wisdom to-primary"
+                        : ""
+                    }
                   >
                     <Building2 className="h-4 w-4 mr-2" />
                     Institution
@@ -101,7 +119,11 @@ export default function Login() {
                     variant={loginType === "corporate" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setLoginType("corporate")}
-                    className={loginType === "corporate" ? "bg-gradient-to-r from-support to-calm" : ""}
+                    className={
+                      loginType === "corporate"
+                        ? "bg-gradient-to-r from-support to-calm"
+                        : ""
+                    }
                   >
                     <Briefcase className="h-4 w-4 mr-2" />
                     Corporate
@@ -110,24 +132,31 @@ export default function Login() {
                     variant={loginType === "admin" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setLoginType("admin")}
-                    className={loginType === "admin" ? "bg-gradient-to-r from-trust to-growth" : ""}
+                    className={
+                      loginType === "admin"
+                        ? "bg-gradient-to-r from-trust to-growth"
+                        : ""
+                    }
                   >
                     <Shield className="h-4 w-4 mr-2" />
                     Admin
                   </Button>
                 </div>
-                
+
                 <div className="text-center">
                   <CardTitle className="text-2xl">
-                    {loginType === "institution" ? "Institution Login" : loginType === "corporate" ? "Corporate Login" : "Admin Access"}
+                    {loginType === "institution"
+                      ? "Institution Login"
+                      : loginType === "corporate"
+                        ? "Corporate Login"
+                        : "Admin Access"}
                   </CardTitle>
                   <CardDescription>
                     {loginType === "institution"
                       ? "Access your institutional wellness dashboard"
                       : loginType === "corporate"
-                      ? "Enterprise wellness management platform"
-                      : "Platform administration and management"
-                    }
+                        ? "Enterprise wellness management platform"
+                        : "Platform administration and management"}
                   </CardDescription>
                 </div>
               </CardHeader>
@@ -136,7 +165,9 @@ export default function Login() {
                 <form onSubmit={handleLogin} className="space-y-6">
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">Email Address</label>
+                      <label className="text-sm font-medium text-foreground">
+                        Email Address
+                      </label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <input
@@ -145,8 +176,8 @@ export default function Login() {
                             loginType === "institution"
                               ? "admin@yourinstitution.edu"
                               : loginType === "corporate"
-                              ? "hr@yourcompany.com"
-                              : "admin@chaitnyahealth.com"
+                                ? "hr@yourcompany.com"
+                                : "admin@chaitnyahealth.com"
                           }
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
@@ -157,7 +188,9 @@ export default function Login() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">Password</label>
+                      <label className="text-sm font-medium text-foreground">
+                        Password
+                      </label>
                       <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <input
@@ -173,7 +206,11 @@ export default function Login() {
                           onClick={() => setShowPassword(!showPassword)}
                           className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
                         >
-                          {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                          {showPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                          ) : (
+                            <Eye className="h-4 w-4" />
+                          )}
                         </button>
                       </div>
                     </div>
@@ -181,7 +218,10 @@ export default function Login() {
 
                   <div className="flex items-center justify-between text-sm">
                     <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded border-border" />
+                      <input
+                        type="checkbox"
+                        className="rounded border-border"
+                      />
                       <span className="text-muted-foreground">Remember me</span>
                     </label>
                     <a href="#" className="text-primary hover:underline">
@@ -208,7 +248,10 @@ export default function Login() {
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
                     Don't have an account?{" "}
-                    <a href="#" className="text-primary hover:underline font-medium">
+                    <a
+                      href="#"
+                      className="text-primary hover:underline font-medium"
+                    >
                       Request institutional access
                     </a>
                   </p>
@@ -223,16 +266,19 @@ export default function Login() {
               <h2 className="text-2xl font-bold text-foreground">
                 Institutional Dashboard Features
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-4 p-4 bg-white/70 rounded-xl border border-border/50">
                   <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-primary/20 rounded-lg flex items-center justify-center">
                     <BarChart3 className="h-6 w-6 text-wisdom" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Real-time Analytics</h3>
+                    <h3 className="font-semibold text-foreground">
+                      Real-time Analytics
+                    </h3>
                     <p className="text-sm text-muted-foreground">
-                      Monitor campus mental health trends, intervention effectiveness, and wellness scores.
+                      Monitor campus mental health trends, intervention
+                      effectiveness, and wellness scores.
                     </p>
                   </div>
                 </div>
@@ -242,9 +288,12 @@ export default function Login() {
                     <Users className="h-6 w-6 text-trust" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Student Tracking</h3>
+                    <h3 className="font-semibold text-foreground">
+                      Student Tracking
+                    </h3>
                     <p className="text-sm text-muted-foreground">
-                      Anonymous wellness tracking with early intervention alerts and support recommendations.
+                      Anonymous wellness tracking with early intervention alerts
+                      and support recommendations.
                     </p>
                   </div>
                 </div>
@@ -254,9 +303,12 @@ export default function Login() {
                     <Shield className="h-6 w-6 text-growth" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Privacy Compliant</h3>
+                    <h3 className="font-semibold text-foreground">
+                      Privacy Compliant
+                    </h3>
                     <p className="text-sm text-muted-foreground">
-                      Complete anonymity with encrypted data and zero personal information storage.
+                      Complete anonymity with encrypted data and zero personal
+                      information storage.
                     </p>
                   </div>
                 </div>
@@ -266,9 +318,12 @@ export default function Login() {
                     <CheckCircle className="h-6 w-6 text-support" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Policy Integration</h3>
+                    <h3 className="font-semibold text-foreground">
+                      Policy Integration
+                    </h3>
                     <p className="text-sm text-muted-foreground">
-                      Seamless integration with your existing wellness policies and counseling centers.
+                      Seamless integration with your existing wellness policies
+                      and counseling centers.
                     </p>
                   </div>
                 </div>
@@ -277,19 +332,27 @@ export default function Login() {
 
             <div className="bg-gradient-to-r from-wisdom/10 to-primary/10 rounded-2xl p-6 border border-wisdom/30">
               <div className="text-center space-y-4">
-                <h3 className="text-lg font-bold text-foreground">Trusted by 200+ Institutions</h3>
+                <h3 className="text-lg font-bold text-foreground">
+                  Trusted by 200+ Institutions
+                </h3>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-wisdom">500K+</div>
-                    <div className="text-xs text-muted-foreground">Active Students</div>
+                    <div className="text-xs text-muted-foreground">
+                      Active Students
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-trust">95%</div>
-                    <div className="text-xs text-muted-foreground">Satisfaction Rate</div>
+                    <div className="text-xs text-muted-foreground">
+                      Satisfaction Rate
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-growth">24/7</div>
-                    <div className="text-xs text-muted-foreground">Support Available</div>
+                    <div className="text-xs text-muted-foreground">
+                      Support Available
+                    </div>
                   </div>
                 </div>
               </div>
@@ -302,7 +365,9 @@ export default function Login() {
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
         <div className="flex items-center space-x-2 text-xs text-muted-foreground bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50">
           <Shield className="h-3 w-3" />
-          <span>Secure institutional access • HIPAA compliant • End-to-end encrypted</span>
+          <span>
+            Secure institutional access • HIPAA compliant • End-to-end encrypted
+          </span>
         </div>
       </div>
     </div>

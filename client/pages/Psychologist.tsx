@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
-  Brain, 
-  Users, 
-  Calendar, 
-  Shield, 
-  ChevronRight, 
-  Menu, 
+import {
+  Heart,
+  Brain,
+  Users,
+  Calendar,
+  Shield,
+  ChevronRight,
+  Menu,
   X,
   Star,
   MapPin,
@@ -26,7 +32,7 @@ import {
   Building2,
   Headphones,
   VideoIcon,
-  PhoneCall
+  PhoneCall,
 } from "lucide-react";
 
 export default function Psychologist() {
@@ -52,11 +58,11 @@ export default function Psychologist() {
         video: { available: true, price: 400 },
         audio: { available: true, price: 300 },
         office: { available: true, price: 500, address: "Sector 18, Noida" },
-        home: { available: true, price: 800, coverage: "Delhi NCR" }
+        home: { available: true, price: 800, coverage: "Delhi NCR" },
       },
       todaySlots: ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"],
       tomorrowSlots: ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"],
-      image: "👩‍⚕️"
+      image: "👩‍⚕️",
     },
     {
       id: 2,
@@ -72,12 +78,16 @@ export default function Psychologist() {
       consultationModes: {
         video: { available: true, price: 500 },
         audio: { available: true, price: 400 },
-        office: { available: true, price: 600, address: "Andheri West, Mumbai" },
-        home: { available: false, price: 0, coverage: "Not Available" }
+        office: {
+          available: true,
+          price: 600,
+          address: "Andheri West, Mumbai",
+        },
+        home: { available: false, price: 0, coverage: "Not Available" },
       },
       todaySlots: [],
       tomorrowSlots: ["10:00 AM", "2:00 PM", "4:00 PM", "6:00 PM"],
-      image: "👨‍⚕️"
+      image: "👨‍⚕️",
     },
     {
       id: 3,
@@ -93,12 +103,16 @@ export default function Psychologist() {
       consultationModes: {
         video: { available: true, price: 350 },
         audio: { available: true, price: 250 },
-        office: { available: true, price: 400, address: "Koramangala, Bangalore" },
-        home: { available: true, price: 600, coverage: "Bangalore Urban" }
+        office: {
+          available: true,
+          price: 400,
+          address: "Koramangala, Bangalore",
+        },
+        home: { available: true, price: 600, coverage: "Bangalore Urban" },
       },
       todaySlots: ["11:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"],
       tomorrowSlots: ["9:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"],
-      image: "👩‍⚕️"
+      image: "👩‍⚕️",
     },
     {
       id: 4,
@@ -115,12 +129,12 @@ export default function Psychologist() {
         video: { available: true, price: 450 },
         audio: { available: true, price: 350 },
         office: { available: true, price: 550, address: "Koregaon Park, Pune" },
-        home: { available: true, price: 750, coverage: "Pune & PCMC" }
+        home: { available: true, price: 750, coverage: "Pune & PCMC" },
       },
       todaySlots: ["9:00 AM", "11:00 AM", "2:00 PM", "4:00 PM"],
       tomorrowSlots: ["10:00 AM", "12:00 PM", "3:00 PM", "5:00 PM", "7:00 PM"],
-      image: "👨‍⚕️"
-    }
+      image: "👨‍⚕️",
+    },
   ];
 
   const filters = [
@@ -129,11 +143,11 @@ export default function Psychologist() {
     { id: "video", label: "Video Sessions" },
     { id: "home", label: "Home Visits" },
     { id: "hindi", label: "Hindi Speaking" },
-    { id: "budget", label: "Under ₹400" }
+    { id: "budget", label: "Under ₹400" },
   ];
 
-  const filteredTherapists = therapists.filter(therapist => {
-    switch(selectedFilter) {
+  const filteredTherapists = therapists.filter((therapist) => {
+    switch (selectedFilter) {
       case "available":
         return therapist.availability.includes("Available");
       case "video":
@@ -143,10 +157,12 @@ export default function Psychologist() {
       case "hindi":
         return therapist.languages.includes("Hindi");
       case "budget":
-        return Math.min(
-          therapist.consultationModes.video.price, 
-          therapist.consultationModes.audio.price
-        ) <= 400;
+        return (
+          Math.min(
+            therapist.consultationModes.video.price,
+            therapist.consultationModes.audio.price,
+          ) <= 400
+        );
       default:
         return true;
     }
@@ -163,8 +179,12 @@ export default function Psychologist() {
               <div className="flex items-center space-x-3">
                 <div className="text-4xl">{therapist.image}</div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">{therapist.name}</h3>
-                  <p className="text-muted-foreground">{therapist.qualification}</p>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    {therapist.name}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {therapist.qualification}
+                  </p>
                 </div>
               </div>
               <Button variant="ghost" size="sm" onClick={onClose}>
@@ -175,14 +195,18 @@ export default function Psychologist() {
             <div className="space-y-6">
               {/* Consultation Modes */}
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold">Select Consultation Mode</h4>
+                <h4 className="text-lg font-semibold">
+                  Select Consultation Mode
+                </h4>
                 <div className="grid grid-cols-2 gap-4">
                   {/* Video Call */}
-                  <div 
+                  <div
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                      selectedMode === 'video' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      selectedMode === "video"
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-primary/50"
                     }`}
-                    onClick={() => setSelectedMode('video')}
+                    onClick={() => setSelectedMode("video")}
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-trust/20 rounded-lg flex items-center justify-center">
@@ -190,18 +214,24 @@ export default function Psychologist() {
                       </div>
                       <div>
                         <p className="font-medium">Video Call</p>
-                        <p className="text-sm text-muted-foreground">₹{therapist.consultationModes.video.price}</p>
-                        <p className="text-xs text-green-600">HD Video & Audio</p>
+                        <p className="text-sm text-muted-foreground">
+                          ₹{therapist.consultationModes.video.price}
+                        </p>
+                        <p className="text-xs text-green-600">
+                          HD Video & Audio
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Audio Call */}
-                  <div 
+                  <div
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                      selectedMode === 'audio' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      selectedMode === "audio"
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-primary/50"
                     }`}
-                    onClick={() => setSelectedMode('audio')}
+                    onClick={() => setSelectedMode("audio")}
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-growth/20 to-healing/20 rounded-lg flex items-center justify-center">
@@ -209,18 +239,24 @@ export default function Psychologist() {
                       </div>
                       <div>
                         <p className="font-medium">Audio Call</p>
-                        <p className="text-sm text-muted-foreground">₹{therapist.consultationModes.audio.price}</p>
-                        <p className="text-xs text-green-600">Crystal Clear Audio</p>
+                        <p className="text-sm text-muted-foreground">
+                          ₹{therapist.consultationModes.audio.price}
+                        </p>
+                        <p className="text-xs text-green-600">
+                          Crystal Clear Audio
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Office Visit */}
-                  <div 
+                  <div
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                      selectedMode === 'office' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      selectedMode === "office"
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-primary/50"
                     }`}
-                    onClick={() => setSelectedMode('office')}
+                    onClick={() => setSelectedMode("office")}
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-wisdom/20 to-support/20 rounded-lg flex items-center justify-center">
@@ -228,19 +264,29 @@ export default function Psychologist() {
                       </div>
                       <div>
                         <p className="font-medium">Office Visit</p>
-                        <p className="text-sm text-muted-foreground">₹{therapist.consultationModes.office.price}</p>
-                        <p className="text-xs text-blue-600">{therapist.consultationModes.office.address}</p>
+                        <p className="text-sm text-muted-foreground">
+                          ₹{therapist.consultationModes.office.price}
+                        </p>
+                        <p className="text-xs text-blue-600">
+                          {therapist.consultationModes.office.address}
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Home Visit */}
-                  <div 
+                  <div
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
-                      !therapist.consultationModes.home.available ? 'opacity-50 cursor-not-allowed' :
-                      selectedMode === 'home' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
+                      !therapist.consultationModes.home.available
+                        ? "opacity-50 cursor-not-allowed"
+                        : selectedMode === "home"
+                          ? "border-primary bg-primary/5"
+                          : "border-border hover:border-primary/50"
                     }`}
-                    onClick={() => therapist.consultationModes.home.available && setSelectedMode('home')}
+                    onClick={() =>
+                      therapist.consultationModes.home.available &&
+                      setSelectedMode("home")
+                    }
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-trust/20 to-calm/20 rounded-lg flex items-center justify-center">
@@ -249,10 +295,9 @@ export default function Psychologist() {
                       <div>
                         <p className="font-medium">Home Visit</p>
                         <p className="text-sm text-muted-foreground">
-                          {therapist.consultationModes.home.available ? 
-                            `₹${therapist.consultationModes.home.price}` : 
-                            'Not Available'
-                          }
+                          {therapist.consultationModes.home.available
+                            ? `₹${therapist.consultationModes.home.price}`
+                            : "Not Available"}
                         </p>
                         <p className="text-xs text-purple-600">
                           {therapist.consultationModes.home.coverage}
@@ -266,17 +311,25 @@ export default function Psychologist() {
               {/* Time Slots */}
               {selectedMode && (
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold">Available Time Slots</h4>
-                  
+                  <h4 className="text-lg font-semibold">
+                    Available Time Slots
+                  </h4>
+
                   {/* Today's Slots */}
                   {therapist.todaySlots.length > 0 && (
                     <div className="space-y-2">
-                      <p className="font-medium text-green-600">Today ({new Date().toLocaleDateString()})</p>
+                      <p className="font-medium text-green-600">
+                        Today ({new Date().toLocaleDateString()})
+                      </p>
                       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                         {therapist.todaySlots.map((slot, index) => (
                           <Button
                             key={index}
-                            variant={selectedSlot === `today-${slot}` ? "default" : "outline"}
+                            variant={
+                              selectedSlot === `today-${slot}`
+                                ? "default"
+                                : "outline"
+                            }
                             size="sm"
                             className="text-xs"
                             onClick={() => setSelectedSlot(`today-${slot}`)}
@@ -291,12 +344,19 @@ export default function Psychologist() {
                   {/* Tomorrow's Slots */}
                   {therapist.tomorrowSlots.length > 0 && (
                     <div className="space-y-2">
-                      <p className="font-medium text-blue-600">Tomorrow ({new Date(Date.now() + 86400000).toLocaleDateString()})</p>
+                      <p className="font-medium text-blue-600">
+                        Tomorrow (
+                        {new Date(Date.now() + 86400000).toLocaleDateString()})
+                      </p>
                       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                         {therapist.tomorrowSlots.map((slot, index) => (
                           <Button
                             key={index}
-                            variant={selectedSlot === `tomorrow-${slot}` ? "default" : "outline"}
+                            variant={
+                              selectedSlot === `tomorrow-${slot}`
+                                ? "default"
+                                : "outline"
+                            }
                             size="sm"
                             className="text-xs"
                             onClick={() => setSelectedSlot(`tomorrow-${slot}`)}
@@ -315,18 +375,33 @@ export default function Psychologist() {
                 <div className="bg-gradient-to-r from-primary/10 to-wisdom/10 rounded-xl p-4">
                   <h4 className="font-semibold mb-2">Booking Summary</h4>
                   <div className="space-y-1 text-sm">
-                    <p><strong>Mode:</strong> {selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1)}</p>
-                    <p><strong>Time:</strong> {selectedSlot.replace('today-', '').replace('tomorrow-', '')}</p>
-                    <p><strong>Date:</strong> {selectedSlot.includes('today') ? 'Today' : 'Tomorrow'}</p>
-                    <p><strong>Fee:</strong> ₹{therapist.consultationModes[selectedMode].price}</p>
+                    <p>
+                      <strong>Mode:</strong>{" "}
+                      {selectedMode.charAt(0).toUpperCase() +
+                        selectedMode.slice(1)}
+                    </p>
+                    <p>
+                      <strong>Time:</strong>{" "}
+                      {selectedSlot
+                        .replace("today-", "")
+                        .replace("tomorrow-", "")}
+                    </p>
+                    <p>
+                      <strong>Date:</strong>{" "}
+                      {selectedSlot.includes("today") ? "Today" : "Tomorrow"}
+                    </p>
+                    <p>
+                      <strong>Fee:</strong> ₹
+                      {therapist.consultationModes[selectedMode].price}
+                    </p>
                   </div>
                 </div>
               )}
 
               {/* Book Button */}
               <div className="flex space-x-3">
-                <Button 
-                  className="flex-1 bg-gradient-to-r from-wisdom to-primary" 
+                <Button
+                  className="flex-1 bg-gradient-to-r from-wisdom to-primary"
                   disabled={!selectedMode || !selectedSlot}
                 >
                   Confirm Booking
@@ -354,23 +429,45 @@ export default function Psychologist() {
                   <Heart className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <a href="/" className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                  <a
+                    href="/"
+                    className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent"
+                  >
                     Chaitnya Health
                   </a>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</a>
-              <a href="/psychologist" className="text-primary font-medium">Therapists</a>
-              <a href="/ngo" className="text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
+              <a
+                href="/"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Home
+              </a>
+              <a href="/psychologist" className="text-primary font-medium">
+                Therapists
+              </a>
+              <a
+                href="/ngo"
+                className="text-foreground/80 hover:text-foreground transition-colors"
+              >
+                NGO Partners
+              </a>
               <Button variant="outline" size="sm" asChild>
                 <a href="/login">Institution Login</a>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Session</Button>
+              <Button
+                size="sm"
+                className="bg-gradient-to-r from-wisdom to-primary"
+              >
+                Book Session
+              </Button>
             </div>
 
             {/* Mobile menu button */}
@@ -380,7 +477,11 @@ export default function Psychologist() {
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -389,14 +490,34 @@ export default function Psychologist() {
           {isMenuOpen && (
             <div className="lg:hidden absolute top-full left-0 w-full bg-white/98 backdrop-blur-md border-b border-border shadow-lg">
               <div className="px-4 py-4 space-y-4">
-                <a href="/" className="block text-foreground/80 hover:text-foreground transition-colors">Home</a>
-                <a href="/psychologist" className="block text-primary font-medium">Therapists</a>
-                <a href="/ngo" className="block text-foreground/80 hover:text-foreground transition-colors">NGO Partners</a>
+                <a
+                  href="/"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Home
+                </a>
+                <a
+                  href="/psychologist"
+                  className="block text-primary font-medium"
+                >
+                  Therapists
+                </a>
+                <a
+                  href="/ngo"
+                  className="block text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  NGO Partners
+                </a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm" asChild>
                     <a href="/login">Institution Login</a>
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Session</Button>
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-wisdom to-primary"
+                  >
+                    Book Session
+                  </Button>
                 </div>
               </div>
             </div>
@@ -408,20 +529,23 @@ export default function Psychologist() {
       <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="space-y-6">
-            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30 text-base px-4 py-2">
+            <Badge
+              variant="secondary"
+              className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30 text-base px-4 py-2"
+            >
               🧠 Book Instant Consultations
             </Badge>
-            
+
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight">
               Choose Your{" "}
               <span className="bg-gradient-to-r from-wisdom via-primary to-growth bg-clip-text text-transparent">
                 Consultation Mode
               </span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Video calls, audio sessions, office visits, or home consultations - 
-              get mental health support the way that works best for you.
+              Video calls, audio sessions, office visits, or home consultations
+              - get mental health support the way that works best for you.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
@@ -456,7 +580,11 @@ export default function Psychologist() {
                 variant={selectedFilter === filter.id ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedFilter(filter.id)}
-                className={selectedFilter === filter.id ? "bg-gradient-to-r from-wisdom to-primary" : ""}
+                className={
+                  selectedFilter === filter.id
+                    ? "bg-gradient-to-r from-wisdom to-primary"
+                    : ""
+                }
               >
                 {filter.label}
               </Button>
@@ -469,7 +597,10 @@ export default function Psychologist() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary/5 to-wisdom/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-12">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+            <Badge
+              variant="secondary"
+              className="bg-primary/10 text-primary border-primary/20"
+            >
               ⭐ Top Rated This Month
             </Badge>
             <h2 className="text-3xl font-bold text-foreground">
@@ -499,23 +630,39 @@ export default function Psychologist() {
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-medium">4.9</span>
                   </div>
-                  <Badge className="bg-blue-100 text-blue-800">Video + Audio</Badge>
+                  <Badge className="bg-blue-100 text-blue-800">
+                    Video + Audio
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 89 sessions this week</p>
-                  <div className="text-lg font-bold text-primary">₹350/session</div>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 89 sessions this week
+                  </p>
+                  <div className="text-lg font-bold text-primary">
+                    ₹350/session
+                  </div>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
-                    <Badge variant="outline" className="text-xs">Malayalam</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Malayalam
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    "Life-changing sessions. Very professional and caring approach."
+                    "Life-changing sessions. Very professional and caring
+                    approach."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-primary to-wisdom" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-primary to-wisdom"
+                  size="sm"
+                >
                   Book with Dr. Kavya
                 </Button>
               </CardContent>
@@ -539,23 +686,38 @@ export default function Psychologist() {
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-medium">4.8</span>
                   </div>
-                  <Badge className="bg-purple-100 text-purple-800">All Modes</Badge>
+                  <Badge className="bg-purple-100 text-purple-800">
+                    All Modes
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 76 sessions this week</p>
-                  <div className="text-lg font-bold text-trust">₹450/session</div>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 76 sessions this week
+                  </p>
+                  <div className="text-lg font-bold text-trust">
+                    ₹450/session
+                  </div>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
-                    <Badge variant="outline" className="text-xs">Punjabi</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Punjabi
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
                     "Expert in anxiety disorders. Very thorough and helpful."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-trust to-growth" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-trust to-growth"
+                  size="sm"
+                >
                   Book with Dr. Arjun
                 </Button>
               </CardContent>
@@ -579,23 +741,39 @@ export default function Psychologist() {
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-medium">4.7</span>
                   </div>
-                  <Badge className="bg-green-100 text-green-800">Student Specialist</Badge>
+                  <Badge className="bg-green-100 text-green-800">
+                    Student Specialist
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-center space-y-2">
-                  <p className="text-sm text-muted-foreground">🔥 72 sessions this week</p>
-                  <div className="text-lg font-bold text-growth">₹300/session</div>
+                  <p className="text-sm text-muted-foreground">
+                    🔥 72 sessions this week
+                  </p>
+                  <div className="text-lg font-bold text-growth">
+                    ₹300/session
+                  </div>
                   <div className="flex justify-center space-x-2">
-                    <Badge variant="outline" className="text-xs">Hindi</Badge>
-                    <Badge variant="outline" className="text-xs">English</Badge>
-                    <Badge variant="outline" className="text-xs">Bengali</Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Hindi
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      English
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      Bengali
+                    </Badge>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    "Amazing with young adults. Really understands our generation."
+                    "Amazing with young adults. Really understands our
+                    generation."
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-growth to-healing" size="sm">
+                <Button
+                  className="w-full bg-gradient-to-r from-growth to-healing"
+                  size="sm"
+                >
                   Book with Dr. Sneha
                 </Button>
               </CardContent>
@@ -612,28 +790,38 @@ export default function Psychologist() {
               All Licensed Therapists
             </h2>
             <p className="text-lg text-muted-foreground">
-              Browse our complete network of verified mental health professionals
+              Browse our complete network of verified mental health
+              professionals
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTherapists.map((therapist, index) => (
-              <Card key={index} className="border-border bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <Card
+                key={index}
+                className="border-border bg-white/95 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
+              >
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="text-4xl">{therapist.image}</div>
                       <div>
-                        <CardTitle className="text-xl">{therapist.name}</CardTitle>
-                        <CardDescription className="text-sm">{therapist.qualification}</CardDescription>
+                        <CardTitle className="text-xl">
+                          {therapist.name}
+                        </CardTitle>
+                        <CardDescription className="text-sm">
+                          {therapist.qualification}
+                        </CardDescription>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">{therapist.rating}</span>
+                      <span className="text-sm font-medium">
+                        {therapist.rating}
+                      </span>
                     </div>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2 text-sm">
@@ -652,38 +840,52 @@ export default function Psychologist() {
 
                   {/* Consultation Modes Quick View */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Available Modes:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Available Modes:
+                    </p>
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="flex items-center justify-between p-2 bg-primary/5 rounded">
                         <div className="flex items-center space-x-1">
                           <Video className="h-3 w-3 text-primary" />
                           <span>Video</span>
                         </div>
-                        <span className="font-medium">₹{therapist.consultationModes.video.price}</span>
+                        <span className="font-medium">
+                          ₹{therapist.consultationModes.video.price}
+                        </span>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-growth/5 rounded">
                         <div className="flex items-center space-x-1">
                           <Phone className="h-3 w-3 text-growth" />
                           <span>Audio</span>
                         </div>
-                        <span className="font-medium">₹{therapist.consultationModes.audio.price}</span>
+                        <span className="font-medium">
+                          ₹{therapist.consultationModes.audio.price}
+                        </span>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-wisdom/5 rounded">
                         <div className="flex items-center space-x-1">
                           <Building2 className="h-3 w-3 text-wisdom" />
                           <span>Office</span>
                         </div>
-                        <span className="font-medium">₹{therapist.consultationModes.office.price}</span>
+                        <span className="font-medium">
+                          ₹{therapist.consultationModes.office.price}
+                        </span>
                       </div>
-                      <div className={`flex items-center justify-between p-2 rounded ${
-                        therapist.consultationModes.home.available ? 'bg-trust/5' : 'bg-gray-100'
-                      }`}>
+                      <div
+                        className={`flex items-center justify-between p-2 rounded ${
+                          therapist.consultationModes.home.available
+                            ? "bg-trust/5"
+                            : "bg-gray-100"
+                        }`}
+                      >
                         <div className="flex items-center space-x-1">
                           <Home className="h-3 w-3 text-trust" />
                           <span>Home</span>
                         </div>
                         <span className="font-medium">
-                          {therapist.consultationModes.home.available ? `₹${therapist.consultationModes.home.price}` : 'N/A'}
+                          {therapist.consultationModes.home.available
+                            ? `₹${therapist.consultationModes.home.price}`
+                            : "N/A"}
                         </span>
                       </div>
                     </div>
@@ -691,10 +893,16 @@ export default function Psychologist() {
 
                   {/* Quick Slots Preview */}
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Next Available:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Next Available:
+                    </p>
                     <div className="flex space-x-2">
                       {therapist.todaySlots.slice(0, 3).map((slot, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs bg-green-100 text-green-700">
+                        <Badge
+                          key={idx}
+                          variant="secondary"
+                          className="text-xs bg-green-100 text-green-700"
+                        >
                           {slot}
                         </Badge>
                       ))}
@@ -707,7 +915,9 @@ export default function Psychologist() {
                   </div>
 
                   <div className="space-y-2">
-                    <p className="text-sm font-medium text-foreground">Languages:</p>
+                    <p className="text-sm font-medium text-foreground">
+                      Languages:
+                    </p>
                     <div className="flex flex-wrap gap-1">
                       {therapist.languages.map((lang, idx) => (
                         <Badge key={idx} variant="outline" className="text-xs">
@@ -718,7 +928,7 @@ export default function Psychologist() {
                   </div>
 
                   <div className="pt-4 border-t border-border/50">
-                    <Button 
+                    <Button
                       className="w-full bg-gradient-to-r from-wisdom to-primary"
                       onClick={() => setSelectedTherapist(therapist)}
                     >
@@ -734,13 +944,13 @@ export default function Psychologist() {
       </section>
 
       {/* Booking Modal */}
-      <BookingModal 
-        therapist={selectedTherapist} 
+      <BookingModal
+        therapist={selectedTherapist}
         onClose={() => {
           setSelectedTherapist(null);
           setSelectedMode("");
           setSelectedSlot("");
-        }} 
+        }}
       />
 
       {/* How It Works */}
@@ -751,7 +961,8 @@ export default function Psychologist() {
               Multiple Ways to Connect
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choose the consultation mode that works best for your comfort and convenience
+              Choose the consultation mode that works best for your comfort and
+              convenience
             </p>
           </div>
 
@@ -762,7 +973,8 @@ export default function Psychologist() {
               </div>
               <h3 className="text-xl font-semibold">Video Consultation</h3>
               <p className="text-muted-foreground text-sm">
-                Face-to-face sessions with HD video quality. Build better rapport with your therapist.
+                Face-to-face sessions with HD video quality. Build better
+                rapport with your therapist.
               </p>
             </div>
 
@@ -772,7 +984,8 @@ export default function Psychologist() {
               </div>
               <h3 className="text-xl font-semibold">Audio Sessions</h3>
               <p className="text-muted-foreground text-sm">
-                Voice-only sessions for privacy. Perfect when you prefer not to be on camera.
+                Voice-only sessions for privacy. Perfect when you prefer not to
+                be on camera.
               </p>
             </div>
 
@@ -782,7 +995,8 @@ export default function Psychologist() {
               </div>
               <h3 className="text-xl font-semibold">Office Visits</h3>
               <p className="text-muted-foreground text-sm">
-                Traditional in-person sessions at the therapist's clinic for a familiar experience.
+                Traditional in-person sessions at the therapist's clinic for a
+                familiar experience.
               </p>
             </div>
 
@@ -792,7 +1006,8 @@ export default function Psychologist() {
               </div>
               <h3 className="text-xl font-semibold">Home Consultations</h3>
               <p className="text-muted-foreground text-sm">
-                Therapist visits your home for maximum comfort and convenience (where available).
+                Therapist visits your home for maximum comfort and convenience
+                (where available).
               </p>
             </div>
           </div>
@@ -812,16 +1027,21 @@ export default function Psychologist() {
                   <span className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
                     Chaitnya Health
                   </span>
-                  <p className="text-xs text-muted-foreground -mt-1">India's First Step to Mental Wellness</p>
+                  <p className="text-xs text-muted-foreground -mt-1">
+                    India's First Step to Mental Wellness
+                  </p>
                 </div>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Flexible mental healthcare that adapts to your lifestyle. Video, audio, office, or home - we're here however you need us.
+                Flexible mental healthcare that adapts to your lifestyle. Video,
+                audio, office, or home - we're here however you need us.
               </p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Consultation Modes</h3>
+              <h3 className="font-semibold text-foreground mb-4">
+                Consultation Modes
+              </h3>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>Video Consultations</p>
                 <p>Audio Sessions</p>
@@ -829,7 +1049,7 @@ export default function Psychologist() {
                 <p>Home Consultations</p>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold text-foreground mb-4">Support</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
@@ -840,9 +1060,10 @@ export default function Psychologist() {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-border/50 mt-12 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 Chaitnya Health. All rights reserved. | Secure Consultations | Licensed Professionals | Flexible Modes
+            © 2024 Chaitnya Health. All rights reserved. | Secure Consultations
+            | Licensed Professionals | Flexible Modes
           </div>
         </div>
       </footer>

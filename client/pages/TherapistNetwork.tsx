@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Heart, 
+import {
+  Heart,
   Users,
   MapPin,
   Star,
@@ -20,7 +26,7 @@ import {
   Award,
   CheckCircle,
   MessageCircle,
-  Stethoscope
+  Stethoscope,
 } from "lucide-react";
 
 export default function TherapistNetwork() {
@@ -37,7 +43,7 @@ export default function TherapistNetwork() {
     { id: "addiction", name: "Addiction" },
     { id: "family", name: "Family Therapy" },
     { id: "couples", name: "Couples Therapy" },
-    { id: "adolescent", name: "Adolescent Therapy" }
+    { id: "adolescent", name: "Adolescent Therapy" },
   ];
 
   const consultationModes = [
@@ -45,7 +51,7 @@ export default function TherapistNetwork() {
     { id: "video", name: "Video Call", icon: Video },
     { id: "audio", name: "Audio Call", icon: Phone },
     { id: "office", name: "Office Visit", icon: Building2 },
-    { id: "home", name: "Home Visit", icon: Home }
+    { id: "home", name: "Home Visit", icon: Home },
   ];
 
   const therapists = [
@@ -62,7 +68,7 @@ export default function TherapistNetwork() {
       price: "₹1,200/session",
       nextAvailable: "Today, 3:00 PM",
       verified: true,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
     },
     {
       id: 2,
@@ -77,7 +83,7 @@ export default function TherapistNetwork() {
       price: "₹1,000/session",
       nextAvailable: "Tomorrow, 10:00 AM",
       verified: true,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
     },
     {
       id: 3,
@@ -92,8 +98,8 @@ export default function TherapistNetwork() {
       price: "₹1,500/session",
       nextAvailable: "Today, 6:00 PM",
       verified: true,
-      image: "/placeholder.svg"
-    }
+      image: "/placeholder.svg",
+    },
   ];
 
   return (
@@ -107,13 +113,18 @@ export default function TherapistNetwork() {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
-                <a href="/" className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent">
+                <a
+                  href="/"
+                  className="text-2xl font-bold bg-gradient-to-r from-wisdom to-primary bg-clip-text text-transparent"
+                >
                   Chaitnya Health
                 </a>
-                <p className="text-xs text-muted-foreground -mt-1">Therapist Network</p>
+                <p className="text-xs text-muted-foreground -mt-1">
+                  Therapist Network
+                </p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <Button variant="outline" size="sm">
                 <Calendar className="h-4 w-4 mr-2" />
@@ -144,7 +155,9 @@ export default function TherapistNetwork() {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Connect with qualified mental health professionals across India. Choose from video calls, audio sessions, office visits, or home consultations.
+              Connect with qualified mental health professionals across India.
+              Choose from video calls, audio sessions, office visits, or home
+              consultations.
             </p>
           </div>
 
@@ -171,10 +184,18 @@ export default function TherapistNetwork() {
                     {specialties.map((specialty) => (
                       <Button
                         key={specialty.id}
-                        variant={selectedSpecialty === specialty.id ? "default" : "outline"}
+                        variant={
+                          selectedSpecialty === specialty.id
+                            ? "default"
+                            : "outline"
+                        }
                         size="sm"
                         onClick={() => setSelectedSpecialty(specialty.id)}
-                        className={selectedSpecialty === specialty.id ? "bg-gradient-to-r from-wisdom to-primary" : ""}
+                        className={
+                          selectedSpecialty === specialty.id
+                            ? "bg-gradient-to-r from-wisdom to-primary"
+                            : ""
+                        }
                       >
                         {specialty.name}
                       </Button>
@@ -184,17 +205,25 @@ export default function TherapistNetwork() {
 
                 {/* Consultation Mode Filter */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-foreground">Consultation Modes</h3>
+                  <h3 className="font-semibold text-foreground">
+                    Consultation Modes
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {consultationModes.map((mode) => {
                       const IconComponent = mode.icon;
                       return (
                         <Button
                           key={mode.id}
-                          variant={selectedMode === mode.id ? "default" : "outline"}
+                          variant={
+                            selectedMode === mode.id ? "default" : "outline"
+                          }
                           size="sm"
                           onClick={() => setSelectedMode(mode.id)}
-                          className={selectedMode === mode.id ? "bg-gradient-to-r from-trust to-growth" : ""}
+                          className={
+                            selectedMode === mode.id
+                              ? "bg-gradient-to-r from-trust to-growth"
+                              : ""
+                          }
                         >
                           <IconComponent className="h-4 w-4 mr-2" />
                           {mode.name}
@@ -212,25 +241,33 @@ export default function TherapistNetwork() {
             <Card className="border-2 border-primary/20 bg-white/90 backdrop-blur-sm text-center">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-wisdom mb-2">500+</div>
-                <div className="text-sm text-muted-foreground">Verified Therapists</div>
+                <div className="text-sm text-muted-foreground">
+                  Verified Therapists
+                </div>
               </CardContent>
             </Card>
             <Card className="border-2 border-trust/20 bg-white/90 backdrop-blur-sm text-center">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-trust mb-2">15+</div>
-                <div className="text-sm text-muted-foreground">Specializations</div>
+                <div className="text-sm text-muted-foreground">
+                  Specializations
+                </div>
               </CardContent>
             </Card>
             <Card className="border-2 border-support/20 bg-white/90 backdrop-blur-sm text-center">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-support mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">Cities Covered</div>
+                <div className="text-sm text-muted-foreground">
+                  Cities Covered
+                </div>
               </CardContent>
             </Card>
             <Card className="border-2 border-growth/20 bg-white/90 backdrop-blur-sm text-center">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-growth mb-2">4.8★</div>
-                <div className="text-sm text-muted-foreground">Average Rating</div>
+                <div className="text-sm text-muted-foreground">
+                  Average Rating
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -238,16 +275,23 @@ export default function TherapistNetwork() {
           {/* Therapist Listings */}
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-foreground">Available Therapists</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Available Therapists
+              </h2>
               <div className="flex items-center space-x-2">
                 <Filter className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">{therapists.length} results</span>
+                <span className="text-sm text-muted-foreground">
+                  {therapists.length} results
+                </span>
               </div>
             </div>
 
             <div className="grid lg:grid-cols-1 gap-6">
               {therapists.map((therapist) => (
-                <Card key={therapist.id} className="border-2 border-border/50 bg-white/90 backdrop-blur-sm hover:border-primary/50 hover:shadow-lg transition-all">
+                <Card
+                  key={therapist.id}
+                  className="border-2 border-border/50 bg-white/90 backdrop-blur-sm hover:border-primary/50 hover:shadow-lg transition-all"
+                >
                   <CardContent className="p-6">
                     <div className="grid lg:grid-cols-4 gap-6 items-start">
                       {/* Therapist Info */}
@@ -258,7 +302,9 @@ export default function TherapistNetwork() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-1">
-                              <h3 className="text-xl font-semibold text-foreground">{therapist.name}</h3>
+                              <h3 className="text-xl font-semibold text-foreground">
+                                {therapist.name}
+                              </h3>
                               {therapist.verified && (
                                 <Badge className="bg-success/10 text-success border-success/30">
                                   <CheckCircle className="h-3 w-3 mr-1" />
@@ -266,38 +312,57 @@ export default function TherapistNetwork() {
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-muted-foreground">{therapist.specialty}</p>
-                            <p className="text-sm text-muted-foreground">{therapist.experience} experience</p>
+                            <p className="text-muted-foreground">
+                              {therapist.specialty}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {therapist.experience} experience
+                            </p>
                           </div>
                         </div>
 
                         <div className="space-y-2">
                           <div className="flex items-center space-x-2">
                             <MapPin className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-sm">{therapist.location}</span>
+                            <span className="text-sm">
+                              {therapist.location}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <Languages className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-sm">{therapist.languages.join(", ")}</span>
+                            <span className="text-sm">
+                              {therapist.languages.join(", ")}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <Star className="h-4 w-4 text-warning fill-current" />
-                            <span className="text-sm font-medium">{therapist.rating}</span>
-                            <span className="text-sm text-muted-foreground">({therapist.reviews} reviews)</span>
+                            <span className="text-sm font-medium">
+                              {therapist.rating}
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              ({therapist.reviews} reviews)
+                            </span>
                           </div>
                         </div>
                       </div>
 
                       {/* Consultation Modes */}
                       <div className="space-y-4">
-                        <h4 className="font-semibold text-foreground">Available Modes</h4>
+                        <h4 className="font-semibold text-foreground">
+                          Available Modes
+                        </h4>
                         <div className="grid grid-cols-2 gap-2">
                           {therapist.modes.map((mode) => {
-                            const modeInfo = consultationModes.find(m => m.id === mode);
+                            const modeInfo = consultationModes.find(
+                              (m) => m.id === mode,
+                            );
                             if (!modeInfo) return null;
                             const IconComponent = modeInfo.icon;
                             return (
-                              <div key={mode} className="flex items-center space-x-2 p-2 bg-muted/50 rounded-lg">
+                              <div
+                                key={mode}
+                                className="flex items-center space-x-2 p-2 bg-muted/50 rounded-lg"
+                              >
                                 <IconComponent className="h-4 w-4 text-primary" />
                                 <span className="text-sm">{modeInfo.name}</span>
                               </div>
@@ -309,16 +374,22 @@ export default function TherapistNetwork() {
                       {/* Booking Info */}
                       <div className="space-y-4">
                         <div className="text-center lg:text-right">
-                          <div className="text-2xl font-bold text-foreground">{therapist.price}</div>
-                          <div className="text-sm text-muted-foreground">per session</div>
+                          <div className="text-2xl font-bold text-foreground">
+                            {therapist.price}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            per session
+                          </div>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <div className="flex items-center justify-center lg:justify-end space-x-2">
                             <Clock className="h-4 w-4 text-success" />
-                            <span className="text-sm text-success">Available: {therapist.nextAvailable}</span>
+                            <span className="text-sm text-success">
+                              Available: {therapist.nextAvailable}
+                            </span>
                           </div>
-                          
+
                           <div className="flex flex-col space-y-2">
                             <Button className="bg-gradient-to-r from-wisdom to-primary">
                               <Calendar className="h-4 w-4 mr-2" />
@@ -340,12 +411,18 @@ export default function TherapistNetwork() {
 
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-wisdom/10 to-primary/10 rounded-2xl p-8 text-center border border-wisdom/30">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Can't Find the Right Therapist?</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Can't Find the Right Therapist?
+            </h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Our team can help you find a therapist that matches your specific needs, location, and preferences.
+              Our team can help you find a therapist that matches your specific
+              needs, location, and preferences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-wisdom to-primary" size="lg">
+              <Button
+                className="bg-gradient-to-r from-wisdom to-primary"
+                size="lg"
+              >
                 Get Personalized Recommendations
               </Button>
               <Button variant="outline" size="lg">
