@@ -132,7 +132,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आ��के साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -330,7 +330,7 @@ export default function Index() {
       <section className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="space-y-8">
-            <Badge variant="secondary" className="bg-wisdom/10 text-wisdom-foreground border-wisdom/30 text-base px-6 py-3">
+            <Badge variant="secondary" className="bg-wisdom/25 text-wisdom-foreground border-wisdom/50 text-base px-6 py-3">
               🇮🇳 India's First AI-Powered Mental Wellness Platform
             </Badge>
 
