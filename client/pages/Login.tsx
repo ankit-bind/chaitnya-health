@@ -98,6 +98,15 @@ export default function Login() {
                     Institution
                   </Button>
                   <Button
+                    variant={loginType === "corporate" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setLoginType("corporate")}
+                    className={loginType === "corporate" ? "bg-gradient-to-r from-support to-calm" : ""}
+                  >
+                    <Briefcase className="h-4 w-4 mr-2" />
+                    Corporate
+                  </Button>
+                  <Button
                     variant={loginType === "admin" ? "default" : "outline"}
                     size="sm"
                     onClick={() => setLoginType("admin")}
