@@ -132,7 +132,7 @@ export default function Index() {
       "That sounds really challenging. It's completely normal to feel overwhelmed sometimes. Would you like to talk about what's been weighing on your mind?",
       "आपका mental health बहुत important है। क्या आप मुझे बता सकते हैं कि आप कैसा महसूस कर रहे हैं?",
       "I hear you, and I want you to know that your feelings are valid. Taking care of your mental health is a brave step. How can I support you today?",
-      "चलिए एक गहरी सांस लेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
+      "चलिए एक गहरी सांस ��ेते हैं। आप safe हैं और मैं आपके साथ हूं। क्या आप चाहेंगे कि हम कुछ relaxation techniques try करें?"
     ];
 
     return responses[Math.floor(Math.random() * responses.length)];
@@ -324,7 +324,9 @@ export default function Index() {
                   <Button variant="outline" size="sm" asChild>
                     <a href="/login">Institution Login</a>
                   </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
+                  <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary" asChild>
+                    <a href="/book-demo">Book Demo</a>
+                  </Button>
                 </div>
               </div>
             </div>
