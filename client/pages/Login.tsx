@@ -23,7 +23,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [loginType, setLoginType] = useState("institution"); // "institution" or "admin"
+  const [loginType, setLoginType] = useState("institution"); // "institution", "admin", or "corporate"
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
