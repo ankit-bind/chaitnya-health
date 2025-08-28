@@ -32,7 +32,8 @@ import {
   Type,
   VolumeX,
   Phone,
-  Clock
+  Clock,
+  Star
 } from "lucide-react";
 
 export default function Index() {
@@ -444,7 +445,7 @@ export default function Index() {
                     </div>
                   </div>
                   <CardTitle className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-trust to-growth bg-clip-text text-transparent">
-                    💬 Saathi
+                    ���� Saathi
                   </CardTitle>
                   <CardDescription className="text-lg text-muted-foreground font-medium">
                     Your Instant Text Companion
