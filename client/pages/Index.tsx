@@ -267,9 +267,9 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-calm/5 to-healing/10">
+    <div className="min-h-screen bg-gradient-to-br from-background via-calm/15 to-healing/25">
       {/* Navigation */}
-      <nav className="relative bg-white/90 backdrop-blur-md border-b border-border/50 sticky top-0 z-50">
+      <nav className="relative bg-white/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
@@ -356,7 +356,7 @@ export default function Index() {
             {/* Vani - Voice Agent */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-wisdom via-primary to-growth rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <Card className="relative border-2 border-wisdom/20 bg-gradient-to-br from-white to-wisdom/5 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <Card className="relative border-2 border-wisdom/40 bg-gradient-to-br from-white to-wisdom/15 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
                 <CardHeader className="text-center pb-6">
                   <div className="relative">
                     <div className="w-32 h-32 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl relative overflow-hidden">
@@ -432,7 +432,7 @@ export default function Index() {
             {/* Saathi - Text Agent */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-trust via-growth to-healing rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <Card className="relative border-2 border-trust/20 bg-gradient-to-br from-white to-trust/5 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <Card className="relative border-2 border-trust/40 bg-gradient-to-br from-white to-trust/15 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
                 <CardHeader className="text-center pb-6">
                   <div className="relative">
                     <div className="w-32 h-32 bg-gradient-to-br from-trust to-growth rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl relative overflow-hidden">
@@ -445,7 +445,7 @@ export default function Index() {
                     </div>
                   </div>
                   <CardTitle className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-trust to-growth bg-clip-text text-transparent">
-                    ���� Saathi
+                    💬 Saathi
                   </CardTitle>
                   <CardDescription className="text-lg text-muted-foreground font-medium">
                     Your Instant Text Companion
@@ -978,7 +978,7 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="mt-16 bg-gradient-to-r from-wisdom/5 to-primary/5 rounded-3xl p-8 border border-wisdom/20">
+          <div className="mt-16 bg-gradient-to-r from-wisdom/15 to-primary/15 rounded-3xl p-8 border border-wisdom/40">
             <div className="text-center space-y-4">
               <h3 className="text-2xl font-bold text-foreground">Market Leadership Metrics</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -1021,7 +1021,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {/* Trending Professional 1 */}
-            <Card className="border border-wisdom/20 bg-gradient-to-br from-wisdom/5 to-white hover:shadow-xl transition-all duration-300">
+            <Card className="border-2 border-wisdom/40 bg-gradient-to-br from-wisdom/15 to-white hover:shadow-xl transition-all duration-300">
               <CardHeader className="text-center pb-3">
                 <div className="relative">
                   <div className="w-16 h-16 bg-gradient-to-br from-wisdom to-primary rounded-full flex items-center justify-center mx-auto mb-3">
