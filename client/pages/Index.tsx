@@ -295,7 +295,9 @@ export default function Index() {
               <Button variant="outline" size="sm" asChild>
                 <a href="/login">Institution Login</a>
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary">Book Demo</Button>
+              <Button size="sm" className="bg-gradient-to-r from-wisdom to-primary" asChild>
+                <a href="/book-demo">Book Demo</a>
+              </Button>
             </div>
 
             {/* Mobile menu button */}
