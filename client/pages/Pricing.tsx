@@ -140,7 +140,10 @@ export default function Pricing() {
       billingPeriod === "monthly" ? plan.monthlyPrice : plan.annualPrice;
     if (plan.maxUsers === "Unlimited") return basePrice;
 
-    const additionalUsers = Math.max(0, userCount - plan.maxUsers);
+    const additionalUsers = Math.max(
+      0,
+      userCount - (typeof plan.maxUsers === "number" ? plan.maxUsers : 0),
+    );
     const additionalCost =
       additionalUsers * (billingPeriod === "monthly" ? 2 : 1.6);
 

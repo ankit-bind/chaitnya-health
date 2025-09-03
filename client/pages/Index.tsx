@@ -32,7 +32,7 @@ import {
   MicOff,
   Send,
   Bot,
-  Waveform,
+  Activity,
   Play,
   Pause,
   Type,
@@ -74,7 +74,8 @@ export default function Index() {
   const initializeSpeechAPIs = () => {
     if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
       const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
+        (window as any).SpeechRecognition ||
+        (window as any).webkitSpeechRecognition;
       const recognitionInstance = new SpeechRecognition();
 
       recognitionInstance.continuous = true;
@@ -348,6 +349,7 @@ export default function Index() {
               >
                 For Institutions
               </a>
+              
               <Button variant="outline" size="sm" asChild>
                 <a href="/login">Institution Login</a>
               </Button>
@@ -406,7 +408,7 @@ export default function Index() {
                 </a>
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
                   <Button variant="outline" size="sm" asChild>
-                    <a href="/login">Institution Login</a>
+                    <a href="/login"></a>
                   </Button>
                   <Button
                     size="sm"
